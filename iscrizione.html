@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link rel="stylesheet" type="text/css" href="style.css" media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+     	<script type="text/javascript" src="checkPass.js"></script>
+		<title>Home - Autosecurity</title>
+	</head>
+	<body>
+		<div id="header">
+			<!-- testa (logo) -->
+			<a href="index.html"><img id="logo" src="images\logo.png" alt="logo auto security"></a>
+		</div>
+
+		<!-- -------------------------------------------------------------------------- -->
+
+
+		<div id="breadcrumb">
+		<ul>
+		  <li><a id="nav" href="index.html">Home</a></li>
+		  <li><a id="nav" href="">Articoli</a></li>
+		  <li class="dropdown">
+				<a id="nav" class="dropbtn">Argomenti</a>
+				<div class="dropdown-content">
+					<a id="nav1" href="#">Alfa</a>
+					<a id="nav1" href="#">Audi</a>
+					<a id="nav1" href="#">BMW</a>
+					<a id="nav1" href="#">Fiat</a>
+				</div>
+		  </li>
+		  <li><a id="nav" href="">Sicurezza</a></li>
+
+		  <div id="div_search">
+		  		<input id="text_search" type="text" name="search" placeholder="cerca">
+		  		<input type="button" class="button_search" value="Cerca">
+		  </div>
+		</ul>
+		</div>
+
+		<!-- -------------------------------------------------------------------------- -->
+        
+
+		<!-- -------------------------------------------------------------------------- -->
+
+		<div id="iscrizione">
+			
+            <form action="index.hmtl" method="post">
+				<fieldset id="field_iscr_l">
+                        <div id="form_iscr_div">
+                            <leggend id="legenda"> Dati login: </leggend>
+                        </div>
+                        <br>
+                                <label for="email"> Email </label>
+                        <br>
+                                <input type="text" name="email" id="email" placeholder="Email">
+                        <br>
+                                <label for="psw">Password</label>
+                        <br>
+                                <input type="password" name="password" id="psw" placeholder="Password">
+                        <br>
+                                <label for="cpsw">Conferma password</label>
+                        <br>
+                                <input type="password" name="conf_password" id="cpsw" placeholder="Conferma password" onkeyup="checkPass(); return false;">
+                    <br>
+                                <span id="confirmMessage" class="confirmMessage"></span>
+                        <br>
+                        <br>
+                </fieldset>
+                
+                <fieldset id="field_iscr_p">
+					<div id="form_iscr_div">
+                        <leggend id="legenda"> Dati personali: </leggend>
+                    </div>
+                         <br>
+                                <label for="fname">Nome</label>
+                         <br>
+                                <input type="text" name="nome" id="fname" placeholder="Nome">
+                         <br>
+                                <label for="lname">Cognome</label>
+                         <br>
+                                <input type="text" name="cognome" id="lname" placeholder="Cognome">
+                         <br>
+                                <label for="nname">Nickname</label>
+                         <br>
+					           <input type="text" name="nickname" id="nname" placeholder="Nickname">
+                         <br>
+                         <br>    
+                    <input type="submit">
+
+
+				</fieldset>
+			</form>
+		</div>
+
+		<!-- -------------------------------------------------------------------------- -->
+
+		<div id="footer">
+			<!-- fine pagina -->
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Articoli</a></li>
+				<li><a href="#">Sicurezza</a></li>
+				<li><a href="#">Chi Siamo</a></li>
+				<li><a href="#">Contatti</a></li>
+			</ul>		
+		</div>
+
+	</body>
+</html>
