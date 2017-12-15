@@ -2,7 +2,7 @@
 	$dbserver = "localhost";  	// host del database
 	$dbusername = "root";     	// utente che accede al db
 	$dbpassword = "";
-	$dbdatabase = "tecweb";   	// nome del database
+	$dbdatabase = "techweb";   	// nome del database
 
 	// connessione a MySQL tramite mysql_connect()
 	$con=mysqli_connect($dbserver,$dbusername,$dbpassword,$dbdatabase);

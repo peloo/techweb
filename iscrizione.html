@@ -45,50 +45,47 @@
 
 		<div id="iscrizione">
 			
-            <form action="index.hmtl" method="post">
+            <form name="form_iscrizione" action="iscrizione.php" method="post" onsubmit="return checkForm()">
 				<fieldset id="field_iscr_l">
-                        <div id="form_iscr_div">
-                            <leggend id="legenda"> Dati login: </leggend>
-                        </div>
-                        <br>
-                                <label for="email"> Email </label>
-                        <br>
-                                <input type="text" name="email" id="email" placeholder="Email">
-                        <br>
-                                <label for="psw">Password</label>
-                        <br>
-                                <input type="password" name="password" id="psw" placeholder="Password">
-                        <br>
-                                <label for="cpsw">Conferma password</label>
-                        <br>
-                                <input type="password" name="conf_password" id="cpsw" placeholder="Conferma password" onkeyup="checkPass(); return false;">
+                    <div id="form_iscr_div">
+                        <leggend id="legenda"> Dati login: </leggend>
+                    </div>
                     <br>
-                                <span id="confirmMessage" class="confirmMessage"></span>
-                        <br>
-                        <br>
+                    <label for="email"> Email </label>
+                    <br>
+                    <input type="text" name="email" id="email" placeholder="Email">
+                    <br>
+                    <label for="psw">Password</label>
+                    <br>
+                    <input type="password" name="password" id="psw" placeholder="Password">
+                    <br>
+                    <label for="cpsw">Conferma password</label>
+                    <br>
+                    <input type="password" name="conf_password" id="cpsw" placeholder="Conferma password" onkeyup="checkPass(); return false;">
+                	<br>
+                    <span id="chek_password" class="chek_password"></span>
+                    <br>
+                    <br>
                 </fieldset>
                 
                 <fieldset id="field_iscr_p">
 					<div id="form_iscr_div">
                         <leggend id="legenda"> Dati personali: </leggend>
                     </div>
-                         <br>
-                                <label for="fname">Nome</label>
-                         <br>
-                                <input type="text" name="nome" id="fname" placeholder="Nome">
-                         <br>
-                                <label for="lname">Cognome</label>
-                         <br>
-                                <input type="text" name="cognome" id="lname" placeholder="Cognome">
-                         <br>
-                                <label for="nname">Nickname</label>
-                         <br>
-					           <input type="text" name="nickname" id="nname" placeholder="Nickname">
-                         <br>
-                         <br>    
-                    <input type="submit">
-
-
+                     <br>
+                            <label for="fname">Nome</label>
+                     <br>
+                            <input type="text" name="nome" id="fname" placeholder="Nome">
+                     <br>
+                            <label for="lname">Cognome</label>
+                     <br>
+                            <input type="text" name="cognome" id="lname" placeholder="Cognome">
+                     <br>
+                            <label for="nname">Nickname</label>
+                     <br>
+				           <input type="text" name="nickname" id="text_form" placeholder="Nickname">
+                     <br>
+                	<input type="submit" name="submit" class="button_form_accedi" value="Iscriviti">
 				</fieldset>
 			</form>
 		</div>
