@@ -22,7 +22,7 @@
 
                 $var_email = addslashes($var_email);
                 $var_passw = addslashes($var_passw);    
-
+                $var_passw = md5($var_passw);
                 $conLog = $dbaccess->canLog($var_email,$var_passw);
                 if($conLog == true){
                     header('Location: accesso_ok.html');
@@ -32,7 +32,6 @@
                     echo $var_email ."<br>". $var_passw . "<br>";
                     echo "Accesso non valido";
                 }
-
             }
 		}
 	?>

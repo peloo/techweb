@@ -17,33 +17,30 @@ function checkPass()
         //the user that they have entered the correct password 
         pass2.style.backgroundColor = goodColor;
         message.style.color = goodColor;
-        message.innerHTML = "Le passwords coincidono"
+        message.innerHTML = "Passwords ok"
     }else{
         //The passwords do not match.
         //Set the color to the bad color and
         //notify the user.
         pass2.style.backgroundColor = badColor;
         message.style.color = badColor;
-        message.innerHTML = "Le passwords non coincidono!"
-        return false;
+        message.innerHTML = "Passwords non coincidono!"
     }
-} 
+}  
 
 function checkForm(){
     var email = document.forms["form_iscrizione"]["email"].value;
-    var pass1 = document.forms["form_iscrizione"]["password"].value; 
+    var pass1 = document.forms["form_iscrizione"]["password"].value;
     var pass2 = document.forms["form_iscrizione"]["conf_password"].value;
     var nome = document.forms["form_iscrizione"]["nome"].value;
     var cognome = document.forms["form_iscrizione"]["cognome"].value;
-    var nick = document.forms["form_iscrizione"]["nickname"].value; 
+    var nick = document.forms["form_iscrizione"]["nickname"].value;
     if( (email == "") || (pass1 == "") || (pass2 == "") || (nome == "") || (cognome == "") || (nick == "") ){
         alert('Devi compilare tutti i campi!');
-         
         return false;
     }
-	
-	 if((pass1 != pass2)){
+    if((pass1 !== pass2)){
         alert("Le passwords non coincidono!");
         return false;
-        }	
+    }   
 }

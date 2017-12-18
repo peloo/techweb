@@ -52,5 +52,15 @@
 	        	return false;
 		}
 
+		public function getArticoliRecenti(){
+			$result = mysqli_query($this->connessione,"SELECT * FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) order by A.data DESC");
+	        $row = mysqli_fetch_array($result);
+	        $num_rows = $result->num_rows;
+	        if($num_rows == 1)
+	        	return $result;
+	        else
+	        	return false;
+		}
+
 	}
 ?>
