@@ -96,10 +96,12 @@
                     require_once 'dbconnection.php';
 			        $dbaccess = new dbconnection();
 			        $opendDBConnection = $dbaccess->opendDBConnection();
-                    
+                    $i = 0;
+
                     $visualizza = $dbaccess->getArticoliRecenti();
                     if($visualizza != false){
-                    	while($row = mysqli_fetch_array($visualizza)){
+                    	for(; $i<3; $i++){
+                    		$row = mysqli_fetch_assoc($visualizza);
                     		?>
                     			<div id="form_articolo">
                     				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
@@ -116,13 +118,24 @@
                 ?>
 			</div>
 			<div id="contenitore_r">
-				<div id="form_articolo">
-					<img src="images\motor show.jpg" alt="foto articolo">
-					<p>Motor Show di Bologna, tutto sull'edizione 2017</p>
-					<div id="form_articolo_footer">
-						<a href="">Read more...</a>
-					</div>
-				</div>
+				<?php
+				if($visualizza != false){
+					for(; $i<5; $i++){
+                		$row = mysqli_fetch_assoc($visualizza);
+						?>
+						<div id="form_articolo">
+            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
+        					<img src= <?php echo $b64src;?> alt="Profilo" >
+							<p><?php echo $row['titolo'];?></p>
+							<p><?php echo $row['contenuto'];?><p>
+							<div id="form_articolo_footer">
+								<a href="">Read more...</a>
+							</div>
+						</div>
+						<?php
+					}
+				}
+				?>
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->

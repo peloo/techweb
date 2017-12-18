@@ -104,6 +104,9 @@ CREATE TABLE IF NOT EXISTS `articolo` (
 
 INSERT INTO `articolo` (`mail`, `titolo`, `contenuto`, `data`) VALUES
 ('nicolacarl@gmail.com', 'Alfa Romeo Stelvio Quadrifoglio, il primo SUV ad ”emozione integrale”!', 'Della Lamborghini Urus e delle sue concorrenti più accreditate in quanto a prestazioni vi abbiamo già parlato', '1996-08-30'),
+('nicolacarl@gmail.com', 'Motor Show di Bologna, tutto sull edizione 2017', 'Della Lamborghini Urus e delle sue concorrenti più accreditate in quanto a prestazioni vi abbiamo già parlato', '1996-08-30'),
+('nicolacarl@gmail.com', 'Opel, il nuovo claim ci dice che "Il futuro appartiene a tutti"', 'Il marchio tedesco si dedicherà all elettrificazione all interno del gruppo PSA, con la Corsa a batteria già dal 2020', '1996-08-30'),
+('nicolacarl@gmail.com', 'Guida autonoma, gli automobilisti europei non sono pronti', 'E il risultato di una ricerca presentata da Mazda. E voi cosa ne pensate? ', '1996-08-30'),
 ('nicolacarl@gmail.com', 'Lamborghini Urus vs Alfa Romeo Stelvio Quadrifoglio, una sfida per niente scontata', 'Insomma, la Stelvio e la Urus non potrebbero essere più diverse: a livello di dimensioni, di prezzo, di posizionamento e di ambizioni, mentre per quanto riguarda le prestazioni il discorso si fa più interessante.', '1996-08-30'),
 ('nicolacarl@gmail.com', 'Nuova Mercedes Classe A, arie da AMG GT', 'Tradotto vuol dire che la Urus è certamente più veloce sul dritto della Stelvio, ma non è detto che lo sia anche tra i cordoli di un circuito, dove il fardello di quasi quattro quintali incide molto sia a livello di inerzia nelle curve che a livello di maggiore energia cinetica in frenata.', '1996-08-30');
 
