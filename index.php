@@ -21,9 +21,9 @@
 		<div id="breadcrumb">
 			<ul class="nav" role="menubar">
 			  <li class="link" role="menuitem"><a class="main">Home</a></li>
-			  <li class="link" role="menuitem"><a class="main" href="">Articoli</a></li>
+			  <li class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
 			  <li class="link" role="menuitem">
-					<a class="main" href="">Argomenti</a>
+					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
 						<li role="menuitem"><a href="#">Alfa</a></li>
 						<li role="menuitem"><a href="#">Audi</a></li>
@@ -31,7 +31,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li class="link" role="menuitem"><a class="main" href="">Sicurezza</a></li>
+			  <li class="link" role="menuitem"><a class="main" href="#">Sicurezza</a></li>
 
 			  <div id="div_search">
 			  		<p id="search_bar">
@@ -143,12 +143,12 @@
 		<div id="footer">
 			<!-- fine pagina -->
 			<ul class="nav">
-				<li><a href="#">Home</a></li>
+				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
-				<li><a href="#">Sicurezza</a></li>
+				<li><a href="#">Sicurezza</a></li> -->
 				<li><a href="#">Chi Siamo</a></li>
 				<li><a href="#">Contatti</a></li>
-			</ul>		
+			</ul>
 		</div>
 	</body>
 </html>
