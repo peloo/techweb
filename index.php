@@ -35,8 +35,8 @@
 
 			  <div id="div_search">
 			  		<p id="search_bar">
-			  			<input id="text_search" type="text" name="search" placeholder="cerca">
-			  			<input type="button" id="button_search" value="Cerca">
+			  			<input id="text_search" type="text" name="search" placeholder="cerca"/>
+			  			<input type="button" id="button_search" value="Cerca"/>
 			  		</p>
 			  </div>
 			</ul>
@@ -146,7 +146,7 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
-				<li><a href="#">Chi Siamo</a></li>
+				<li><a href="weare.html">Chi Siamo</a></li>
 				<li><a href="#">Contatti</a></li>
 			</ul>
 		</div>

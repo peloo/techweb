@@ -1,42 +1,45 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" media="handheld, screen"/>
         <link rel="stylesheet" type="text/css" href="chisiamo.css" media="handheld, screen"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil"/>
      	<script type="text/javascript" src="checkPass.js"></script>
 		<title>Chi siamo - Autosecurity</title>
 	</head>
 	<body>
 		<div id="header">
 			<!-- testa (logo) -->
-			<a href="index.php"><img id="logo" src="images\logo.png" alt="logo auto security"></a>
+			<a href="index.php"><img id="logo" src="images/logo.png" alt="logo auto security"></a>
 		</div>
 
 		<!-- -------------------------------------------------------------------------- -->
 
 
 		<div id="breadcrumb">
-		<ul>
-		  <li><a id="nav" href="index.php">Home</a></li>
-		  <li><a id="nav" href="">Articoli</a></li>
-		  <li class="dropdown">
-				<a id="nav" class="dropbtn">Argomenti</a>
-				<div class="dropdown-content">
-					<a id="nav1" href="#">Alfa</a>
-					<a id="nav1" href="#">Audi</a>
-					<a id="nav1" href="#">BMW</a>
-					<a id="nav1" href="#">Fiat</a>
-				</div>
-		  </li>
-		  <li><a id="nav" href="">Sicurezza</a></li>
+			<ul class="nav" role="menubar">
+			  <li class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
+			  <li class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li class="link" role="menuitem">
+					<a class="main">Argomenti</a>
+					<ul id="dropdown-content" role="menu">
+						<li role="menuitem"><a href="#">Alfa</a></li>
+						<li role="menuitem"><a href="#">Audi</a></li>
+						<li role="menuitem"><a href="#">BMW</a></li>
+						<li role="menuitem"><a href="#">Fiat</a></li>
+					</ul>
+			  </li>
+			  <li class="link" role="menuitem"><a class="main" href="#">Sicurezza</a></li>
 
-		  <div id="div_search">
-		  		<input id="text_search" type="text" name="search" placeholder="cerca">
-		  		<input type="button" class="button_search" value="Cerca">
-		  </div>
-		</ul>
+				<div id="div_search">
+					<p id="search_bar">
+						<input id="text_search" type="text" name="search" placeholder="cerca"/>
+						<input type="button" id="button_search" value="Cerca"/>
+					</p>
+				</div>
+			</ul>
 		</div>
 
 		<!-- -------------------------------------------------------------------------- -->
@@ -85,11 +88,11 @@
 
 		<div id="footer">
 			<!-- fine pagina -->
-			<ul>
-				<li><a href="#">Home</a></li>
+			<ul class="nav">
+				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
-				<li><a href="#">Sicurezza</a></li>
-				<li><a href="#">Chi Siamo</a></li>
+				<li><a href="#">Sicurezza</a></li> -->
+				<li><a>Chi Siamo</a></li>
 				<li><a href="#">Contatti</a></li>
 			</ul>		
 		</div>
