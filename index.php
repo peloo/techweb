@@ -2,11 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="style.css" media="handheld, screen"/>
+
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/945px_length.css" media=" screen and (max-width: 945px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/790px_length.css" media=" screen and (max-width: 790px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/640px_length.css" media=" screen and (max-width: 640px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/style_mobile1.css" media="only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
+
 		<link rel='shortcut icon' type='image/x-icon' href='images/logo.ico' />
 
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="hamburgermenu.js"></script>
+
 		<title>Home - Autosecurity</title>
 	</head>
 	<body>
@@ -19,10 +29,22 @@
 
 
 		<div id="breadcrumb">
+			<header>
+				<button id="hamburger">&#9776;</button>
+	    		<button id="cross">&#735;</button>
+	    	</header>
+
+	    	<div id="div_search">
+					<p id="search_bar">
+						<input id="text_search" type="text" name="search" placeholder="cerca"/>
+						<input type="button" id="button_search" value="Cerca"/>
+					</p>
+			</div>
+
 			<ul class="nav" role="menubar">
-			  <li class="link" role="menuitem"><a class="main">Home</a></li>
-			  <li class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
-			  <li class="link" role="menuitem">
+			  <li id="home" class="link" role="menuitem"><a class="main">Home</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
 						<li role="menuitem"><a href="#">Alfa</a></li>
@@ -31,15 +53,11 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li class="link" role="menuitem"><a class="main" href="#">Sicurezza</a></li>
-
-			  <div id="div_search">
-			  		<p id="search_bar">
-			  			<input id="text_search" type="text" name="search" placeholder="cerca"/>
-			  			<input type="button" id="button_search" value="Cerca"/>
-			  		</p>
-			  </div>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="#">Sicurezza</a></li>
+			  <!-- solo per la versione mobile -->
+			  <li id="acc" class="link" role="menuitem"><a class="main" href="iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
+			
 		</div>
 
 		<div id="content_menu"> 

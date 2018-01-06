@@ -6,10 +6,9 @@
 }
 html, body{
 	/*vado a impostare la dimensione massima della pagian html, setto a 1024 pixels perche' e' una dimensione standard*/
-	max-width: 1080px;		
+	max-width: 1024px;		
 	margin: auto;
-	font-family: Verdana, Arial, Helvetica, sans-serif;	
-	font-size: 100%;									
+	font-family: Verdana, Arial, Helvetica, sans-serif;								
 }
 body{
 	background-color: #D72323;
@@ -56,6 +55,8 @@ body{
 
 /*breadcrumb*/
 
+#hamburger, #cross{display: none;}
+
 #breadcrumb{
 	z-index: 1;
 	position: sticky;
@@ -72,7 +73,7 @@ body{
 .nav .link {
 	width: 10em;
 	float: left;
-	margin-top: -100em;
+	margin-top: -100em;/*fondamentale*/
 }
 
 #breadcrumb #dropdown-content{
@@ -98,7 +99,7 @@ body{
 }
 
 #breadcrumb .nav a.main{
-	margin-top: 100em;
+	margin-top: 100em;/*fondamentale*/
 	margin-right: -8.9em;
 	width: 9em;
 }
@@ -118,6 +119,11 @@ a, a:hover, a:active, a:focus {}
 /*Opera fix*/
 #dropdown-content:hover {
     clear:both;
+}
+
+#div_search{
+	float: right;
+	margin-left: auto;
 }
 
 #text_search{
@@ -141,10 +147,7 @@ a, a:hover, a:active, a:focus {}
     background-color:darkred;
 }
 
-#div_search{
-	float: right;
-	margin-left: auto;
-}
+#acc{display: none;}
 /* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
 
 #content_menu{
@@ -161,6 +164,8 @@ a, a:hover, a:active, a:focus {}
 	padding-bottom: 2em;
 	float: left;
 	overflow: hidden;
+	position: sticky;
+	top:0;
 }
 #location{
 	text-align: center;
