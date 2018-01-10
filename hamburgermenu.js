@@ -1,28 +1,29 @@
-$(document).ready(function() {
-    // run test on initial page load
-    checkSize();
+function dropdown(){
+	/*vresione più lenta
+	var nav=document.querySelector("#breadcrumb .nav");
+	nav.style.display="block";
+	var Height=nav.offsetHeight;
+	nav.style.height="0px";	
+	var h=0;
+	var intval=setInterval(function(){
+		h++;
+		nav.style.height=h+"px";
+		if(h>=Height)
+			window.clearInterval(intval);
+	}, 1);*/
+	document.getElementById("hamburger").style.display="none";
+	document.getElementById("cross").style.display="block";
+	document.querySelector("#breadcrumb .nav").style.display="block";
+}
 
-    // run test on resize of the window
-    $(window).resize(checkSize);
-});
+function dropup(){
+	document.getElementById("cross").style.display="none";
+	document.getElementById("hamburger").style.display="block";
+	document.querySelector("#breadcrumb .nav").style.display="none";
+}
 
-//Function to the css rule
-function checkSize(){
-    if ($("#hamburger").css("display") == "block" ){
-        $( "#cross" ).hide();//nascondi cross e menù
-		$( "#breadcrumb .nav" ).hide();
-		$( "#hamburger" ).click(function() {//quando clikki su hamburger
-			$( "#breadcrumb .nav" ).slideToggle( "slow", function() {//function() è un callback
-				$( "#hamburger" ).hide();
-				$( "#cross" ).show();
-			});
-		});
-
-		$( "#cross" ).click(function() {
-			$( "#breadcrumb .nav" ).slideToggle( "slow", function() {
-				$( "#cross" ).hide();
-				$( "#hamburger" ).show();
-			});
-		});
-    }
+function reset(){
+	if(document.getElementById("hamburger").style.display=="block"){
+		location.reload();
+	}
 }

@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
 		<link rel="stylesheet" type="text/css" href="CSS/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/home.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="CSS/945px_length.css" media=" screen and (max-width: 945px)"/>
 		<link rel="stylesheet" type="text/css" href="CSS/790px_length.css" media=" screen and (max-width: 790px)"/>
 		<link rel="stylesheet" type="text/css" href="CSS/640px_length.css" media=" screen and (max-width: 640px)"/>
@@ -18,8 +19,8 @@
     	<script type="text/javascript" src="hamburgermenu.js"></script>
 
 		<title>Home - Autosecurity</title>
-	</head>
-	<body>
+	</head> 
+	<body onresize="reset()">
 		<div id="header">
 			<!-- testa (logo) -->
 			<a href="index.php"><img id="logo" src="images/logo.png" alt="logo auto security"/></a>
@@ -30,8 +31,8 @@
 
 		<div id="breadcrumb">
 			<header>
-				<button id="hamburger">&#9776;</button>
-	    		<button id="cross">&#735;</button>
+				<button id="hamburger" onclick="dropdown()">&#9776;</button>
+	    		<button id="cross" onclick="dropup()">&#735;</button>
 	    	</header>
 
 	    	<div id="div_search">
@@ -164,8 +165,8 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
-				<li><a href="weare.html">Chi Siamo</a></li>
-				<li><a href="#">Contatti</a></li>
+				<li id="chisiamo"><a href="weare.html">Chi Siamo</a></li>
+				<li id="contacts"><a href="#">Contatti</a></li>
 			</ul>
 		</div>
 	</body>

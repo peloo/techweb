@@ -52,3 +52,7 @@
     float:left;
     width:20%;
 }*/
+
+#chisiamo:hover, #chisiamo:focus, #chisiamo:active, #chisiamo a:hover, #chisiamo a:focus, #chisiamo a:active{
+    background-color: #303841;
+}
