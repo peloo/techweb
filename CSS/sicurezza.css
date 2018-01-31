@@ -7,9 +7,13 @@
 	text-align: center;
 }
 
-#security h2{
+#security h2, h3{
+	font-family: 'Vollkorn', serif;
 	color:#D72323;
 	text-transform: capitalize;
+}
+#security a{
+    font-family: "Allerta Stencil", Sans-serif;
 }
 
 #genere, #stomaco, #peso{

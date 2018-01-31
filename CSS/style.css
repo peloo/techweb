@@ -67,7 +67,7 @@ body{
 	border-top: 1px solid #000000;		
 	padding-top: 0.4em;
 	padding-right: 0.4em;
-	height: 4em;
+	height: 3.75em;
 }
 
 .nav .link {
@@ -110,7 +110,7 @@ body{
 
 #breadcrumb #dropdown-content a:hover, #breadcrumb #dropdown-content a:focus, #breadcrumb #dropdown-content a:active {
 	margin:0;
-	background-color: #EEEEEE;
+	background-color: #DCDCDC;
 	color: black;
 }
 
@@ -251,7 +251,7 @@ a, a:hover, a:active, a:focus {}
 
 /* CONTENT */
 #content{
-	font-family: "Allerta Stencil", Sans-serif;
+	font-family: 'Vollkorn', serif;
 	border-left: 1px solid #000000;
 	background-color: white;
 	width: 71.5%;

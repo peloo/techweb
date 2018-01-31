@@ -5,6 +5,7 @@
 </head>
 <body>
 	<?php
+        session_start(); 
 		if (isset($_POST['submit'])) 
 		{ 
 			require_once 'dbconnection.php';
@@ -23,9 +24,13 @@
                 $var_email = addslashes($var_email);
                 $var_passw = addslashes($var_passw);    
                 $var_passw = md5($var_passw);
+                /*-----------------------------------------------*/
+                $_SESSION['email']=$var_email;
+                $_SESSION['password']=$var_passw;
+                /*-----------------------------------------------*/
                 $conLog = $dbaccess->canLog($var_email,$var_passw);
                 if($conLog == true){
-                    header('Location: accesso_ok.html');
+                    header('Location: ../php/accesso_ok.php');
                     mysqli_close($con);
                 }
                 else{
