@@ -4,25 +4,25 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
-		<link rel="stylesheet" type="text/css" href="CSS/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="CSS/945px_length.css" media=" screen and (max-width: 945px)"/>
-		<link rel="stylesheet" type="text/css" href="CSS/790px_length.css" media=" screen and (max-width: 790px)"/>
-		<link rel="stylesheet" type="text/css" href="CSS/640px_length.css" media=" screen and (max-width: 640px)"/>
-		<link rel="stylesheet" type="text/css" href="CSS/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="CSS/style_mobile1.css" media="only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/945px_length.css" media=" screen and (max-width: 945px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/790px_length.css" media=" screen and (max-width: 790px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/640px_length.css" media=" screen and (max-width: 640px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_mobile1.css" media="only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
-		<link rel='shortcut icon' type='image/x-icon' href='images/logo.ico' />
+		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="JavaScript/hamburgermenu.js"></script>
+    	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
 		<title>Conferma Registrazione - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
 			<!-- testa (logo) -->
-			<a href="index.php"><img id="logo" src="images/logo.png" alt="logo auto security"/></a>
+			<a href="../php/index.php"><img id="logo" src="../images/logo.png" alt="logo auto security"/></a>
 		</div>
 
 		<!-- -------------------------------------------------------------------------- -->
@@ -42,7 +42,7 @@
 			</div>
 
 			<ul class="nav" role="menubar">
-			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
+			  <li id="home" class="link" role="menuitem"><a class="main" href="../php/index.php">Home</a></li>
 			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
@@ -63,25 +63,30 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Conferma Registrazione</p>
+				<p id="location" class="w3-large">
+					Benvenuto: 
+					<?php
+						session_start();
+						require_once 'dbconnection.php';
+						$dbaccess = new dbconnection();
+						$opendDBConnection = $dbaccess->opendDBConnection();
+						if($opendDBConnection == true){
+							$dati = $dbaccess->getDatiUser($_SESSION['email']);
+							if($dati != false){
+								$row = mysqli_fetch_array($dati);
+								echo $row['username'];
+							}
+							else
+								echo "Ops! Qualcosa e' andato storto";
+						}
+					?>
+				</p>
 
-				<div id="form">
-					<form action="accesso.php" method="post">
-						<div class="form3">
-							<p class="location1" class="w3-large">Accesso</p>
-						</div>
-					
-						<!-- <p id="info_form">E-mail:</p> -->
-						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
-						<!-- <p id="info_form">Password:</p> -->
-						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
-						<br/>
-						<p id="id_button_form">
-							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
-							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='iscrizione.html'" />
-						</p>
-					</form>
-				</div>
+				<form action="uscita.php" method="post">
+					<p id="id_button_form">
+						<input type="submit" id="button_form_accedi" name="submit" value="Esci"/>
+					</p>		
+				</form>
 
 				<div id="form2">
 
