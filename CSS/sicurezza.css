@@ -1,0 +1,29 @@
+#sec:hover, #sec:focus, #sec:active, #sec a:hover, #sec a:focus, #sec a:active{
+    background-color: #303841;
+}
+
+#security{
+	margin:2em;
+	text-align: center;
+}
+
+#security h2{
+	color:#D72323;
+	text-transform: capitalize;
+}
+
+#genere, #stomaco, #peso{
+	padding-top: 0.5em;
+}
+
+#peso{
+	padding-bottom: 0.5em;
+}
+
+#articoli{
+	background-color: #D72323;
+	color:white;
+	padding: 1em;
+	border-radius: 5px;
+	text-decoration: none;
+}

@@ -7,7 +7,7 @@
 }
 
 
-#field_iscr_l {
+#field_iscr_l, #field_iscr_p, #field_accesso {
     width:45%;
     margin-left:28%;
     margin-top: 1%;
@@ -15,7 +15,14 @@
 	padding-bottom: 1em;
     border: 1px solid #000000;
 	border-radius: 6px;
+}
 
+#field_accesso {
+    margin-bottom: 1%;
+}
+
+#field_iscr_p{
+    margin-bottom: 10%;
 }
 
 .form_iscr_div{
@@ -26,18 +33,6 @@
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
-
-#field_iscr_p {
-    margin-left:28%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    padding: 0%;
-    padding-bottom: 1em;
-    width:45%;
-    border: 1px solid #000000;
-	border-radius: 6px;
-}
-
 
 #label{
     display: inline-block;

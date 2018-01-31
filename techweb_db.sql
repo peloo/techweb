@@ -38,6 +38,11 @@ DROP TABLE IF EXISTS `articolo_media`;
 DROP TABLE IF EXISTS `info`;
 DROP TABLE IF EXISTS `commento`;
 
+DROP TABLE IF EXISTS 'donne_s_vuoto';
+DROP TABLE IF EXISTS 'donne_s_pieno';
+DROP TABLE IF EXISTS 'uomini_s_vuoto';
+DROP TABLE IF EXISTS 'uomini_s_pieno';
+
 --
 -- Struttura della tabella `utente`
 --
@@ -208,3 +213,125 @@ CREATE TABLE IF NOT EXISTS `commento` (
   CONSTRAINT FOREIGN KEY (`mail_art`,`titolo`) references articolo(`mail`,`titolo`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Struttura tabelle alcolici
+--
+
+CREATE TABLE IF NOT EXISTS 'donne_s_vuoto' (
+  'bevanda' varchar(255) NOT NULL,
+  'gradazione' decimal(3,1) NOT NULL,
+  '45Kg' decimal(3,2) NOT NULL,
+  '55Kg' decimal(3,2) NOT NULL,
+  '60Kg' decimal(3,2) NOT NULL,
+  '65Kg' decimal(3,2) NOT NULL,
+  '75Kg' decimal(3,2) NOT NULL,
+  '80Kg' decimal(3,2) NOT NULL,
+  PRIMARY KEY ('bevanda', 'gradazione')
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO 'donne_s_vuoto' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '65Kg', '75Kg', '80Kg') VALUES
+('birra_analcolica', 0.5, 0.06, 0.05, 0.04, 0.04, 0.03, 0.03),
+('birra_leggera', 3.5, 0.39, 0.32, 0.29, 0.27, 0.24, 0.22),
+('birra_normale', 5, 0.56, 0.46, 0.42, 0.39, 0.34, 0.32),
+('birra_speciale', 8, 0.9, 0.73, , 0.67, 0.62, 0.54, 0.5),
+('birra_doppio_malto', 10, 1.12, 0.92, 0.84, 0.78, 0.67, 0.63),
+('vino', 12, 0.51, 0.42, 0.38, 0.35, 0.31, 0.29),
+('vini_liquorosi/aperitivi', 18, 0.49, 0.40, 0.37, 0.34, 0.29, 0.28),
+('digestivi', 25, 0.32, 0.26, 0.24, .022, 0.19, 0.18),
+('digestivi', 30, 0.39, 0.32, 0.29, 0.27, 0.23, 0.22),
+('superalcolici', 35, 0.45, 0.37, 0.34, 0.31, 0.27, 0.25),
+('superalcolici', 45, 0.58, 0.47, 0.43, 0.4, 0.35, 0.33),
+('superalcolici', 60, 0.77, 0.63, 0.58, 0.53, 0.46, 0.43),
+('champagne/spumante', 11, 0.37, 0.31, 0.28, 0.26, 0.22, 0.21),
+('ready_to_drink', 2.8, 0.12, 0.1, 0.09, 0.08, 0.077, 0.07),
+('ready_to_drink', 5, 0.24, 0.2, 0.18, 0.17, 0.17, 0.14);
+
+
+CREATE TABLE IF NOT EXISTS 'donne_s_pieno' (
+  'bevanda' varchar(255) NOT NULL,
+  'gradazione' decimal(3,1) NOT NULL,
+  '45Kg' decimal(3,2) NOT NULL,
+  '55Kg' decimal(3,2) NOT NULL,
+  '60Kg' decimal(3,2) NOT NULL,
+  '65Kg' decimal(3,2) NOT NULL,
+  '75Kg' decimal(3,2) NOT NULL,
+  '80Kg' decimal(3,2) NOT NULL,
+  PRIMARY KEY ('bevanda', 'gradazione')
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO 'donne_s_pieno' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '65Kg', '75Kg', '80Kg') VALUES
+('birra_analcolica', 0.5, 0.03, 0.03, 0.02, 0.02, 0.02, 0.02),
+('birra_leggera', 3.5, 0.23, 0.19, 0.17, 0.16, 0.14, 0.13),
+('birra_normale', 5, 0.32, 0.26, 0.24, 0.22, 0.19,  0.18),
+('birra_speciale', 8, 0.52, 0.42, 0.39, 0.36, 0.31, 0.29),
+('birra_doppio_malto', 10, 0.65, 0.53, 0.48, 0.45, 0.39, 0.36),
+('vino', 12, 0.29, 0.24, 0.22, 0.2, 0.18, 0.17),
+('vini_liquorosi/aperitivi', 18, 0.28, 0.23, 0.21, 0.2, 0.17, 0.16),
+('digestivi', 25, 0.2, 0.16, 0.15, 0.14, 0.12, 0.11),
+('digestivi', 30, 0.24, 0.19, 0.18, 0.16, 0.14, 0.13),
+('superalcolici', 35, 0.27, 0.22, 0.21, 0.19, 0.16, 0.15),
+('superalcolici', 45, 0.35, 0.29, 0.26, 0.24, 0.21, 0.2),
+('superalcolici', 60, 0.47, 0.38, 0.35, 0.33, 0.28, 0.26),
+('champagne/spumante', 11, 0.22, 0.18, 0.16, 0.15, 0.13, 0.12),
+('ready_to_drink', 2.8, 0.07, 0.06, 0.06, 0.05, 0.04, 0.04),
+('ready_to_drink', 5, 0.15, 0.12, 0.11, 0.1, 0.09, 0.08);
+
+
+CREATE TABLE IF NOT EXISTS 'uomini_s_vuoto' (
+  'bevanda' varchar(255) NOT NULL,
+  'gradazione' decimal(3,1) NOT NULL,
+  '45Kg' decimal(3,2) NOT NULL,
+  '55Kg' decimal(3,2) NOT NULL,
+  '60Kg' decimal(3,2) NOT NULL,
+  '65Kg' decimal(3,2) NOT NULL,
+  '75Kg' decimal(3,2) NOT NULL,
+  '80Kg' decimal(3,2) NOT NULL,
+  PRIMARY KEY ('bevanda', 'gradazione')
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO 'uomini_s_vuoto' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '65Kg', '75Kg', '80Kg') VALUES
+('birra_analcolica', 0.5, 0.04, 0.03, 0.03, 0.01, 0.01, 0.01),
+('birra_leggera', 3.5, 0.25, 0.21, 0.19, 0.18, 0.17, 0.01),
+('birra_normale', 5, 0.35, 0.3, .028, 0.26, 0.24, 0.22),
+('birra_speciale', 8, 0.56, 0.48, 0.44, 0.41, 0.39, 0.35),
+('birra_doppio_malto', 10, 0.71, 0.6, 0.55, 0.52, 0.49, 0.43),
+('vino', 12, 0.32, 0.27, 0.25, 0.24, 0.22, 0.2)
+('vini_liquorosi/aperitivi', 18, 0.31, 0.26, 0.24, 0.23, 0.21, 0.19),
+('digestivi', 25, 0.2, 0.17, 0.16, 0.15, 0.15, 0.12),
+('digestivi', 30, 0.24, 0.21, 0.19, 0.18, 0.18, 0.15),
+('superalcolici', 35, 0.28, 0.24, 0.22, 0.21, 0.19, 0.17),
+('superalcolici', 45, 0.36, 0.31, 0.29, 0.27, 0.25, 0.22),
+('superalcolici', 60, 0.48, 0.41, 0.38, 0.36, 0.33, 0.3),
+('champagne/spumante', 11, 0.24, 0.19, 0.18, 0.17, 0.16, 0.14),
+('ready_to_drink', 2.8, 0.08, 0.06, 0.06, 0.06, 0.05, 0.05),
+('ready_to_drink', 5, 0.15, 0.13, 0.12, 0.11, 0.1, 0.09);
+
+
+CREATE TABLE IF NOT EXISTS 'uomini_s_pieno' (
+  'bevanda' varchar(255) NOT NULL,
+  'gradazione' decimal(3,1) NOT NULL,
+  '45Kg' decimal(3,2) NOT NULL,
+  '55Kg' decimal(3,2) NOT NULL,
+  '60Kg' decimal(3,2) NOT NULL,
+  '65Kg' decimal(3,2) NOT NULL,
+  '75Kg' decimal(3,2) NOT NULL,
+  '80Kg' decimal(3,2) NOT NULL,
+  PRIMARY KEY ('bevanda', 'gradazione')
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO 'uomini_s_pieno' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '65Kg', '75Kg', '80Kg') VALUES
+('birra_analcolica', 0.5, 0.02, 0.02, 0.02, 0.01, 0.01, 0.01),
+('birra_leggera', 3.5, 0.14, 0.12, 0.11, 0.1, 0.1, 0.09),
+('birra_normale', 5, 0.2, 0.17, 0.16, 0.15, 0.14, 0.12),
+('birra_speciale', 8, 0.33, 0.28, 0.26, 0.24, 0.22, 0.2),
+('birra_doppio_malto', 10, 0.41, 0.34, 0.32, 0.3, 0.28, 0.25),
+('vino', 12, 0.18, 0.15, 0.14, 0.13, 0.11)
+('vini_liquorosi/aperitivi', 18, 0.18, 0.15, 0.14, 0.13, 0.12, 0.11),
+('digestivi', 25, 0.12, 0.1, 0.1, 0.09, 0.08, 0.08),
+('digestivi', 30, 0.15, 0.13, 0.12, 0.11, 0.1, 0.09),
+('superalcolici', 35, 0.17, 0.15, 0.14, 0.13, 0.12, 0.11),
+('superalcolici', 45, 0.22, 0.19, 0.17, 0.16, 0.15, 0.14),
+('superalcolici', 60, 0.3, 0.25, 0.23, 0.22, 0.2, 0.18),
+('champagne/spumante', 11, 0.14, 0.11, 0.11, 0.1, 0.09, 0.08),
+('ready_to_drink', 2.8, 0.05, 0.04, 0.04, 0.03, 0.03, 0.03),
+('ready_to_drink', 5, 0.09, 0.08, 0.07, 0.07, 0.06, 0.06);

@@ -68,3 +68,16 @@
 }
 
 #div_search{margin-top:-3.9em;}
+
+/*menu*/
+
+#menu{
+	display: none;
+}
+
+/*content*/
+
+#content{
+	width: 100%;
+	margin: 0;
+}

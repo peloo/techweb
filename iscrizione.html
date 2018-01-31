@@ -15,11 +15,11 @@
 
 		<link rel='shortcut icon' type='image/x-icon' href='images/logo.ico' />
 
-     	<script type="text/javascript" src="checkPass.js"></script>
+     	<script type="text/javascript" src="JavaScript/checkPass.js"></script>
      	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="hamburgermenu.js"></script>
+    	<script type="text/javascript" src="JavaScript/hamburgermenu.js"></script>
 
-		<title>Home - Autosecurity</title>
+		<title>Accesso ed Iscrizione - Autosecurity</title>
 	</head>
 	<body onresize="reset()">
 		<div id="header">
@@ -55,7 +55,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="#">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.html">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -72,7 +72,7 @@
             <form name="form_iscrizione" action="iscrizione.php" method="post" onsubmit="return checkForm()">
 				<fieldset id="field_iscr_l">
                     <div class="form_iscr_div">
-                        <leggend class="legenda"> Dati login: </leggend>
+                        <leggend class="legenda"> Dati per quando effetuarai il login: </leggend>
                     </div>
                     <br>
                     <label for="email"> Email </label>
@@ -110,6 +110,22 @@
 				           <input type="text" name="nickname" id="text_form" placeholder="Nickname">
                      <br>
                 	<input type="submit" name="submit" id="button_form_accedi" value="Iscriviti">
+				</fieldset>
+
+				<fieldset id="field_accesso">
+					<div class="form_iscr_div">
+                        <leggend class="legenda"> Dati login: </leggend>
+                    </div>
+                     <br>
+                            <label for="a_email">Email</label>
+                     <br>
+                            <input type="text" name="a_email" id="a_email" placeholder="Email">
+                     <br>
+                            <label for="a_psw">Password</label>
+                     <br>
+                            <input type="text" name="a_password" id="a_psw" placeholder="Password">
+                     <br>
+                	<input type="submit" name="submit" id="button_form_accedi" value="Accedi">
 				</fieldset>
 			</form>
 		</div>

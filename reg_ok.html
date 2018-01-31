@@ -1,67 +1,131 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="registrazione.css" media="handheld, screen"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
-		<title>Home - Autosecurity</title>
-	</head>
-	<body>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/registrazione.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/945px_length.css" media=" screen and (max-width: 945px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/790px_length.css" media=" screen and (max-width: 790px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/640px_length.css" media=" screen and (max-width: 640px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="CSS/style_mobile1.css" media="only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
+
+		<link rel='shortcut icon' type='image/x-icon' href='images/logo.ico' />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="JavaScript/hamburgermenu.js"></script>
+
+		<title>Conferma Registrazione - Autosecurity</title>
+	</head> 
+	<body onresize="reset()">
 		<div id="header">
 			<!-- testa (logo) -->
-			<a href="index.php"><img id="logo" src="images\logo.png" alt="logo auto security"></a>
+			<a href="index.php"><img id="logo" src="images/logo.png" alt="logo auto security"/></a>
 		</div>
 
 		<!-- -------------------------------------------------------------------------- -->
 
 
 		<div id="breadcrumb">
-		<ul>
-		  <li><a id="nav">Home</a></li>
-		  <li><a id="nav" href="">Articoli</a></li>
-		  <li class="dropdown">
-				<a id="nav" class="dropbtn">Argomenti</a>
-				<div class="dropdown-content">
-					<a id="nav1" href="#">Alfa</a>
-					<a id="nav1" href="#">Audi</a>
-					<a id="nav1" href="#">BMW</a>
-					<a id="nav1" href="#">Fiat</a>
+			<header>
+				<button id="hamburger" onclick="dropdown()">&#9776;</button>
+	    		<button id="cross" onclick="dropup()">&#735;</button>
+	    	</header>
+
+	    	<div id="div_search">
+					<p id="search_bar">
+						<input id="text_search" type="text" name="search" placeholder="cerca"/>
+						<input type="button" id="button_search" value="Cerca"/>
+					</p>
+			</div>
+
+			<ul class="nav" role="menubar">
+			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li id="args" class="link" role="menuitem">
+					<a class="main" href="#">Argomenti</a>
+					<ul id="dropdown-content" role="menu">
+						<li role="menuitem"><a href="#">Alfa</a></li>
+						<li role="menuitem"><a href="#">Audi</a></li>
+						<li role="menuitem"><a href="#">BMW</a></li>
+						<li role="menuitem"><a href="#">Fiat</a></li>
+					</ul>
+			  </li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.html">Sicurezza</a></li>
+			  <!-- solo per la versione mobile -->
+			  <li id="acc" class="link" role="menuitem"><a class="main" href="iscrizione.html">Accedi o Registrati</a></li>
+			</ul>
+			
+		</div>
+
+		<div id="content_menu"> 
+			<div id="menu" class="w3-allerta">
+				<!-- menu laterale -->
+				<p id="location" class="w3-large">Ti trovi in: Conferma Registrazione</p>
+
+				<div id="form">
+					<form action="accesso.php" method="post">
+						<div class="form3">
+							<p class="location1" class="w3-large">Accesso</p>
+						</div>
+					
+						<!-- <p id="info_form">E-mail:</p> -->
+						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
+						<!-- <p id="info_form">Password:</p> -->
+						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
+						<br/>
+						<p id="id_button_form">
+							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
+							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='iscrizione.html'" />
+						</p>
+					</form>
 				</div>
-		  </li>
-		  <li><a id="nav" href="">Sicurezza</a></li>
 
-		  <div id="div_search">
-		  		<input id="text_search" type="text" name="search" placeholder="cerca">
-		  		<input type="button" class="button_search" value="Cerca">
-		  </div>
-		</ul>
+				<div id="form2">
+
+					<div class="form3">
+						<p class="location1" class="w3-large">Tag Frequenti</p>
+					</div>
+
+					<p>
+						<ul class="nav">
+						  <li><a href="#">Abarth</a></li>
+						  <li><a href="#">Acura</a></li>
+						  <li><a href="#">Alfa Romeo</a></li>
+						  <li><a href="#">Alpina</a></li>
+						  <li><a href="#">Aston</a></li>
+						  <li><a href="#">Martin</a></li>
+						  <li><a href="#">Audi</a></li>
+						</ul>			
+					</p>
+				</div>
+			</div>
+
+			<!-- -------------------------------------------------------------------------- -->
+
+			<div id="content">
+				<div id="reg_ok_content">
+					<img src="images/approved.png">
+					<h1>Registrazione avvenuta con successo!</h1>
+					<br/>
+					<p>Lo staff di Autosecurity ti augura una buona permanenza</p>
+				</div>
+			</div>
 		</div>
-
-		<!-- -------------------------------------------------------------------------- -->
-
-
-		<!-- -------------------------------------------------------------------------- -->
-
-		<div id="reg_ok_content">
-			<img src="images/approved.png">
-			<h1>Registrazione avvenuta con successo!</h1>
-			<br/>
-			<p>Lo staff di Autosecurity ti augura una buona permanenza</p>
-		</div>
-
 		<!-- -------------------------------------------------------------------------- -->
 
 		<div id="footer">
 			<!-- fine pagina -->
-			<ul>
-				<li><a href="#">Home</a></li>
+			<ul class="nav">
+				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
-				<li><a href="#">Sicurezza</a></li>
-				<li><a href="#">Chi Siamo</a></li>
-				<li><a href="#">Contatti</a></li>
-			</ul>		
+				<li><a href="sicurezza.html">Sicurezza</a></li> -->
+				<li id="chisiamo"><a href="weare.html">Chi Siamo</a></li>
+				<li id="contacts"><a href="#">Contatti</a></li>
+			</ul>
 		</div>
-
 	</body>
 </html>
