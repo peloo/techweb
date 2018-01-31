@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
 		<link rel="stylesheet" type="text/css" href="CSS/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="CSS/sicurezza.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="CSS/sicurezza_mobile.css" media="only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="CSS/945px_length.css" media=" screen and (max-width: 945px)"/>
 		<link rel="stylesheet" type="text/css" href="CSS/790px_length.css" media=" screen and (max-width: 790px)"/>
 		<link rel="stylesheet" type="text/css" href="CSS/640px_length.css" media=" screen and (max-width: 640px)"/>
@@ -141,20 +142,30 @@
 					<div>
 						<p>Indicare il sesso, se si è a stomaco pieno o vuoto, e ilproprio peso</p>
 						<form id="genere">Sesso:
-							<input type="radio" name="gender" value="Uomo">Uomo
-							<input type="radio" name="gender" value="Donna">Donna
+							<input type="radio" name="gender" id="male" value="uomo">
+							<label for="male">Uomo</label>
+							<input type="radio" name="gender" id="female" value="donna">
+							<label for="female">Donna</label>
 						</form>
 						<form id="stomaco">Stomaco:
-							<input type="radio" name="stomach" value="Pieno">Pieno
-							<input type="radio" name="stomach" value="Vuoto">Vuoto
+							<input type="radio" name="stomach" id="full" value="pieno">
+							<label for="full">Pieno</label>
+							<input type="radio" name="stomach" id="empty" value="vuoto">
+							<label for="empty">Vuoto</label>
 						</form>
 						<form id="peso">Peso:
-							<input type="radio" name="weight" value="45">45 Kg
-							<input type="radio" name="weight" value="55">55 Kg
-							<input type="radio" name="weight" value="60">60 Kg
-							<input type="radio" name="weight" value="65">65 Kg
-							<input type="radio" name="weight" value="75">75 Kg
-							<input type="radio" name="weight" value="80">80 Kg
+							<input type="radio" name="weight" id="weight45" value="45">
+							<label for="weight45">45 Kg</label>
+							<input type="radio" name="weight" id="weight55" value="55">
+							<label for="weight55">55 Kg</label>
+							<input type="radio" name="weight" id="weight60" value="60">
+							<label for="weight60">60 Kg</label>
+							<input type="radio" name="weight" id="weight65" value="65">
+							<label for="weight65">65 Kg</label>
+							<input type="radio" name="weight" id="weight75" value="75">
+							<label for="weight75">75 Kg</label>
+							<input type="radio" name="weight" id="weight85" value="80">
+							<label for="weight85">80 Kg</label>
 						</form>
 						<p>Indicare le bevande assunte (è presente il loro grado alcolico)</p>
 						<select name="bevanda">
