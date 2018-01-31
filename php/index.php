@@ -12,13 +12,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/home.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/945px_length.css" media=" screen and (max-width: 945px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/790px_length.css" media=" screen and (max-width: 790px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/640px_length.css" media=" screen and (max-width: 640px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile1.css" media="only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/home.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />

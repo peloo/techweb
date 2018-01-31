@@ -15,6 +15,26 @@ body{
 	border: 1px solid #000000;	/*bordo*/
 }
 
+/*solo per la versione mobile*/
+@media only screen and (max-device-width: 480px){
+	html, body{
+	font-size: 1.4em;
+	}
+}
+
+/*per le varie larghezze dello schermo*/
+@media screen and (max-width: 640px){
+	#art{display: none;}
+}
+
+@media screen and (max-width: 790px){
+	#sec{display:none;}
+}
+
+@media screen and (max-width: 945px){
+	#args{display: none;}
+}
+
 /* ------------- w3school css style ------------- */
 
 /* -------------------------------------------- -------------------------------------------- -------------------------------------------- */

@@ -6,14 +6,11 @@
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/sicurezza.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/sicurezza_mobile.css" media="only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/945px_length.css" media=" screen and (max-width: 945px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/790px_length.css" media=" screen and (max-width: 790px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/640px_length.css" media=" screen and (max-width: 640px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile1.css" media="only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/sicurezza.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/sicurezza_mobile.css" media="only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
 		<link rel='shortcut icon' type='image/x-icon' href='../php/images/logo.ico' />
@@ -112,21 +109,21 @@
 
 			<div id="content">
 				<div id="security">
-					<h2>Perchè dovremmo fare sempre due calcoli prima di vover salire in auto?</h2>
+					<h2><b>Perchè dovremmo fare sempre due calcoli prima di vover salire in auto?</b></h2>
 					<p>"Non ti preoccupare, qui gli autovelox non ci sono o non funzionano", "Questa sera non bevo, se trovo i carabinieri mentre torno a casa sono fregato". Spesso sono questi i pensieri che nascono quando vogliamo metterci alla guida sperando che durante il viaggio di non incappare in alcuna complicazione. L'obiettivo di questa pagina non è tanto quella di convincervi a guidare sotto i limiti o che guidare da ubriachi nuoce a te e a che sta con te in auto, ma solo quella di rendervi un po' consapevoli di cosa comporta premere l'acceleratore in certe situazioni. Uno degli scopi di questo sito, Autosecurity, è appunto quello di rendere l'autista una persona, appunto, più Autonoma e consapevole in campo di sicurezza autostradale. Se siete interessati buon viaggio!</p><br/>
 
 					<h3>Lo spazio di frenata:</h3>
 					<p>Farsi un'idea dello spazio di arresto è decisamente importante per non incappare in uno sconveniente e, può purtroppo accadere, pericoloso incidente. Vi forniamo dunque uno strumento per darvi un'idea di quale dovrebbe essere lo spazio di arresto della vostra auto ad una data velocità, con una data condizione del manto stradale e con una data grado di condizione che l'autista assume. Si presuppone che i freni del veicolo siano perfettamente funzionanti. Ricordiamo che lo spazio di arresto è dato dallo spazio di frenata più lo spazio di reazione.</p><br/>
 					<div>
 						<p>Selezionare la condizione del manto stradale</p>
-						<select name="street">
+						<select id="street">
 							<option value="buono" selected>Buono</option>
 							<option value="bagnato">Bagnato</option>
 							<option value="ghiacciato">Ghiacciato</option>
 						</select>
 						<p>Selezionare la condizione dell'autista</p>
-						<select name="condition">
-							<option valie="normale" selected>Normale</option>
+						<select id="condition">
+							<option value="normale" selected>Normale</option>
 							<option value="over_0.5">Con più di 0.5g/l di alcol in corpo</option>
 							<option value="cellulare">Guardando il cellulare</option>
 							<option value="bevuto">Dopo aver bevuto, ma con meno di 0.6g/l in corpo</option>
@@ -135,8 +132,9 @@
 							<option value="cannabis">Dopo aver assunto Cannabis</option>
 						</select>
 						<p>Selezionare la velocità in km/h</p>
-						<input type="number" name="speed" min="0">
-						<input type="button" name="calculate" value="Calcola" onclick="spazio_frenata()">
+						<input type="number" id="speed" min="0">
+						<button id="calculate" onclick="spazio_frenata()">Calcola</button>
+						<p id="risultato_1"></p>
 					</div><br/>
 
 					<h3>Limite alcolico:</h3>
@@ -170,24 +168,26 @@
 							<label for="weight85">80 Kg</label>
 						</form>
 						<p>Indicare le bevande assunte (è presente il loro grado alcolico)</p>
-						<select name="bevanda">
-							<option value="birra_analcolica">Birra analcolica, 0.5</option>
-							<option value="birra_leggera">Birra leggera, 3.5</option>
-							<option value="birra_normale">Birra normale, 5</option>
-							<option value="birra_speciale">Birra speciale, 8</option>
-							<option value="birra_doppio_malto">Birra doppio malto, 10</option>
-							<option value="vino">Vino, 12</option>
-							<option value="vini_liquorosi/aperitivi">Vini liquorosi/Aperitivi, 18</option>
-							<option value="digestivi">Digestivi, 25</option>
-							<option value="digestivi">Digestivi, 30</option>
-							<option value="superalcolici">Superalcolici, 35</option>
-							<option value="superalcolici">Superalcolici, 45</option>
-							<option value="superalcolici">Superalcolici, 60</option>
-							<option value="champagne/spumante">Champagne/Spumante, 11</option>
-							<option value="ready_to_drink">Ready to drink, 2.8</option>
-							<option value="ready_to_drink">Ready to drink, 5</option>
+						<select id="bevanda">
+							<option value="birra_analcolica">Birra analcolica, 0.5%</option>
+							<option value="birra_leggera">Birra leggera, 3.5%</option>
+							<option value="birra_normale">Birra normale, 5%</option>
+							<option value="birra_speciale">Birra speciale, 8%</option>
+							<option value="birra_doppio_malto">Birra doppio malto, 10%</option>
+							<option value="vino">Vino, 12%</option>
+							<option value="vini_liquorosi/aperitivi">Vini liquorosi/Aperitivi, 18%</option>
+							<option value="digestivi">Digestivi, 25%</option>
+							<option value="digestivi">Digestivi, 30%</option>
+							<option value="superalcolici">Superalcolici, 35%</option>
+							<option value="superalcolici">Superalcolici, 45%</option>
+							<option value="superalcolici">Superalcolici, 60%</option>
+							<option value="champagne/spumante">Champagne/Spumante, 11%</option>
+							<option value="ready_to_drink">Ready to drink, 2.8%</option>
+							<option value="ready_to_drink">Ready to drink, 5%</option>
 						</select>
-						<input type="button" name="add" value="Aggiungi" onclick="aggiungi_bevanda()">
+						<button id="add" onclick="aggiungi_bevanda()">Aggiungi</button>
+						<ul id="risultato_2"></ul>
+						<p id="risultato_3"></p>
 					</div><br/>
 
 					<a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
@@ -206,5 +206,17 @@
 				<li id="contacts"><a href="#">Contatti</a></li>
 			</ul>
 		</div>
+
+
+
+		<script>
+		var input = document.getElementById("speed");
+		input.addEventListener("keyup", function(event) {
+		    event.preventDefault();
+		    if (event.keyCode === 13) {
+		        spazio_frenata();
+		    }
+		});
+		</script>
 	</body>
 </html>
