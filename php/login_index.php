@@ -53,9 +53,9 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.html">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
-			  <li id="acc" class="link" role="menuitem"><a class="main" href="iscrizione.html">Accedi o Registrati</a></li>
+			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
 			
 		</div>
@@ -111,7 +111,53 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<p>Accesso Effetuato!</p>
+				<div id="contenitore_l">
+					<?php 
+	                         
+	                    require_once 'dbconnection.php';
+				        $dbaccess = new dbconnection();
+				        $opendDBConnection = $dbaccess->opendDBConnection();
+	                    $i = 0;
+
+	                    $visualizza = $dbaccess->getArticoliRecenti();
+	                    if($visualizza != false){
+	                    	for(; $i<3; $i++){
+	                    		$row = mysqli_fetch_assoc($visualizza);
+	                    		?>
+	                    			<div class="form_articolo">
+	                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
+	                					<img src= <?php echo $b64src;?> alt="Profilo" />
+										<p><?php echo $row['titolo'];?></p>
+										<p><?php echo $row['contenuto'];?></p>
+										<div class="form_articolo_footer">
+											<a href="">Read more...</a>
+										</div>
+									</div>
+	                    		<?php
+	                    	}
+	                    }
+	                ?>
+				</div>
+				<div id="contenitore_r">
+					<?php
+					if($visualizza != false){
+						for(; $i<6; $i++){
+	                		$row = mysqli_fetch_assoc($visualizza);
+							?>
+							<div class="form_articolo">
+	            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
+	        					<img src= <?php echo $b64src;?> alt="Profilo" />
+								<p><?php echo $row['titolo'];?></p>
+								<p><?php echo $row['contenuto'];?></p>
+								<div class="form_articolo_footer">
+									<a href="">Read more...</a>
+								</div>
+							</div>
+							<?php
+						}
+					}
+					?>
+				</div>
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->
@@ -122,7 +168,7 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="sicurezza.html">Sicurezza</a></li> -->
-				<li id="chisiamo"><a href="weare.html">Chi Siamo</a></li>
+				<li id="chisiamo"><a href="../php/logout_weare.php">Chi Siamo</a></li>
 				<li id="contacts"><a href="#">Contatti</a></li>
 			</ul>
 		</div>

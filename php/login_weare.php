@@ -51,7 +51,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../html/sicurezza.html">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -63,25 +63,30 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Chi siamo</p>
+				<p id="location" class="w3-large">
+					Benvenuto: 
+					<?php
+						session_start();
+						require_once 'dbconnection.php';
+						$dbaccess = new dbconnection();
+						$opendDBConnection = $dbaccess->opendDBConnection();
+						if($opendDBConnection == true){
+							$dati = $dbaccess->getDatiUser($_SESSION['email']);
+							if($dati != false){
+								$row = mysqli_fetch_array($dati);
+								echo $row['username'];
+							}
+							else
+								echo "Ops! Qualcosa e' andato storto";
+						}
+					?>
+				</p>
 
-				<div id="form">
-					<form action="../php/accesso.php" method="post">
-						<div class="form3">
-							<p class="location1" class="w3-large">Accesso</p>
-						</div>
-					
-						<!-- <p id="info_form">E-mail:</p> -->
-						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
-						<!-- <p id="info_form">Password:</p> -->
-						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
-						<br/>
-						<p id="id_button_form">
-							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
-							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='../html/iscrizione.html'" />
-						</p>
-					</form>
-				</div>
+				<form action="uscita.php" method="post">
+					<p id="id_button_form">
+						<input type="submit" id="button_form_accedi" name="submit" value="Esci"/>
+					</p>		
+				</form>
 
 				<div id="form2">
 

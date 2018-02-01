@@ -30,7 +30,7 @@
                 /*-----------------------------------------------*/
                 $conLog = $dbaccess->canLog($var_email,$var_passw);
                 if($conLog == true){
-                    header('Location: ../php/accesso_ok.php');
+                    header('Location: ../php/login_index.php');
                     mysqli_close($con);
                 }
                 else{
