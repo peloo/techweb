@@ -1,0 +1,36 @@
+h2 {font-family:Vollkorn;}
+
+#contattaci{
+    margin-left:5%;
+}
+
+#contattaci h2{
+    color:red;
+    margin-top:2.5%;
+}
+
+
+#invia_email {
+	margin-left: 11%;
+    font-family: 'Vollkorn', serif;
+}
+
+#invia{
+	font-family: "Allerta Stencil", Sans-serif;
+	color: white;
+	border-radius: 5px;
+    background-color: #28a745;
+    border: none;
+    padding: 0.7em 1.2em;
+    margin-top: 1em;
+    margin-left:35%;
+    cursor: pointer;
+}
+
+#button_form_scrivi input[type="submit"]:hover{
+    background-color:#008000;
+}
+
+#contattaci li{
+    margin: 1% 2%;
+}
