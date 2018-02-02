@@ -2,3 +2,48 @@
 #home:hover, #home:focus, #home:active, #home a:hover, #home a:focus, #home a:active{
 	background-color: #303841;
 }
+
+#contenitore_l{
+	padding-top: 2em;
+	float: left;
+	width: 45%;
+	margin-left: 1em;
+}
+
+#contenitore_r{
+	padding-top: 2em;
+	float: right;
+	width: 45%;
+	margin-right: 1em;
+}
+
+.form_articolo img{
+	display: block;
+	width: 100%;
+}
+
+.form_artiolo_titolo{
+	background-color: #3A4750;
+	border-bottom: 1px solid #000000;
+	padding: 0.5em;
+}
+
+.form_articolo{
+	min-height: 10em;
+	margin-top: 1em;
+	border-radius: 6px;
+	margin-bottom: 1em;
+}
+
+.form_articolo p{
+	padding: 0.5em;
+}
+
+.form_articolo_footer{
+	padding-top: 0.2em;
+	padding-bottom: 0.2em; 
+	padding-left: 0.5em;
+	border-top: 1px solid #000000;
+	text-align: left;
+	background-color: #EEEEEE;
+}

@@ -30,8 +30,21 @@
 	margin-bottom: 1em;
 	list-style-type: none;
 	border:1px solid black;
-	max-width: 25em;
+	max-width: 30em;
 }
+
+#risultato_2 li{ 
+  margin: 0.2em 0; 
+  display: inline-flex; 
+} 
+ 
+#risultato_2 p{ 
+  text-transform: lowercase; 
+} 
+ 
+#risultato_2 button{ 
+  margin-left: 1em; 
+} 
 
 #articoli{
 	background-color: #D72323;

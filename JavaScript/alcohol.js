@@ -46,7 +46,8 @@ function spazio_frenata(){
 	tot=c*speed/3.6+((speed/3.6)*(speed/3.6))/(2*9.81*s);
 	tot=tot.toFixed(2);
 	document.getElementById("risultato_1").innerHTML=
-	"La strada che la macchina percorrerà prima di fermarsi è di: "+tot+" m circa.";
+	"Una macchina che corre ai "+speed+" Km/h percorrerà "+tot+" m circa prima di fermarsi. "+ 
+    " Questo se il manto stradale é "+street+" lo stato dell'autista è: "+cond+".";
 }
 
 //parte alcol
@@ -77,10 +78,10 @@ function aggiungi_bevanda(){
 	//var 1
 	var gen;
 	if(document.getElementById("male").checked)
-		gen="uomo";
+		gen=document.getElementById("male").value;
 	else if(document.getElementById("female").checked)
-		gen="donna";
-	if(gen==null){
+		gen=document.getElementById("female").value;
+	if(gen==undefined){
 		alert("Indicare il sesso");
 		return;
 	}
@@ -88,10 +89,10 @@ function aggiungi_bevanda(){
 	//var 2
 	var stm;
 	if(document.getElementById("full").checked)
-		stm="pieno";
+		stm=document.getElementById("full").value;
 	else if(document.getElementById("empty").checked)
-		stm="vuoto";
-	if(stm==null){
+		stm=document.getElementById("empty").value;
+	if(stm==undefined){
 		alert("Indicare se lo stomaco è pieno o vuoto");
 		return;
 	}
@@ -108,10 +109,18 @@ function aggiungi_bevanda(){
 	var bev=document.getElementById("bevanda")
 	var beva=bev.options[bev.selectedIndex];
 
+	//codice
 	var drink={numero:n_nodo, sesso:gen, stomaco:stm, peso:weight, bevanda:beva.value};
 	bevande_array.push(drink);
 
-	aggiungi_nodo(beva.innerHTML);
+	/*var str=""; 
+	for(var k=0; k<bevande_array.length; k++){ 
+	var x=bevande_array[k]; 
+	str=str+x.numero+" "+x.sesso+" "+x.stomaco+" "+x.peso+" "+x.bevanda+"  "; 
+	} 
+	document.getElementById("demo").innerHTML=str;*/
+ 
+ 	aggiungi_nodo(drink, beva.innerHTML);
 	tot=tot+grado(drink);
 	scrivi_ris(tot);
 
@@ -120,21 +129,40 @@ function aggiungi_bevanda(){
 
 function grado(drink){
 	var aggiunta=0;
-	//interroga il database per aggiornare il campo tot
+	var wieght=drink.peso; 
+	var alcohol=drink.bevanda; 
+	//interroga il database per aggiornare il campo tot 
+	if(drink.sesso=="uomo"){ 
+		if(drink.stomaco=="pieno"){ 
+
+		} 
+		else{ 
+
+		} 
+	} 
+	else{ 
+		if(drink.stomaco=="pieno"){ 
+
+		} 
+		else{ 
+
+		} 
+	} 
 
 	return aggiunta;
 }
 
-function aggiungi_nodo(bev){
+function aggiungi_nodo(drink, beva){
 	//creo il nodo li della lista
 	var node=document.createElement("LI");
 	var li_id=document.createAttribute("id");
-	li_id.value=n_nodo;
+	li_id.value=drink.numero;
 	node.setAttributeNode(li_id);
-	node.style.margin="0.2em 0 0.2em 0";
 
 	//dico cosa ho aggiunto
-	var text=document.createTextNode(bev);
+	var text=document.createElement("P"); 
+	var t=document.createTextNode(drink.sesso+" a stomaco "+drink.stomaco+", "+beva); 
+	text.appendChild(t);
 	node.appendChild(text);
 
 	//a fianco ci metto il bottone per rimuoverla
@@ -144,7 +172,6 @@ function aggiungi_nodo(bev){
 	button_onclick.value="rimuovi_bevanda(this.parentNode)";//il bottone rimuoverà la bevanda corrente
 	remove.setAttributeNode(button_onclick);
 	remove.appendChild(text_button);
-	remove.style.margin="0 0 0 1em";
 
 	//creo il nodo con il bottone
 	node.appendChild(remove);
@@ -152,9 +179,25 @@ function aggiungi_nodo(bev){
 }
 
 function rimuovi_bevanda(elem){
-	elem.parentNode.removeChild(elem);
 	var i=elem.id;
-	tot=tot-grado(bevande_array[i]);
-	if(bevande_array.length>0)
-		delete bevande_array[i];
+	var index=-1; 
+	for(var j=0; j<bevande_array.length && index<0; j++) 
+		if(bevande_array[j].numero==i) 
+		  index=j; 
+
+	if(index>=0){ 
+		tot=tot-grado(bevande_array[index]); 
+		scrivi_ris(tot); 
+		if(bevande_array.length>0) 
+		  bevande_array.splice(index, 1); 
+	} 
+
+	/*var str=""; 
+	for(var k=0; k<bevande_array.length; k++){ 
+	var x=bevande_array[k]; 
+	str=str+x.numero+" "+x.sesso+" "+x.stomaco+" "+x.peso+" "+x.bevanda; 
+	} 
+	document.getElementById("demo").innerHTML=str;*/ 
+
+	elem.parentNode.removeChild(elem); 
 }

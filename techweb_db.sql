@@ -220,12 +220,12 @@ CREATE TABLE IF NOT EXISTS `commento` (
 CREATE TABLE IF NOT EXISTS 'donne_s_vuoto' (
   'bevanda' varchar(255) NOT NULL,
   'gradazione' decimal(3,1) NOT NULL,
-  '45Kg' decimal(3,2) NOT NULL,
-  '55Kg' decimal(3,2) NOT NULL,
-  '60Kg' decimal(3,2) NOT NULL,
-  '65Kg' decimal(3,2) NOT NULL,
-  '75Kg' decimal(3,2) NOT NULL,
-  '80Kg' decimal(3,2) NOT NULL,
+  '45' decimal(3,2) NOT NULL,/*peso in kg*/
+  '55' decimal(3,2) NOT NULL,
+  '60' decimal(3,2) NOT NULL,
+  '65' decimal(3,2) NOT NULL,
+  '75' decimal(3,2) NOT NULL,
+  '80' decimal(3,2) NOT NULL,
   PRIMARY KEY ('bevanda', 'gradazione')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -250,12 +250,12 @@ INSERT INTO 'donne_s_vuoto' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '6
 CREATE TABLE IF NOT EXISTS 'donne_s_pieno' (
   'bevanda' varchar(255) NOT NULL,
   'gradazione' decimal(3,1) NOT NULL,
-  '45Kg' decimal(3,2) NOT NULL,
-  '55Kg' decimal(3,2) NOT NULL,
-  '60Kg' decimal(3,2) NOT NULL,
-  '65Kg' decimal(3,2) NOT NULL,
-  '75Kg' decimal(3,2) NOT NULL,
-  '80Kg' decimal(3,2) NOT NULL,
+  '45' decimal(3,2) NOT NULL,
+  '55' decimal(3,2) NOT NULL,
+  '60' decimal(3,2) NOT NULL,
+  '65' decimal(3,2) NOT NULL,
+  '75' decimal(3,2) NOT NULL,
+  '80' decimal(3,2) NOT NULL,
   PRIMARY KEY ('bevanda', 'gradazione')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -280,12 +280,12 @@ INSERT INTO 'donne_s_pieno' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '6
 CREATE TABLE IF NOT EXISTS 'uomini_s_vuoto' (
   'bevanda' varchar(255) NOT NULL,
   'gradazione' decimal(3,1) NOT NULL,
-  '45Kg' decimal(3,2) NOT NULL,
-  '55Kg' decimal(3,2) NOT NULL,
-  '60Kg' decimal(3,2) NOT NULL,
-  '65Kg' decimal(3,2) NOT NULL,
-  '75Kg' decimal(3,2) NOT NULL,
-  '80Kg' decimal(3,2) NOT NULL,
+  '45' decimal(3,2) NOT NULL,
+  '55' decimal(3,2) NOT NULL,
+  '60' decimal(3,2) NOT NULL,
+  '65' decimal(3,2) NOT NULL,
+  '75' decimal(3,2) NOT NULL,
+  '80' decimal(3,2) NOT NULL,
   PRIMARY KEY ('bevanda', 'gradazione')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -310,12 +310,12 @@ INSERT INTO 'uomini_s_vuoto' ('bevanda', 'gradazione', '45Kg', '55Kg', '60Kg', '
 CREATE TABLE IF NOT EXISTS 'uomini_s_pieno' (
   'bevanda' varchar(255) NOT NULL,
   'gradazione' decimal(3,1) NOT NULL,
-  '45Kg' decimal(3,2) NOT NULL,
-  '55Kg' decimal(3,2) NOT NULL,
-  '60Kg' decimal(3,2) NOT NULL,
-  '65Kg' decimal(3,2) NOT NULL,
-  '75Kg' decimal(3,2) NOT NULL,
-  '80Kg' decimal(3,2) NOT NULL,
+  '45' decimal(3,2) NOT NULL,
+  '55' decimal(3,2) NOT NULL,
+  '60' decimal(3,2) NOT NULL,
+  '65' decimal(3,2) NOT NULL,
+  '75' decimal(3,2) NOT NULL,
+  '80' decimal(3,2) NOT NULL,
   PRIMARY KEY ('bevanda', 'gradazione')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

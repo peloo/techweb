@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/sicurezza.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/sicurezza_mobile.css" media="only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"> 
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -49,10 +50,10 @@
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li role="menuitem"><a href="#">Alfa</a></li>
-						<li role="menuitem"><a href="#">Audi</a></li>
-						<li role="menuitem"><a href="#">BMW</a></li>
-						<li role="menuitem"><a href="#">Fiat</a></li>
+						<li><a href="#">Alfa</a></li>
+						<li><a href="#">Audi</a></li>
+						<li><a href="#">BMW</a></li>
+						<li><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main">Sicurezza</a></li>
@@ -114,7 +115,7 @@
 
 					<h3>Lo spazio di frenata:</h3>
 					<p>Farsi un'idea dello spazio di arresto è decisamente importante per non incappare in uno sconveniente e, può purtroppo accadere, pericoloso incidente. Vi forniamo dunque uno strumento per darvi un'idea di quale dovrebbe essere lo spazio di arresto della vostra auto ad una data velocità, con una data condizione del manto stradale e con una data grado di condizione che l'autista assume. Si presuppone che i freni del veicolo siano perfettamente funzionanti. Ricordiamo che lo spazio di arresto è dato dallo spazio di frenata più lo spazio di reazione.</p><br/>
-					<div>
+					<div id="velocita">
 						<p>Selezionare la condizione del manto stradale</p>
 						<select id="street">
 							<option value="buono" selected>Buono</option>
@@ -139,8 +140,8 @@
 
 					<h3>Limite alcolico:</h3>
 					<p>Vi mettiamo ora a disposizione ora uno strumento per capire se dopo aver bevuto una certa quantità di alcolici sarete ancora nella possibilità, legale e cognitiva, di poter guidare. Ricordate che il limite di alcol nel sangue è di 0.5 g/l, e per i neo-patentati (cioè per coloro che hanno la patente da meno di tre anni) è di 0 g/l.</p><br/>
-					<div>
-						<p>Indicare il sesso, se si è a stomaco pieno o vuoto, e ilproprio peso</p>
+					<div id="alcol">
+						<p>Indicare il sesso, se si è a stomaco pieno o vuoto, ed il proprio peso</p>
 						<form id="genere">Sesso:
 							<input type="radio" name="gender" id="male" value="uomo">
 							<label for="male">Uomo</label>
@@ -176,14 +177,14 @@
 							<option value="birra_doppio_malto">Birra doppio malto, 10%</option>
 							<option value="vino">Vino, 12%</option>
 							<option value="vini_liquorosi/aperitivi">Vini liquorosi/Aperitivi, 18%</option>
-							<option value="digestivi">Digestivi, 25%</option>
-							<option value="digestivi">Digestivi, 30%</option>
-							<option value="superalcolici">Superalcolici, 35%</option>
-							<option value="superalcolici">Superalcolici, 45%</option>
-							<option value="superalcolici">Superalcolici, 60%</option>
+							<option value="digestivi_1">Digestivi, 25%</option>
+							<option value="digestivi_2">Digestivi, 30%</option>
+							<option value="superalcolici_1">Superalcolici, 35%</option>
+							<option value="superalcolici_2">Superalcolici, 45%</option>
+							<option value="superalcolici_3">Superalcolici, 60%</option>
 							<option value="champagne/spumante">Champagne/Spumante, 11%</option>
-							<option value="ready_to_drink">Ready to drink, 2.8%</option>
-							<option value="ready_to_drink">Ready to drink, 5%</option>
+							<option value="ready_to_drink_1">Ready to drink, 2.8%</option>
+							<option value="ready_to_drink_2">Ready to drink, 5%</option>
 						</select>
 						<button id="add" onclick="aggiungi_bevanda()">Aggiungi</button>
 						<ul id="risultato_2"></ul>
