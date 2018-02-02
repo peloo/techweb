@@ -26,14 +26,15 @@
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/home.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
+		">
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="JavaScript/hamburgermenu.js"></script>
+    	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
 		<title>Home - Autosecurity</title>
 	</head> 
@@ -126,8 +127,7 @@
 			<div id="content">
 				<div id="home">
 					<div id="contenitore_l">
-						<?php 
-		                         
+						<?php   
 		                    require_once 'dbconnection.php';
 					        $dbaccess = new dbconnection();
 					        $opendDBConnection = $dbaccess->opendDBConnection();
@@ -141,8 +141,8 @@
 		                    			<div class="form_articolo">
 		                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
 		                					<img src= <?php echo $b64src;?> alt="Profilo" />
-											<p><?php echo $row['titolo'];?></p>
-											<p><?php echo $row['contenuto'];?></p>
+											<p class="titolo" ><?php echo $row['titolo'];?></p>
+											<p class="contenuto_articolo" ><?php echo $row['contenuto'];?></p>
 											<div class="form_articolo_footer">
 												<a href="">Read more...</a>
 											</div>
@@ -161,8 +161,8 @@
 								<div class="form_articolo">
 		            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
 		        					<img src= <?php echo $b64src;?> alt="Profilo" />
-									<p><?php echo $row['titolo'];?></p>
-									<p><?php echo $row['contenuto'];?></p>
+									<p class="titolo" ><?php echo $row['titolo'];?></p>
+									<p class="contenuto_articolo" ><?php echo $row['contenuto'];?></p>
 									<div class="form_articolo_footer">
 										<a href="">Read more...</a>
 									</div>

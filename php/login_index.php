@@ -110,52 +110,54 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="contenitore_l">
-					<?php 
-	                         
-	                    require_once 'dbconnection.php';
-				        $dbaccess = new dbconnection();
-				        $opendDBConnection = $dbaccess->opendDBConnection();
-	                    $i = 0;
+				<div id="home">
+					<div id="contenitore_l">
+						<?php 
+		                         
+		                    require_once 'dbconnection.php';
+					        $dbaccess = new dbconnection();
+					        $opendDBConnection = $dbaccess->opendDBConnection();
+		                    $i = 0;
 
-	                    $visualizza = $dbaccess->getArticoliRecenti();
-	                    if($visualizza != false){
-	                    	for(; $i<3; $i++){
-	                    		$row = mysqli_fetch_assoc($visualizza);
-	                    		?>
-	                    			<div class="form_articolo">
-	                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
-	                					<img src= <?php echo $b64src;?> alt="Profilo" />
-										<p><?php echo $row['titolo'];?></p>
-										<p><?php echo $row['contenuto'];?></p>
-										<div class="form_articolo_footer">
-											<a href="">Read more...</a>
+		                    $visualizza = $dbaccess->getArticoliRecenti();
+		                    if($visualizza != false){
+		                    	for(; $i<3; $i++){
+		                    		$row = mysqli_fetch_assoc($visualizza);
+		                    		?>
+		                    			<div class="form_articolo">
+		                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
+		                					<img src= <?php echo $b64src;?> alt="Profilo" />
+											<p><?php echo $row['titolo'];?></p>
+											<p><?php echo $row['contenuto'];?></p>
+											<div class="form_articolo_footer">
+												<a href="">Read more...</a>
+											</div>
 										</div>
+		                    		<?php
+		                    	}
+		                    }
+		                ?>
+					</div>
+					<div id="contenitore_r">
+						<?php
+						if($visualizza != false){
+							for(; $i<6; $i++){
+		                		$row = mysqli_fetch_assoc($visualizza);
+								?>
+								<div class="form_articolo">
+		            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
+		        					<img src= <?php echo $b64src;?> alt="Profilo" />
+									<p><?php echo $row['titolo'];?></p>
+									<p><?php echo $row['contenuto'];?></p>
+									<div class="form_articolo_footer">
+										<a href="">Read more...</a>
 									</div>
-	                    		<?php
-	                    	}
-	                    }
-	                ?>
-				</div>
-				<div id="contenitore_r">
-					<?php
-					if($visualizza != false){
-						for(; $i<6; $i++){
-	                		$row = mysqli_fetch_assoc($visualizza);
-							?>
-							<div class="form_articolo">
-	            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
-	        					<img src= <?php echo $b64src;?> alt="Profilo" />
-								<p><?php echo $row['titolo'];?></p>
-								<p><?php echo $row['contenuto'];?></p>
-								<div class="form_articolo_footer">
-									<a href="">Read more...</a>
 								</div>
-							</div>
-							<?php
+								<?php
+							}
 						}
-					}
-					?>
+						?>
+					</div>
 				</div>
 			</div>
 		</div>
