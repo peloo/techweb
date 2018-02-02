@@ -6,8 +6,8 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
         <link rel="stylesheet" type="text/css" href="../css/chisiamo.css" media="handheld, screen"/>
-        <link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-        
+        <link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/><link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"> 
+
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
@@ -51,7 +51,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../html/logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -63,7 +63,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">
+				<p id="location" class="w3-large">Ti trovi in: Chi siamo<br/>
 					Benvenuto: 
 					<?php
 						session_start();
@@ -118,27 +118,26 @@
 					</div>
 					
 					<div id="respons">
-						
+						<h2>Responsabili</h2>
 						<div id="mat">
-							<h2>Responsabili</h2>
 							<h3>PELO </h3>
 							<img id="pelo" src="../images/pelo.jpg">
-							<p> Matteo Pellanda meglio conosciuto come "Pelo" o "Picci", &egrave; il responsabile della parte PHP, Database e della homepage: insomma della parte noiosa</p>
-		                    <p> Siccome non so cosa scrivere, inizier&ograve; a scrivere cose a caso per riempire un po' lo spazio senza dover ricorrere al lorem ipsum perch&egrave; sono di mente superiore rispetto al web designe medio: Tastiera meccanica, snowboard, DOGEN, Mokey mouse</p>
+							<p> Matteo Pellanda meglio conosciuto come "Pelo" o "Picci", &egrave; il responsabile della parte PHP, Database e della homepage: insomma della parte noiosa<br/>
+		                    Siccome non so cosa scrivere, inizier&ograve; a scrivere cose a caso per riempire un po' lo spazio senza dover ricorrere al lorem ipsum perch&egrave; sono di mente superiore rispetto al web designe medio: Tastiera meccanica, snowboard, DOGEN, Mokey mouse</p>
 						</div>
 						
 		                <div id="doge">
 							<h3>DOGE(N)</h3>
 							<img id="dog" src="../images/doge.jpg">
-							<p> Enrico "DogeN" Trinco, l'elemento del gruppo che mostra curiosit&agrave; ma non si applica. I suoi compiti sarebbero la creazione di pagine html e file Javascript ma in realt&agrave; il suo scopo &egrave; la creazione e promozione dello stato "Doggonalia" </p>
-		                    <p> Si distingue dagli altri doge (oltre che per la N finale) dal fatto che vuole diventare un pro di Quake ma con risultati scarsi. Nonostante ci&ograve; meriterebbe lo stesso un bel biscotto di consolazione</p>
+							<p> Enrico "DogeN" Trinco, l'elemento del gruppo che mostra curiosit&agrave; ma non si applica. I suoi compiti sarebbero la creazione di pagine html e file Javascript ma in realt&agrave; il suo scopo &egrave; la creazione e promozione dello stato "Doggonalia" <br/>
+		                    Si distingue dagli altri doge (oltre che per la N finale) dal fatto che vuole diventare un pro di Quake ma con risultati scarsi. Nonostante ci&ograve; meriterebbe lo stesso un bel biscotto di consolazione</p>
 						</div>
 		                
 						<div id="nico">
 							<h3>ZAR NIKOLA </h3>
 							<img id="nic" src="../images/nico.jpg">
-							<p> Nicola Carlesso &egrave; un'ex zar della Russia degli anni d'oro. Subito dopo le sue dimissioni a causa di un colpo di stato ha dichiarato vendetta alla russia e ha deciso di unirsi al gruppo italiano per far vedere che non &egrave; lui ad aver bisgono della Russia, ma &egrave; lei ad aver bisogno di lui. </p>
-							<p id="due">La sua vendetta &egrave; pianificata a colpi di CSS, HTML e sicurezza che scuole guida levatevi proprio che noi abbiamo lo zar di Ruzzia!</p>
+							<p> Nicola Carlesso &egrave; un'ex zar della Russia degli anni d'oro. Subito dopo le sue dimissioni a causa di un colpo di stato ha dichiarato vendetta alla russia e ha deciso di unirsi al gruppo italiano per far vedere che non &egrave; lui ad aver bisgono della Russia, ma &egrave; lei ad aver bisogno di lui. <br/>
+							La sua vendetta &egrave; pianificata a colpi di CSS, HTML e sicurezza che scuole guida levatevi proprio che noi abbiamo lo zar di Ruzzia!</p>
 						</div>
 						
 					</div>
