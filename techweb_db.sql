@@ -36,7 +36,6 @@ DROP TABLE IF EXISTS `media`;
 DROP TABLE IF EXISTS `articolo_media`;
 
 DROP TABLE IF EXISTS `info`;
-DROP TABLE IF EXISTS `commento`;
 
 DROP TABLE IF EXISTS 'donne_s_vuoto';
 DROP TABLE IF EXISTS 'donne_s_pieno';
@@ -50,7 +49,7 @@ DROP TABLE IF EXISTS 'uomini_s_pieno';
 
 CREATE TABLE IF NOT EXISTS `utente` (
   `mail` varchar(255) NOT NULL PRIMARY KEY,
-  `username` varchar(255) UNIQUE NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` char(32) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `cognome` varchar(255) DEFAULT NULL
@@ -103,8 +102,9 @@ CREATE TABLE IF NOT EXISTS `articolo` (
   `titolo` varchar(255) NOT NULL,
   `contenuto` varchar(255) NOT NULL,
   `data` date NOT NULL,
+  `approvato` boolean NOT NULL,
   PRIMARY KEY (`mail`, `titolo`),
-  CONSTRAINT FOREIGN KEY (`mail`) references admin_redatore(`mail`) ON DELETE CASCADE
+  CONSTRAINT FOREIGN KEY (`mail`) references utente(`mail`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `articolo` (`mail`, `titolo`, `contenuto`, `data`) VALUES
@@ -198,20 +198,6 @@ CREATE TABLE IF NOT EXISTS `info` (
   CONSTRAINT FOREIGN KEY (`mail`) references user(`mail`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Struttura della tabella `commento`
---
-
-CREATE TABLE IF NOT EXISTS `commento` (
-  `mail_user` varchar(255) NOT NULL,
-  `mail_art` varchar(255) NOT NULL,
-  `titolo` varchar(255) NOT NULL,
-  `data` date NOT NULL,
-  `contenuto` varchar(255) NOT NULL,
-  PRIMARY KEY (`mail_user`, `mail_art`, `titolo`, `data`),
-  CONSTRAINT FOREIGN KEY (`mail_user`) references user(`mail`) ON DELETE CASCADE,
-  CONSTRAINT FOREIGN KEY (`mail_art`,`titolo`) references articolo(`mail`,`titolo`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Struttura tabelle alcolici

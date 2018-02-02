@@ -120,7 +120,7 @@
                     <label for="contenuto">Contenuto del articolo:</label><br>
                     <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
-                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p>
+                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label>  <input type="file" name="fileToUpload" id="fileToUpload"> </p>
                 	<input type="hidden" name="data" id="data_corrente2" value=""/>
 					<script>
 						var d = new Date();

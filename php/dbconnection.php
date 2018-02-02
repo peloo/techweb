@@ -52,7 +52,15 @@
 	        	return false;
 		}
 
-		public function getArticolo($mail, $titolo, $contenuto, $data){
+		public function getArticolo($mail, $titolo, $contenuto, $data, $imgContent){
+
+			
+	        $result = mysqli_query($this->connessione,"INSERT INTO media(foto) VALUES ('$imgContent')");
+	        if(!$result)
+	        	echo "File upload failed, please try again.";
+		    
+
+
 			$result = mysqli_query($this->connessione,"INSERT INTO articolo(mail,titolo,contenuto,data) VALUES ('$mail','$titolo','$contenuto','$data')");
 	        if($result) 
 	        	return true;
