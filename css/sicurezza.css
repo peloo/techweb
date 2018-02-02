@@ -1,0 +1,42 @@
+#sec:hover, #sec:focus, #sec:active, #sec a:hover, #sec a:focus, #sec a:active{
+    background-color: #303841;
+}
+
+#security{
+	margin:2em;
+	text-align: center;
+}
+
+#security h2, h3{
+	font-family: 'Vollkorn', serif;
+	color:#D72323;
+	text-transform: uppercase;
+}
+#security a{
+    font-family: "Allerta Stencil", Sans-serif;
+}
+
+#genere, #stomaco, #peso{
+	padding-top: 0.5em;
+}
+
+#peso{
+	padding-bottom: 0.5em;
+}
+
+#risultato_2{
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	list-style-type: none;
+	border:1px solid black;
+	max-width: 25em;
+}
+
+#articoli{
+	background-color: #D72323;
+	color:white;
+	padding: 1em;
+	border-radius: 5px;
+	text-decoration: none;
+}

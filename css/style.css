@@ -1,0 +1,360 @@
+/*SEZIONE GENERALE*/
+*{
+	/*valori di default, reseting*/
+	padding: 0em;	
+	margin: 0em;
+}
+html, body{
+	/*vado a impostare la dimensione massima della pagian html, setto a 1024 pixels perche' e' una dimensione standard*/
+	max-width: 1024px;		
+	margin: auto;
+	font-family: Verdana, Arial, Helvetica, sans-serif;								
+}
+body{
+	background-color: #D72323;
+	border: 1px solid #000000;	/*bordo*/
+}
+
+/*solo per la versione mobile*/
+@media only screen and (max-device-width: 480px){
+	html, body{
+	font-size: 1.4em;
+	}
+}
+
+/*per le varie larghezze dello schermo*/
+@media screen and (max-width: 640px){
+	#art{display: none;}
+}
+
+@media screen and (max-width: 790px){
+	#sec{display:none;}
+}
+
+@media screen and (max-width: 945px){
+	#args{display: none;}
+}
+
+/* ------------- w3school css style ------------- */
+
+/* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
+
+/*margin - border - padding - contenuto*/
+/* header */
+#header{
+	background-color: white;
+	min-height: 8em;
+}
+
+#logo{
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+/* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
+
+/*margin - border - padding - contenuto*/
+/* general */
+.nav {
+	color: white;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.nav a{
+    display: block;
+    text-align: center;
+    padding: 0.9em 1em;
+    text-decoration: none;
+    float: left;
+}
+.nav a:hover, .nav a:focus, .nav a:active, .link:hover, .link:focus, .link:active{
+    background-color: #D72323;
+    color: white;
+}
+
+/*breadcrumb*/
+
+#hamburger, #cross{display: none;}
+
+#breadcrumb{
+	z-index: 1;
+	position: sticky;
+	top: 0;
+    font-family: "Allerta Stencil", Sans-serif;
+	background-color: #303841;
+	border-bottom: 1px solid #000000;	
+	border-top: 1px solid #000000;		
+	padding-top: 0.4em;
+	padding-right: 0.4em;
+	height: 3.75em;
+}
+
+.nav .link {
+	width: 10em;
+	float: left;
+	margin-top: -100em;/*fondamentale*/
+}
+
+#breadcrumb #dropdown-content{
+    background-color: #f9f9f9;
+    box-shadow: 0em 0.5em 1em 0em rgba(0,0,0,0.2);
+    z-index: 1;
+	float:left;
+}
+
+#breadcrumb #dropdown-content li{
+	float: left;
+}
+
+#breadcrumb #dropdown-content > li{
+	float: none;
+}
+
+#breadcrumb #dropdown-content a{
+	margin-right: -0.1em;
+	color: black;
+    text-align: left;
+    width: 10em;
+}
+
+#breadcrumb .nav a.main{
+	margin-top: 100em;/*fondamentale*/
+	margin-right: -8.9em;
+	width: 9em;
+}
+
+#breadcrumb .nav a.main:hover, #breadcrumb .nav a.main:focus, #breadcrumb .nav a.main:active{
+	margin-right: 0;
+}
+
+#breadcrumb #dropdown-content a:hover, #breadcrumb #dropdown-content a:focus, #breadcrumb #dropdown-content a:active {
+	margin:0;
+	background-color: #DCDCDC;
+	color: black;
+}
+
+/*empty rule to fix occassional IE6 tabbing bug, one of the weirdest bug's i have seen.*/
+a, a:hover, a:active, a:focus {}
+/*Opera fix*/
+#dropdown-content:hover {
+    clear:both;
+}
+
+#div_search{
+	float: right;
+	margin-left: auto;
+}
+
+#text_search{
+	border-radius: 5px;
+	border: 1px solid #323232;
+	padding-left: 1em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+#button_search{
+	border-radius: 5px;
+	background-color: #D72323;
+    border: none;
+    color: white;
+    padding: 0.7em 1.3em;
+    cursor: pointer;
+    margin-left: 0.5em;
+    margin-right: 0.4em; 
+}
+#search_bar input[type="button"]:hover{
+    background-color:darkred;
+}
+
+#acc{display: none;}
+/* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
+
+#content_menu{
+	background-color: white;
+	width: 100%;
+}
+
+/* MENU */
+#menu{
+	font-family: "Allerta Stencil", Sans-serif;
+	width: 28.5%;
+	background-color: white;
+	padding-right: 1%;
+	padding-bottom: 2em;
+	float: left;
+	overflow: hidden;
+	position: sticky;
+	top:0;
+}
+#location{
+	text-align: center;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+.location1{
+	text-align: center;
+	color: white;
+}
+
+.text_form{
+	border-radius: 5px;
+	border: 1px solid #bbbbbb;
+	margin: 1em 0 0.5em 12%;
+	padding: 0.3em 0em 0.3em 1em;
+	width: 80%;
+}
+#info_form{
+	margin: 1em 0em 0.2em 2em;
+}
+#form{
+	border: 1px solid #000000;
+	margin-top: 0.5em;
+	padding-bottom: 1em;
+	margin-left: 4%;
+	border-radius: 6px;
+}
+#form2{
+	border: 1px solid #000000;
+	background-color: #EEEEEE;
+	margin-top: 10%;
+	margin-left: 4%;
+	border-radius: 6px;
+}
+#form2 ul{
+	color: black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#form2 p{
+	word-wrap:break-word;
+}
+.form3{
+	background-color: #3A4750;
+	border-bottom: 1px solid #000000;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+#id_button_form{
+	text-align: center;
+}
+#id_button_form input[type="submit"]:hover{
+    background-color:#FF0000;
+}
+#id_button_form input[type="button"]:hover{
+    background-color:#FFB400;
+}
+
+#id_button_scrivi_esci{
+	text-align: center;
+}
+#id_button_scrivi_esci input[type="submit"]:hover{
+    background-color:#FF0000;
+}
+#id_button_scrivi_esci input[type="button"]:hover{
+    background-color:#008000;
+}
+
+#button_form_accedi {
+	border-radius: 5px;
+    background-color: #D72323;
+    border: none;
+    color: white;
+    padding: 0.7em 1.2em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+#button_form_registrati {
+	border-radius: 5px;
+    background-color: #FFCE00;
+    border: none;
+    padding: 0.7em 1.2em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+#button_scrivi_articolo {
+	color: white;
+	border-radius: 5px;
+    background-color: #28a745;
+    border: none;
+    padding: 0.7em 1.2em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+ 
+/* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
+
+/* CONTENT */
+#content{
+	font-family: 'Vollkorn', serif;
+	border-left: 1px solid #000000;
+	background-color: white;
+	width: 71.5%;
+	min-height: 60em;
+	margin-left: 28.5%;
+	overflow: hidden;
+}
+
+#contenitore_l{
+	padding-top: 2em;
+	float: left;
+	width: 45%;
+	margin-left: 1em;
+}
+
+#contenitore_r{
+	padding-top: 2em;
+	float: right;
+	width: 45%;
+	margin-right: 1em;
+}
+
+.form_articolo img{
+	display: block;
+	width: 100%;
+}
+
+.form_artiolo_titolo{
+	background-color: #3A4750;
+	border-bottom: 1px solid #000000;
+	padding: 0.5em;
+}
+
+.form_articolo{
+	min-height: 10em;
+	margin-top: 1em;
+	border-radius: 6px;
+	margin-bottom: 1em;
+}
+
+.form_articolo p{
+	padding: 0.5em;
+}
+
+.form_articolo_footer{
+	padding-top: 0.2em;
+	padding-bottom: 0.2em; 
+	padding-left: 0.5em;
+	border-top: 1px solid #000000;
+	text-align: left;
+	background-color: #EEEEEE;
+}
+
+/* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
+
+/* FOOTER */
+#footer{
+	font-family: "Allerta Stencil", Sans-serif;
+	background-color: #303841;
+	border-top: 1px solid #000000;	/*bordo*/
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-left: 1em;
+}

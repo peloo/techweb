@@ -1,0 +1,9 @@
+input[type='radio'] { transform: scale(2.3); }
+
+h3{ transform: scale(2); }
+
+h2{ transform: scale(1.1); }
+
+option{
+	font-size: 0.4em;
+}
