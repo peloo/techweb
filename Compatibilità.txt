@@ -1,1 +1,0 @@
-La funzione find() in Sicurezza è supportata solo da IE 11
