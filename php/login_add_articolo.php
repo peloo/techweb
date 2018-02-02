@@ -112,7 +112,7 @@
 				<div id="form_add_articolo">
 				<form name="" action="add_articolo.php" method="post" onsubmit="return checkForm()">
 					<br><br>
-                    Email:<input type="hidden" name="email"> <?php echo $_SESSION['email']; ?></input><br><br>
+                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
                     
                     <label for="titolo">Titolo del articolo:</label><br>
                     <textarea rows="1" cols="50" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
@@ -120,8 +120,16 @@
                     <label for="contenuto">Contenuto del articolo:</label><br>
                     <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
-                	<label for="data">Data del articolo:</label><br>
-                    <input name="data" type="date"><br><br>
+                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p>
+                	<input type="hidden" name="data" id="data_corrente2" value=""/>
+					<script>
+						var d = new Date();
+					    var day = d.getDate();
+					  	var month = d.getMonth()+1;
+					  	var year = d.getFullYear();
+					    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
+					    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
+					</script>
                     <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
             	</form>
             	</div>

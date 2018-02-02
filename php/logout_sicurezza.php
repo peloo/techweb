@@ -1,7 +1,19 @@
 <?php
 	session_start();
-	if (isset($_SESSION['email']) && isset($_SESSION['password']))
- 		header('Location: ../php/login_sicurezza.php');
+	if (isset($_SESSION['email']) && isset($_SESSION['password'])){
+
+		require_once 'dbconnection.php';
+        $dbaccess = new dbconnection();
+        $opendDBConnection = $dbaccess->opendDBConnection();
+        if($opendDBConnection == true){
+            $con = $dbaccess->getConnessione();
+         	$conLog = $dbaccess->canLog($_SESSION['email'],$_SESSION['password']);
+            if($conLog == true){
+                header('Location: ../php/login_sicurezza.php');
+                mysqli_close($con);
+            }
+        }
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
