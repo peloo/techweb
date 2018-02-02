@@ -1,7 +1,19 @@
 <?php
 	session_start();
-	if (isset($_SESSION['email']) && isset($_SESSION['password']))
- 		header('Location: ../php/login_weare.php');
+	if (isset($_SESSION['email']) && isset($_SESSION['password'])){
+
+		require_once 'dbconnection.php';
+        $dbaccess = new dbconnection();
+        $opendDBConnection = $dbaccess->opendDBConnection();
+        if($opendDBConnection == true){
+            $con = $dbaccess->getConnessione();
+         	$conLog = $dbaccess->canLog($_SESSION['email'],$_SESSION['password']);
+            if($conLog == true){
+                header('Location: ../php/login_weare.php');
+                mysqli_close($con);
+            }
+        }
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml", lang="it">
@@ -57,7 +69,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../html/logout_sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>

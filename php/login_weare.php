@@ -51,7 +51,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../html/logout_sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
