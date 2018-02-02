@@ -209,7 +209,7 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
-				<li id="chisiamo"><a href="../php/loguot_weare.php">Chi Siamo</a></li>
+				<li id="chisiamo"><a href="../php/logout_weare.php">Chi Siamo</a></li>
 				<li id="contacts"><a href="#">Contatti</a></li>
 			</ul>
 		</div>
