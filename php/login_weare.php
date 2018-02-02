@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml", lang="it">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
@@ -51,7 +52,7 @@
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../html/logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -94,7 +95,7 @@
 						<p class="location1" class="w3-large">Tag Frequenti</p>
 					</div>
 
-					<p>
+					
 						<ul class="nav">
 						  <li><a href="#">Abarth</a></li>
 						  <li><a href="#">Acura</a></li>
@@ -104,7 +105,7 @@
 						  <li><a href="#">Martin</a></li>
 						  <li><a href="#">Audi</a></li>
 						</ul>			
-					</p>
+					
 				</div>
 			</div>
 
@@ -113,37 +114,34 @@
 			<div id="content">
 				<div id="weare">	
 					<div id="generalita_sito">
-						<h2>Il sito</h2>
+						<h2><b>IL SITO</b></h2>
 						<p> Nato come progetto per il corso "Tecnologie Web 17-18" questo sito ha lo scopo di essere un punto di riferimento per gli automobilisti, fornendo articoli sulle ultime novit&agrave; in campo automobilistico e sulla sicurezza stradale.</p>
 					</div>
 					
 					<div id="respons">
-						<h2>Responsabili</h2>
+						<h2><b>RESPONSABILI</b></h2>
 						<div id="mat">
-							<h3>PELO </h3>
+							<h3>Matteo Pellanda </h3>
 							<img id="pelo" src="../images/pelo.jpg">
-							<p> Matteo Pellanda meglio conosciuto come "Pelo" o "Picci", &egrave; il responsabile della parte PHP, Database e della homepage: insomma della parte noiosa<br/>
-		                    Siccome non so cosa scrivere, inizier&ograve; a scrivere cose a caso per riempire un po' lo spazio senza dover ricorrere al lorem ipsum perch&egrave; sono di mente superiore rispetto al web designe medio: Tastiera meccanica, snowboard, DOGEN, Mokey mouse</p>
+							<p> Matteo Pellanda &egrave; il responsabile della parte PHP, Database e della homepage<br/>
+		                    </p>
 						</div>
 						
 		                <div id="doge">
-							<h3>DOGE(N)</h3>
+                            <h3>Enrico Trinco</h3>
 							<img id="dog" src="../images/doge.jpg">
-							<p> Enrico "DogeN" Trinco, l'elemento del gruppo che mostra curiosit&agrave; ma non si applica. I suoi compiti sarebbero la creazione di pagine html e file Javascript ma in realt&agrave; il suo scopo &egrave; la creazione e promozione dello stato "Doggonalia" <br/>
-		                    Si distingue dagli altri doge (oltre che per la N finale) dal fatto che vuole diventare un pro di Quake ma con risultati scarsi. Nonostante ci&ograve; meriterebbe lo stesso un bel biscotto di consolazione</p>
+							<p> Enrico Trinco, l'elemento del gruppo che mostra curiosit&agrave; ma non si applica. Responsabile delle pagine "Chi Siamo", "Contattaci", "Log-in" del Javascript </p>
 						</div>
 		                
 						<div id="nico">
-							<h3>ZAR NIKOLA </h3>
+							<h3>Nicola Carlesso </h3>
 							<img id="nic" src="../images/nico.jpg">
-							<p> Nicola Carlesso &egrave; un'ex zar della Russia degli anni d'oro. Subito dopo le sue dimissioni a causa di un colpo di stato ha dichiarato vendetta alla russia e ha deciso di unirsi al gruppo italiano per far vedere che non &egrave; lui ad aver bisgono della Russia, ma &egrave; lei ad aver bisogno di lui. <br/>
-							La sua vendetta &egrave; pianificata a colpi di CSS, HTML e sicurezza che scuole guida levatevi proprio che noi abbiamo lo zar di Ruzzia!</p>
-						</div>
+                            <p> Nicola Carlesso. Responsabile del CSS desktop, mobile, stampa e della parte di sicurezza e relativo Javascrip.</p>	
+                        </div>
 						
 					</div>
 				</div>
 			</div>
-		</div>
 
 		<!-- -------------------------------------------------------------------------- -->
 
