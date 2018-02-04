@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/add_articolo.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/contattaci.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
@@ -15,7 +15,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Nome pagina - Autosecurity</title>
+		<title>Contattaci - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -61,30 +61,25 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">
-					Benvenuto: 
-					<?php
-						session_start();
-						require_once 'dbconnection.php';
-						$dbaccess = new dbconnection();
-						$opendDBConnection = $dbaccess->opendDBConnection();
-						if($opendDBConnection == true){
-							$dati = $dbaccess->getDatiUser($_SESSION['email']);
-							if($dati != false){
-								$row = mysqli_fetch_array($dati);
-								echo $row['username'];
-							}
-							else
-								echo "Ops! Qualcosa e' andato storto";
-						}
-					?>
-				</p>
+				<p id="location" class="w3-large">Ti trovi in: Sicurezza</p>
 
-				<form action="uscita.php" method="post">
-					<p id="id_button_scrivi_esci">
-						<input type="submit" id="button_form_accedi" name="submit" value="Esci"/>
-					</p>		
-				</form>
+				<div id="form">
+					<form action="../php/accesso.php" method="post">
+						<div class="form3">
+							<p class="location1" class="w3-large">Accesso</p>
+						</div>
+					
+						<!-- <p id="info_form">E-mail:</p> -->
+						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
+						<!-- <p id="info_form">Password:</p> -->
+						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
+						<br/>
+						<p id="id_button_form">
+							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
+							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='../html/iscrizione.html'" />
+						</p>
+					</form>
+				</div>
 
 				<div id="form2">
 
@@ -92,7 +87,6 @@
 						<p class="location1" class="w3-large">Tag Frequenti</p>
 					</div>
 
-					<p>
 						<ul class="nav">
 						  <li><a href="#">Abarth</a></li>
 						  <li><a href="#">Acura</a></li>
@@ -102,40 +96,39 @@
 						  <li><a href="#">Martin</a></li>
 						  <li><a href="#">Audi</a></li>
 						</ul>			
-					</p>
+					
 				</div>
 			</div>
 
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="form_add_articolo">
-				<form action="add_articolo.php" method="post" enctype="multipart/form-data">
-					<br><br>
-                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
+				<div id="contattaci">
+                    <h2> Contattaci </h2>
+                    <p> Hai riscontrato problemi con il sito oppure vuoi metterti in contatto con uno dei responsabili? Inviaci un'email ed uno di loro ti risponderà il prima possibile</p>
+				
+                    <form id="invia_email" name="invia_email" action="" method="post" onsubmit="">
+					<br>
+                    <label for="email">Email:</label><br>
+                    <textarea rows="1" cols="50" name="email" placeholder="inserisci qui l'email"></textarea><br><br>
                     
-                    <label for="titolo">Titolo del articolo:</label><br>
-                    <textarea rows="1" cols="50" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
+                    <label for="oggetto">Oggetto:</label><br>
+                    <textarea rows="1" cols="50" name="oggetto" placeholder="inserisci qui l'oggetto"></textarea><br><br>
 
-                    <label for="contenuto">Contenuto del articolo:</label><br>
-                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
+                    <label for="contenuto">Contenuto dell'email:</label><br>
+                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto dell'email"></textarea><br><br>
 
-                	<p>
-                		<label>Data corrente del articolo: </label><label id="data_corrente"></label>  
-                		<input type="file" name="myimage">
-                	</p>
-                	<input type="hidden" name="data" id="data_corrente2" value=""/>
-					<script>
-						var d = new Date();
-					    var day = d.getDate();
-					  	var month = d.getMonth()+1;
-					  	var year = d.getFullYear();
-					    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
-					    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
-					</script>
-                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
-            	</form>
-            	</div>
+                    <input type="submit" name="invia" id="invia" value="Scrivi">
+            	</form><br><br>
+                    
+                    <p>In alternativa, se preferisci scrivere ad un specifico responsabile puoi contattarlo ad una delle seguenti email: </p><br>
+                <ul>
+                    <li>Matteo: pellandamatteo@autosecurity.it</li>
+                    <li>Nicola: carlessonicola@autosecurity.it</li>
+                    <li>Enrico: trincoenrico@autosecurity.it</li>
+                </ul>
+                    
+            	</div>    
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->

@@ -24,12 +24,12 @@
                 $var_email = addslashes($var_email);
                 $var_passw = addslashes($var_passw);    
                 $var_passw = md5($var_passw);
-                /*-----------------------------------------------*/
-                $_SESSION['email']=$var_email;
-                $_SESSION['password']=$var_passw;
+                
                 /*-----------------------------------------------*/
                 $conLog = $dbaccess->canLog($var_email,$var_passw);
                 if($conLog == true){
+                    $_SESSION['email']=$var_email;
+                    $_SESSION['password']=$var_passw;
                     header('Location: ../php/login_index.php');
                     mysqli_close($con);
                 }

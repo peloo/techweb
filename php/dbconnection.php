@@ -7,17 +7,15 @@
 		public $connessione;
 
 		public function opendDBConnection(){
-			// restituisce un oggetto connessione che servira' per fare le query 
-			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
-			if(!$this->connessione)
-				return false;
-			else
-				return true; 
-			}
-
-		public function getConnessione(){
-				return $this->connessione;
+		// restituisce un oggetto connessione che servira' per fare le query 
+		$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+		if(!$this->connessione)
+			return false;
+		else
+			return true; 
 		}
+
+		public function getConnessione(){ return $this->connessione; }
 
 		public function runQuery($query){
 			$result = mysqli_query($this->connessione,$query);
@@ -52,20 +50,26 @@
 	        	return false;
 		}
 
-		public function getArticolo($mail, $titolo, $contenuto, $data, $imgContent){
-
-			
-	        $result = mysqli_query($this->connessione,"INSERT INTO media(foto) VALUES ('$imgContent')");
-	        if(!$result)
-	        	echo "File upload failed, please try again.";
-		    
-
-
+		public function getArticolo($mail, $titolo, $contenuto, $data){
 			$result = mysqli_query($this->connessione,"INSERT INTO articolo(mail,titolo,contenuto,data) VALUES ('$mail','$titolo','$contenuto','$data')");
 	        if($result) 
 	        	return true;
 	        else
 	        	return false;
+		}
+
+		public function add_image($img){
+			$insert_image="INSERT INTO media(link,foto,foto_video) VALUES (NULL,'$img',0)";
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+			if($this->connessione){
+				$result = mysqli_query($this->connessione, $insert_image);
+				if($result) 
+		        	return true;
+		        else
+		        	return false;
+			}
+			else
+				return false;
 		}
 
 		public function isArticoloAlreadyRegistered($mail, $titolo){

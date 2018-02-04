@@ -28,17 +28,26 @@
 		        $var_data = addslashes($var_data);
 // --------------------------------------------------------------------------------------------------------------------------------
 
-		        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+		        $check = getimagesize($_FILES["myimage"]["tmp_name"]);
 		    	if($check){
-			        $image = $_FILES['fileToUpload']['tmp_name'];
-			        $imgContent = addslashes(file_get_contents($image));
 
+		    		//--------------------------------------------------------
+					//Get the content of the image and then add slashes to it 
+					$imagename=$_FILES["myimage"]["name"];
+					$imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
 			        $chek = $dbaccess->isArticoloAlreadyRegistered($var_email, $var_titolo);
+					//--------------------------------------------------------
 
 		            if($chek == true)
 		            { echo "Questo articolo: ".$var_titolo." e' gia' registrato"; }
 		            else{
-		            	$chek = $dbaccess->getArticolo($var_email,$var_titolo,$var_contenuto,$var_data,$imgContent);
+
+		            	$chek = $dbaccess->add_image($imagetmp);
+				        if(!$chek)
+				        	echo "File upload failed, please try again.";
+
+
+		            	$chek = $dbaccess->getArticolo($var_email,$var_titolo,$var_contenuto,$var_data);
 		                if($chek == true)
 		                	echo "Registrato!";
 		            	else
