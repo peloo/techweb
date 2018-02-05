@@ -1,5 +1,5 @@
 #form_add_articolo {
-	margin-left: 27%;
+	margin-left: 20%;
     font-family: 'Vollkorn', serif;
 }
 
@@ -14,6 +14,32 @@
     cursor: pointer;
 }
 
-#button_form_scrivi input[type="submit"]:hover{
+#i_miei_articoli{
+    font-family: "Allerta Stencil", Sans-serif;
+    border-radius: 5px;
+    background-color: #FFCE00;
+    border: none;
+    padding: 0.7em 1.2em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+#scrivi_i_miei_articoli{
+    margin-top: 1em;
+    margin-left: 16%;
+}
+
+#button_form_scrivi:hover{
     background-color:#008000;
+}
+
+#i_miei_articoli:hover{
+    background-color:#FFB400;
+}
+
+textarea {
+    padding:0.5% 2%;
+    margin-top:1%;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
 }

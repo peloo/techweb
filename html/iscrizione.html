@@ -104,7 +104,7 @@
                      <br>
 				           <input type="text" name="nickname" id="text_form" placeholder="Nickname">
                      <br>
-                	<input type="submit" name="submit" id="button_form_accedi" value="Iscriviti" onclick="return ValidateEmail(document.form_iscrizione.email)">
+                	<input type="submit" name="submit" id="button_form_accedi" value="Iscriviti" onclick="return ControlloEmailNomeCognome(document.form_iscrizione.email, document.form_iscrizione.nome, document.form_iscrizione.cognome)">
 				</fieldset>
 
 				<fieldset id="field_accesso">

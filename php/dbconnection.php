@@ -111,6 +111,16 @@
 	        	return false;
 		}
 
+		public function getArticoliUtente($mail){
+			$result = mysqli_query($this->connessione,"SELECT * FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.mail = '$mail'  order by A.data DESC");
+	        mysqli_close($this->connessione);
+	        $num_rows = $result->num_rows;
+	        if($num_rows >= 1)
+	        	return $result;
+	        else
+	        	return false;
+		}
+
 		public function getDatiUser($mail){	
 			$result = mysqli_query($this->connessione,"SELECT * FROM utente WHERE mail = '$mail'");
 	        mysqli_close($this->connessione);

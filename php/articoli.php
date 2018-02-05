@@ -22,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Home - Autosecurity</title>
+		<title>Articoli - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
