@@ -61,7 +61,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">
+				<p id="location" class="w3-large">Ti trovi in: Home
 					Benvenuto: 
 					<?php
 						session_start();

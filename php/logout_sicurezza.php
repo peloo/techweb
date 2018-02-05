@@ -128,7 +128,7 @@
 			<div id="content">
 				<div id="security">
 					<h2><b>Perchè dovremmo fare sempre due calcoli prima di vover salire in auto?</b></h2>
-					<p>"Non ti preoccupare, qui gli autovelox non ci sono o non funzionano", "Questa sera non bevo, se trovo i carabinieri mentre torno a casa sono fregato". Spesso sono questi i pensieri che nascono quando vogliamo metterci alla guida sperando che durante il viaggio di non incappare in alcuna complicazione. L'obiettivo di questa pagina non è tanto quella di convincervi a guidare sotto i limiti o che guidare da ubriachi nuoce a te e a che sta con te in auto, ma solo quella di rendervi un po' consapevoli di cosa comporta premere l'acceleratore in certe situazioni. Uno degli scopi di questo sito, Autosecurity, è appunto quello di rendere l'autista una persona, appunto, più Autonoma e consapevole in campo di sicurezza autostradale. Se siete interessati buon viaggio!</p><br/>
+					<p>"Non ti preoccupare, qui gli autovelox non ci sono o non funzionano", "Questa sera non bevo, se trovo i carabinieri mentre torno a casa sono fregato". Spesso sono questi i pensieri che nascono quando vogliamo metterci alla guida sperando durante il viaggio di non incappare in alcuna complicazione. L'obiettivo di questa pagina non è tanto quella di convincervi a guidare sotto i limiti o che guidare da ubriachi nuoce a te e a che sta con te in auto, ma solo quella di rendervi un po' consapevoli di cosa comporta premere l'acceleratore in certe situazioni. Uno degli scopi di questo sito, Autosecurity, è appunto quello di rendere l'autista una persona, appunto, più Autonoma e consapevole in campo di sicurezza autostradale. Se siete interessati buon viaggio!</p><br/>
 
 					<h3>Lo spazio di frenata:</h3>
 					<p>Farsi un'idea dello spazio di arresto è decisamente importante per non incappare in uno sconveniente e, può purtroppo accadere, pericoloso incidente. Vi forniamo dunque uno strumento per darvi un'idea di quale dovrebbe essere lo spazio di arresto della vostra auto ad una data velocità, con una data condizione del manto stradale e con una data grado di condizione che l'autista assume. Si presuppone che i freni del veicolo siano perfettamente funzionanti. Ricordiamo che lo spazio di arresto è dato dallo spazio di frenata più lo spazio di reazione.</p><br/>
@@ -157,21 +157,21 @@
 
 					<h3>Limite alcolico:</h3>
 					<p>Vi mettiamo ora a disposizione ora uno strumento per capire se dopo aver bevuto una certa quantità di alcolici sarete ancora nella possibilità, legale e cognitiva, di poter guidare. Ricordate che il limite di alcol nel sangue è di 0.5 g/l, e per i neo-patentati (cioè per coloro che hanno la patente da meno di tre anni) è di 0 g/l.</p><br/>
-					<div id="alcol">
+					<form id="alcol" method="post">
 						<p>Indicare il sesso, se si è a stomaco pieno o vuoto, ed il proprio peso</p>
-						<form id="genere">Sesso:
+						<div id="genere">Sesso:
 							<input type="radio" name="gender" id="male" value="uomo">
 							<label for="male">Uomo</label>
 							<input type="radio" name="gender" id="female" value="donna">
 							<label for="female">Donna</label>
-						</form>
-						<form id="stomaco">Stomaco:
+						</div>
+						<div id="stomaco">Stomaco:
 							<input type="radio" name="stomach" id="full" value="pieno">
 							<label for="full">Pieno</label>
 							<input type="radio" name="stomach" id="empty" value="vuoto">
 							<label for="empty">Vuoto</label>
-						</form>
-						<form id="peso">Peso:
+						</div>
+						<div id="peso">Peso:
 							<input type="radio" name="weight" id="weight45" value="45">
 							<label for="weight45">45 Kg</label>
 							<input type="radio" name="weight" id="weight55" value="55">
@@ -184,9 +184,9 @@
 							<label for="weight75">75 Kg</label>
 							<input type="radio" name="weight" id="weight85" value="80">
 							<label for="weight85">80 Kg</label>
-						</form>
+						</div>
 						<p>Indicare le bevande assunte (è presente il loro grado alcolico)</p>
-						<select id="bevanda">
+						<select id="bevanda" name="bevanda">
 							<option value="birra_analcolica">Birra analcolica, 0.5%</option>
 							<option value="birra_leggera">Birra leggera, 3.5%</option>
 							<option value="birra_normale">Birra normale, 5%</option>
@@ -203,12 +203,40 @@
 							<option value="ready_to_drink_1">Ready to drink, 2.8%</option>
 							<option value="ready_to_drink_2">Ready to drink, 5%</option>
 						</select>
-						<button id="add" onclick="aggiungi_bevanda()">Aggiungi</button>
+						<input id="add" type="button" name="submit" onclick="aggiungi_bevanda()" value="Aggiungi">
 						<ul id="risultato_2"></ul>
 						<p id="risultato_3"></p>
-					</div><br/>
+					</form><br/>
 
 					<a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
+
+					<?php
+						if ($_SERVER["REQUEST_METHOD"] == "POST") {
+							$sesso=$_POST['gender'];
+							$stomaco=$_POST['stomach'];								
+							$peso=$_POST['weight'];
+							$bevanda=$_POST['bevanda'];
+							$table="";
+							if($sesso=="uomo"){
+								if($stomaco=="pieno")
+									$table="uomini_s_pieno";
+								else
+									$table="uomini_s_vuoto";
+							}
+							else{
+								if($stomaco=="pieno")
+									$table="donne_s_pieno";
+								else
+									$table="donne_s_vuoto";
+							}
+							if($table!=""){
+								$sql="SELECT ".$peso." FROM ".$table." WHERE bevanda=".$bevanda;
+								$result=$dbaccess->runQuery($sql);
+								echo "<p id=risultato_alcol>$result</p>";
+							}
+						}
+					?>
+
 				</div>
 			</div>
 		</div>

@@ -121,34 +121,17 @@ function aggiungi_bevanda(){
 	document.getElementById("demo").innerHTML=str;*/
  
  	aggiungi_nodo(drink, beva.innerHTML);
-	tot=tot+grado(drink);
+	tot=tot+grado();
 	scrivi_ris(tot);
 
 	n_nodo=n_nodo+1;
 }
 
-function grado(drink){
+function grado(){
 	var aggiunta=0;
-	var wieght=drink.peso; 
-	var alcohol=drink.bevanda; 
-	//interroga il database per aggiornare il campo tot 
-	if(drink.sesso=="uomo"){ 
-		if(drink.stomaco=="pieno"){ 
-
-		} 
-		else{ 
-
-		} 
-	} 
-	else{ 
-		if(drink.stomaco=="pieno"){ 
-
-		} 
-		else{ 
-
-		} 
-	} 
-
+	var agg=getElementById("risultato_alcol");
+	if(agg==undefined)
+		aggiunta=agg.innerHTML;
 	return aggiunta;
 }
 
