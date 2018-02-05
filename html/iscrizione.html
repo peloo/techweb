@@ -43,7 +43,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="../php/index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="../php/articoli.php">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -53,7 +53,7 @@
 						<li><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="logout_sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -104,7 +104,7 @@
                      <br>
 				           <input type="text" name="nickname" id="text_form" placeholder="Nickname">
                      <br>
-                	<input type="submit" name="submit" id="button_form_accedi" value="Iscriviti">
+                	<input type="submit" name="submit" id="button_form_accedi" value="Iscriviti" onclick="return ValidateEmail(document.form_iscrizione.email)">
 				</fieldset>
 
 				<fieldset id="field_accesso">
@@ -133,8 +133,8 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
-				<li><a href="../php/weare.php">Chi Siamo</a></li>
-				<li><a href="../html/contattaci.html">Contatti</a></li>
+				<li><a href="logout_weare.php">Chi Siamo</a></li>
+				<li><a href="#">Contatti</a></li>
 			</ul>		
 		</div>
 

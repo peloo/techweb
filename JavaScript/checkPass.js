@@ -28,6 +28,9 @@ function checkPass()
     }
 }  
 
+
+
+
 function checkForm(){
     var email = document.forms["form_iscrizione"]["email"].value;
     var pass1 = document.forms["form_iscrizione"]["password"].value;
@@ -39,8 +42,29 @@ function checkForm(){
         alert('Devi compilare tutti i campi!');
         return false;
     }
+        
+    
     if((pass1 !== pass2)){
         alert("Le passwords non coincidono!");
         return false;
     }   
+    
 }
+
+
+function ValidateEmail(inputText)
+    {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(inputText.value.match(mailformat))
+        {
+            document.form_iscrizione.email.focus();
+            return true;
+        }
+        else
+        {
+            alert("L'email inserita non è scritta nel formato corretto");
+            document.form_iscrizione.email.focus();
+            return false;
+        }
+    }
+
