@@ -44,7 +44,9 @@
  
 #risultato_2 button{ 
   margin-left: 1em; 
-} 
+}
+
+#risultato_alcol{display:none;}
 
 #articoli{
 	background-color: #D72323;

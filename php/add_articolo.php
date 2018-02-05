@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
 			        $chek = $dbaccess->isArticoloAlreadyRegistered($var_email, $var_titolo);
 					//--------------------------------------------------------
 
-		            if($chek == true)
+		            if($chek === true)
 		            { echo "Questo articolo: ".$var_titolo." e' gia' registrato"; }
 		            else{
 
@@ -58,9 +59,6 @@
 		    	}
 		    	else
 		    		echo "Non caricato";
-
-
-		        
 	        }
 		}
 	?>

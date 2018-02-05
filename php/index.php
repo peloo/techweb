@@ -1,19 +1,5 @@
 <?php
-	session_start();
-	if (isset($_SESSION['email']) && isset($_SESSION['password'])){
-
-		require_once 'dbconnection.php';
-        $dbaccess = new dbconnection();
-        $opendDBConnection = $dbaccess->opendDBConnection();
-        if($opendDBConnection == true){
-            $con = $dbaccess->getConnessione();
-         	$conLog = $dbaccess->canLog($_SESSION['email'],$_SESSION['password']);
-            if($conLog == true){
-                header('Location: ../php/login_index.php');
-                mysqli_close($con);
-            }
-        }
-	}
+require_once "ceck_sessione.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
@@ -82,24 +68,48 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Home</p>
+				<p id="location" class="w3-large">Ti trovi in: Home</br>
 
 				<div id="form">
-					<form action="accesso.php" method="post">
-						<div class="form3">
-							<p class="location1" class="w3-large">Accesso</p>
-						</div>
-					
-						<!-- <p id="info_form">E-mail:</p> -->
-						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
-						<!-- <p id="info_form">Password:</p> -->
-						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
-						<br/>
-						<p id="id_button_form">
-							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
-							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='../html/iscrizione.html'" />
-						</p>
-					</form>
+					<?php
+						if($login == true){
+							echo "Benvenuto:";
+							if($opendDBConnection == true){
+								$dati = $dbaccess->getDatiUser($_SESSION['email']);
+								if($dati != false){
+									$row = mysqli_fetch_array($dati);
+									echo $row['username'];
+
+									echo '<form action="uscita.php" method="post">
+										<p id="id_button_scrivi_esci">
+											<input type="button" id="button_scrivi_articolo" value="Scrivi articolo" onclick="window.location.href=' ."'" ."../php/login_add_articolo.php" ."'" .'"' .' method="post"/>
+											<input type="submit" id="button_form_accedi" name="submit" value="Esci"/>
+										</p>		
+									</form>';
+								}
+								else
+									echo "Ops! Qualcosa e' andato storto";
+							}
+							echo "</p>";
+						}
+						else{
+							echo '<form action="accesso.php" method="post">
+								<div class="form3">
+									<p class="location1" class="w3-large">Accesso</p>
+								</div>
+							
+								<!-- <p id="info_form">E-mail:</p> -->
+								<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
+								<!-- <p id="info_form">Password:</p> -->
+								<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
+								<br/>
+								<p id="id_button_form">
+									<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
+									<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href=' ."'" ."../html/iscrizione.html" ."'" .'"' .'/>
+								</p>
+							</form>';
+						}
+					?>
 				</div>
 
 				<div id="form2">
