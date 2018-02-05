@@ -1,5 +1,5 @@
 <?php
-require_once "ceck_sessione.php";
+	require_once "ceck_sessione.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
@@ -48,7 +48,7 @@ require_once "ceck_sessione.php";
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -58,7 +58,7 @@ require_once "ceck_sessione.php";
 						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/logout_sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -68,47 +68,15 @@ require_once "ceck_sessione.php";
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Home</br>
+				<p id="location" class="w3-large">Ti trovi in: Home
+				<?php
+					require_once "ceck_benvenuto.php";
+				?>
+				</p>
 
-				<div id="form">
+				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
 					<?php
-						if($login == true){
-							echo "Benvenuto:";
-							if($opendDBConnection == true){
-								$dati = $dbaccess->getDatiUser($_SESSION['email']);
-								if($dati != false){
-									$row = mysqli_fetch_array($dati);
-									echo $row['username'];
-
-									echo '<form action="uscita.php" method="post">
-										<p id="id_button_scrivi_esci">
-											<input type="button" id="button_scrivi_articolo" value="Scrivi articolo" onclick="window.location.href=' ."'" ."../php/login_add_articolo.php" ."'" .'"' .' method="post"/>
-											<input type="submit" id="button_form_accedi" name="submit" value="Esci"/>
-										</p>		
-									</form>';
-								}
-								else
-									echo "Ops! Qualcosa e' andato storto";
-							}
-							echo "</p>";
-						}
-						else{
-							echo '<form action="accesso.php" method="post">
-								<div class="form3">
-									<p class="location1" class="w3-large">Accesso</p>
-								</div>
-							
-								<!-- <p id="info_form">E-mail:</p> -->
-								<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
-								<!-- <p id="info_form">Password:</p> -->
-								<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
-								<br/>
-								<p id="id_button_form">
-									<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
-									<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href=' ."'" ."../html/iscrizione.html" ."'" .'"' .'/>
-								</p>
-							</form>';
-						}
+						require_once "ceck_accesso.php";
 					?>
 				</div>
 

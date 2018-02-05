@@ -13,7 +13,6 @@
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
 		">
-		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -48,7 +47,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -103,29 +102,7 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="articoli">
-					<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-		                    $i = 0;
 
-		                    $visualizza = $dbaccess->getArticoliRecenti();
-		                    if($visualizza != false){
-		                    	foreach ($visualizza as $row){
-		                    		?>
-		                    			<a href="articolo.php">
-			                    			<div class="form_articolo">
-			                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
-			                					<img src= <?php echo $b64src;?> alt="Profilo" />
-												<h4 class="titolo" ><?php echo $row['titolo'];?></h4>
-											</div>
-										</a>
-		                    		<?php
-		                    	}
-		                    }
-		                ?>
-				</div>
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->
