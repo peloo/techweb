@@ -115,7 +115,7 @@
                     <form id="invia_email" name="invia_email" action="../php/contattaci.php" method="post">
 						<br>
 	                    <label for="email">Email:</label><br>
-	                    <input type="text" name="email" id="email" placeholder="inserisci qui la mail"></textarea><br><br>
+	                    <input type="text" name="email" id="email" placeholder="inserisci qui la mail"><br><br>
 	                    
 	                    <label for="oggetto">Oggetto:</label><br>
 	                    <textarea rows="1" cols="50" name="oggetto" placeholder="inserisci qui l'oggetto"></textarea><br><br>
