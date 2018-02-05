@@ -1,5 +1,5 @@
 <?php
-	require_once "ceck_sessione.php";
+	require_once "check_sessione.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
@@ -72,13 +72,13 @@
 				<!-- menu laterale -->
 				<p id="location" class="w3-large">Ti trovi in: Home
 				<?php
-					require_once "ceck_benvenuto.php";
+					require_once "check_benvenuto.php";
 				?>
 				</p>
 
 				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
 					<?php
-						require_once "ceck_accesso.php";
+						require_once "check_accesso.php";
 					?>
 				</div>
 
@@ -187,7 +187,7 @@
 						<p id="risultato_3"></p>
 					</div><br/>
 
-                    <a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
+					<a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
 				</div>
 			</div>
 		</div>
