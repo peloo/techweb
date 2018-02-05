@@ -128,6 +128,7 @@ CREATE TABLE `articolo_tag` (
   `nome` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 -- --------------------------------------------------------
 
 --
@@ -303,6 +304,23 @@ CREATE TABLE `tag` (
   `nome` varchar(255) NOT NULL,
   `descrizione` varchar(255) DEFAULT 'n/a descrizione'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `tag` (`nome`) VALUES
+('Audi'),
+('Alfa Romeo'),
+('BMW'),
+('Aston Martin'),
+('Mercedes'),
+('Fiat'),
+('Jeep'),
+('Renault'),
+('Citroën'),
+('Peugeot'),
+('KIA'),
+('Ferrari'),
+('Bugatti'),
+('Lamborghini'),
+('Lancia');
 
 -- --------------------------------------------------------
 

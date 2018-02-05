@@ -140,5 +140,15 @@
 	        else
 	        	return false;
 		}
+
+		public function getTag(){
+			$result = mysqli_query($this->connessione,"SELECT nome FROM tag order by nome");
+	        mysqli_close($this->connessione);
+	        $num_rows = $result->num_rows;
+	        if($num_rows >= 1)
+	        	return $result;
+	        else
+	        	return false;
+		}
 	}
 ?>
