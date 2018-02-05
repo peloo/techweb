@@ -68,7 +68,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Home
+				<p id="location" class="w3-large">Ti trovi in: Aggiungi articolo
 				<?php
 					require_once "check_benvenuto.php";
 				?>

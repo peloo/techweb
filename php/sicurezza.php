@@ -70,7 +70,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Home
+				<p id="location" class="w3-large">Ti trovi in: Sicurezza
 				<?php
 					require_once "check_benvenuto.php";
 				?>
@@ -94,8 +94,7 @@
 						  <li><a href="#">Acura</a></li>
 						  <li><a href="#">Alfa Romeo</a></li>
 						  <li><a href="#">Alpina</a></li>
-						  <li><a href="#">Aston</a></li>
-						  <li><a href="#">Martin</a></li>
+						  <li><a href="#">Aston Martin</a></li>
 						  <li><a href="#">Audi</a></li>
 						</ul>			
 					</p>
