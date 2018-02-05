@@ -1,19 +1,5 @@
 <?php
-	session_start();
-	if (isset($_SESSION['email']) && isset($_SESSION['password'])){
-
-		require_once 'dbconnection.php';
-        $dbaccess = new dbconnection();
-        $opendDBConnection = $dbaccess->opendDBConnection();
-        if($opendDBConnection == true){
-            $con = $dbaccess->getConnessione();
-         	$conLog = $dbaccess->canLog($_SESSION['email'],$_SESSION['password']);
-            if($conLog == true){
-                header('Location: ../php/login_sicurezza.php');
-                mysqli_close($con);
-            }
-        }
-	}
+	require_once "ceck_sessione.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
@@ -24,25 +10,26 @@
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
+		">
 		<link rel="stylesheet" type="text/css" href="../css/sicurezza.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/sicurezza_mobile.css" media="only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"> 
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
-		<link rel='shortcut icon' type='image/x-icon' href='../php/images/logo.ico' />
+		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
 		<script type="text/javascript" src="../JavaScript/alcohol.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Sicurezza - Autosecurity</title>
+		<title>Home - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
 			<!-- testa (logo) -->
-			<a href="../php/index.php"><img id="logo" src="../images/logo.png" alt="logo auto security"/></a>
+			<a href="index.php"><img id="logo" src="../images/logo.png" alt="logo auto security"/></a>
 		</div>
 
 		<!-- -------------------------------------------------------------------------- -->
@@ -62,15 +49,15 @@
 			</div>
 
 			<ul class="nav" role="menubar">
-			  <li id="home" class="link" role="menuitem"><a class="main" href="../php/index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li><a href="#">Alfa</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Fiat</a></li>
+						<li role="menuitem"><a href="#">Alfa</a></li>
+						<li role="menuitem"><a href="#">Audi</a></li>
+						<li role="menuitem"><a href="#">BMW</a></li>
+						<li role="menuitem"><a href="#">Fiat</a></li>
 					</ul>
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main">Sicurezza</a></li>
@@ -83,24 +70,16 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Sicurezza</p>
+				<p id="location" class="w3-large">Ti trovi in: Home
+				<?php
+					require_once "ceck_benvenuto.php";
+				?>
+				</p>
 
-				<div id="form">
-					<form action="../php/accesso.php" method="post">
-						<div class="form3">
-							<p class="location1" class="w3-large">Accesso</p>
-						</div>
-					
-						<!-- <p id="info_form">E-mail:</p> -->
-						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
-						<!-- <p id="info_form">Password:</p> -->
-						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
-						<br/>
-						<p id="id_button_form">
-							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
-							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='../html/iscrizione.html'" />
-						</p>
-					</form>
+				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
+					<?php
+						require_once "ceck_accesso.php";
+					?>
 				</div>
 
 				<div id="form2">
@@ -157,21 +136,21 @@
 
 					<h3>Limite alcolico:</h3>
 					<p>Vi mettiamo ora a disposizione ora uno strumento per capire se dopo aver bevuto una certa quantità di alcolici sarete ancora nella possibilità, legale e cognitiva, di poter guidare. Ricordate che il limite di alcol nel sangue è di 0.5 g/l, e per i neo-patentati (cioè per coloro che hanno la patente da meno di tre anni) è di 0 g/l.</p><br/>
-					<form id="alcol" method="post">
+					<div id="alcol">
 						<p>Indicare il sesso, se si è a stomaco pieno o vuoto, ed il proprio peso</p>
-						<div id="genere">Sesso:
+						<form id="genere">Sesso:
 							<input type="radio" name="gender" id="male" value="uomo">
 							<label for="male">Uomo</label>
 							<input type="radio" name="gender" id="female" value="donna">
 							<label for="female">Donna</label>
-						</div>
-						<div id="stomaco">Stomaco:
+						</form>
+						<form id="stomaco">Stomaco:
 							<input type="radio" name="stomach" id="full" value="pieno">
 							<label for="full">Pieno</label>
 							<input type="radio" name="stomach" id="empty" value="vuoto">
 							<label for="empty">Vuoto</label>
-						</div>
-						<div id="peso">Peso:
+						</form>
+						<form id="peso">Peso:
 							<input type="radio" name="weight" id="weight45" value="45">
 							<label for="weight45">45 Kg</label>
 							<input type="radio" name="weight" id="weight55" value="55">
@@ -184,9 +163,9 @@
 							<label for="weight75">75 Kg</label>
 							<input type="radio" name="weight" id="weight85" value="80">
 							<label for="weight85">80 Kg</label>
-						</div>
+						</form>
 						<p>Indicare le bevande assunte (è presente il loro grado alcolico)</p>
-						<select id="bevanda" name="bevanda">
+						<select id="bevanda">
 							<option value="birra_analcolica">Birra analcolica, 0.5%</option>
 							<option value="birra_leggera">Birra leggera, 3.5%</option>
 							<option value="birra_normale">Birra normale, 5%</option>
@@ -203,40 +182,12 @@
 							<option value="ready_to_drink_1">Ready to drink, 2.8%</option>
 							<option value="ready_to_drink_2">Ready to drink, 5%</option>
 						</select>
-						<input id="add" type="button" name="submit" onclick="aggiungi_bevanda()" value="Aggiungi">
+						<button id="add" onclick="aggiungi_bevanda()">Aggiungi</button>
 						<ul id="risultato_2"></ul>
 						<p id="risultato_3"></p>
-					</form><br/>
+					</div><br/>
 
 					<a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
-
-					<?php
-						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-							$sesso=$_POST['gender'];
-							$stomaco=$_POST['stomach'];								
-							$peso=$_POST['weight'];
-							$bevanda=$_POST['bevanda'];
-							$table="";
-							if($sesso=="uomo"){
-								if($stomaco=="pieno")
-									$table="uomini_s_pieno";
-								else
-									$table="uomini_s_vuoto";
-							}
-							else{
-								if($stomaco=="pieno")
-									$table="donne_s_pieno";
-								else
-									$table="donne_s_vuoto";
-							}
-							if($table!=""){
-								$sql="SELECT ".$peso." FROM ".$table." WHERE bevanda=".$bevanda;
-								$result=$dbaccess->runQuery($sql);
-								echo "<p id=risultato_alcol>$result</p>";
-							}
-						}
-					?>
-
 				</div>
 			</div>
 		</div>
@@ -248,21 +199,9 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
-				<li id="chisiamo"><a href="../php/logout_weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a href="#">Contatti</a></li>
+				<li id="chisiamo"><a href="weare.php">Chi Siamo</a></li>
+				<li id="contacts"><a href="../html/contattaci.html">Contatti</a></li>
 			</ul>
 		</div>
-
-
-
-		<script>
-		var input = document.getElementById("speed");
-		input.addEventListener("keyup", function(event) {
-		    event.preventDefault();
-		    if (event.keyCode === 13) {
-		        spazio_frenata();
-		    }
-		});
-		</script>
 	</body>
 </html>

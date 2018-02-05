@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
 		">
-		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
+		<link rel="stylesheet" type="text/css" href="../css/add_articolo.css" media="handheld, screen"/>
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -48,7 +48,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="#">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -103,29 +103,33 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="articoli">
-					<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-		                    $i = 0;
+				<div id="form_add_articolo">
+					<form action="add_articolo.php" method="post" enctype="multipart/form-data">
+						<br><br>
+	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
+	                    
+	                    <label for="titolo">Titolo del articolo:</label><br>
+	                    <textarea rows="1" cols="50" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
 
-		                    $visualizza = $dbaccess->getArticoliRecenti();
-		                    if($visualizza != false){
-		                    	foreach ($visualizza as $row){
-		                    		?>
-		                    			<a href="articolo.php">
-			                    			<div class="form_articolo">
-			                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
-			                					<img src= <?php echo $b64src;?> alt="Profilo" />
-												<h4 class="titolo" ><?php echo $row['titolo'];?></h4>
-											</div>
-										</a>
-		                    		<?php
-		                    	}
-		                    }
-		                ?>
-				</div>
+	                    <label for="contenuto">Contenuto del articolo:</label><br>
+	                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
+
+	                	<p>
+	                		<label>Data corrente del articolo: </label><label id="data_corrente"></label>  
+	                		<input type="file" name="myimage">
+	                	</p>
+	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
+						<script>
+							var d = new Date();
+						    var day = d.getDate();
+						  	var month = d.getMonth()+1;
+						  	var year = d.getFullYear();
+						    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
+						    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
+						</script>
+	                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
+	            	</form>
+            	</div>
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->
