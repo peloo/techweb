@@ -1,5 +1,5 @@
 #form_add_articolo {
-	margin-left: 27%;
+	margin-left: 20%;
     font-family: 'Vollkorn', serif;
 }
 
@@ -11,9 +11,17 @@
     border: none;
     padding: 0.7em 1.2em;
     margin-top: 1em;
+    margin-left: 27%;
     cursor: pointer;
 }
 
 #button_form_scrivi input[type="submit"]:hover{
     background-color:#008000;
+}
+
+textarea {
+    padding:0.5% 2%;
+    margin-top:1%;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
 }

@@ -116,15 +116,13 @@
 	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
-	                    <textarea rows="1" cols="50" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
+	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
 
 	                    <label for="contenuto">Contenuto del articolo:</label><br>
-	                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
+	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
-	                	<p>
-	                		<label>Data corrente del articolo: </label><label id="data_corrente"></label>  
-	                		<input type="file" name="myimage">
-	                	</p>
+	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
+	                	<p><input type="file" name="myimage"></p>
 	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
 						<script>
 							var d = new Date();
