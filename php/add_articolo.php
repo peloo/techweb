@@ -11,7 +11,8 @@
             $dbaccess = new dbconnection();
             $opendDBConnection = $dbaccess->opendDBConnection();
             if($opendDBConnection == true){
-                $con = $dbaccess->getConnessione();
+                $con = $dbaccess->getConnessione();	
+                $uploadOk = 1;
 // --------------------------------------------------------------------------------------------------------------------------------
 				$var_email = $_REQUEST['email'];
 				$var_titolo = $_REQUEST['titolo'];
@@ -29,38 +30,50 @@
 		        $var_data = addslashes($var_data);
 // --------------------------------------------------------------------------------------------------------------------------------
 
-		        $check = getimagesize($_FILES["myimage"]["tmp_name"]);
-		    	if($check){
+		        //$check = getimagesize($_FILES["myimage"]["tmp_name"]);
+		        if(!getimagesize($_FILES["myimage"]["tmp_name"]) || $_FILES["myimage"]["size"] > 500000)
+		        	$uploadOk = 0;
 
-		    		//--------------------------------------------------------
-					//Get the content of the image and then add slashes to it 
-					$imagename=$_FILES["myimage"]["name"];
+
+		    	if($uploadOk == 1){
+
 					$imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
-			        $chek = $dbaccess->isArticoloAlreadyRegistered($var_email, $var_titolo);
-					//--------------------------------------------------------
+			        if($dbaccess->isArticoloAlreadyRegistered($var_email, $var_titolo))	
+			        	$uploadOk = 0;
+			        //$check = $dbaccess->isArticoloAlreadyRegistered($var_email, $var_titolo);
 
-		            if($chek === true)
-		            { echo "Questo articolo: ".$var_titolo." e' gia' registrato"; }
+		            if($uploadOk == 0)
+		            	echo "HEY! questo articolo: ".$var_titolo." e' gia' registrato! :P"; 
 		            else{
 
-		            	$chek = $dbaccess->add_image($imagetmp);
-				        if(!$chek)
-				        	echo "File upload failed, please try again.";
+		            	$check = $dbaccess->add_image($imagetmp);
+				        if(!$check)
+				        	echo "Ops! Ho provato a caricare l'immagine ma non ci sono riuscito :(";
 
 
-		            	$chek = $dbaccess->getArticolo($var_email,$var_titolo,$var_contenuto,$var_data);
-		                if($chek == true)
-		                	echo "Registrato!";
+		            	$check = $dbaccess->getArticolo($var_email,$var_titolo,$var_contenuto,$var_data);
+		                if($check == true){
+
+		                	$idMedia = $dbaccess->getLasIdMedia();
+				        	$row = mysqli_fetch_assoc($idMedia);
+
+				        	$check = $dbaccess->setMediaToArticolo($row['id'],$var_email,$var_titolo);
+				        	if(!$check)
+				        		echo "Ops! Non ho collegato la foto al articolo :(";
+				        	else
+		                		echo "YEE! Ho caricato il tuo articolo e anche l'immagine a esso associato ;)";
+		                }
 		            	else
-							die("---> Errore nella query");
+							die("Ops! Qualcosa non va: non sono riuscito a eseguire la QUERY :'(");
 		            }
-
-		            mysqli_close($con);
 		    	}
 		    	else
-		    		echo "Non caricato";
+		    		echo "Ops! Qualcosa non è andato: potresti aver scelto un immagine troppo grande";
 	        }
+	        mysqli_close($con);
 		}
+		else
+			echo "Ops! Qualcosa non è andato: non sono riuscito a collegarmi al DB";
 	?>
 </body>
 </html>

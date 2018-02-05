@@ -72,6 +72,25 @@
 				return false;
 		}
 
+		public function getLasIdMedia(){
+			$result = mysqli_query($this->connessione,"SELECT id FROM media order by id DESC limit 1");
+	        $num_rows = $result->num_rows;
+	        if($num_rows == 1)
+	        	return $result;
+	        else
+	        	return false;
+		}
+
+		public function setMediaToArticolo($id,$mail,$titolo){
+			$result = mysqli_query($this->connessione,"INSERT INTO articolo_media(mail,titolo,id) VALUES ('$mail','$titolo','$id')");
+	        if($result) 
+	        	return true;
+	        else{
+	        	echo("Error description: " . mysqli_error($this->connessione));
+	        	return false;
+	        }
+		}
+
 		public function isArticoloAlreadyRegistered($mail, $titolo){
 			$result = mysqli_query($this->connessione,"SELECT * FROM articolo WHERE mail = '$mail' AND titolo = '$titolo'");
 	        $row = mysqli_fetch_array($result);
