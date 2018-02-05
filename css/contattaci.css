@@ -35,12 +35,18 @@ h2 {font-family:Vollkorn;}
 #contattaci input[type="submit"]:hover{
     background-color:#008000;
 }
+#contattaci input[type="text"]{
+    padding:0.5% 2%;
+    margin-top:1%;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+}
 
 #contattaci li{
     margin: 1% 2%;
 }
 
-textarea, input[type="text"] {
+textarea{
     padding:0.5% 2%;
     margin-top:1%;
     border: 1px solid #bbbbbb;
