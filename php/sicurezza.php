@@ -187,7 +187,7 @@
 						<p id="risultato_3"></p>
 					</div><br/>
 
-					<a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
+                    <a id="articoli" href="articoli_sicurezza.html">Articoli sicurezza</a>
 				</div>
 			</div>
 		</div>

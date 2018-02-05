@@ -38,7 +38,7 @@
 	            	$var_passw = md5($var_passw);//cripta la password
 	            	$chek = $dbaccess->getRegistration($var_email,$var_passw,$var_nick,$var_nome,$var_cognome);
 	                if($chek === true)
-	                	echo "Registrato!";
+	                	header("location: ../html/reg_ok.html");
 	            	else
 						die("---> Errore nella query $query");
 	            }

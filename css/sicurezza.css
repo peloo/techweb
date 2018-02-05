@@ -48,10 +48,20 @@
 
 #risultato_alcol{display:none;}
 
+#articoli a:hover {
+    color:blue;
+    background-color:aqua;
+}
+
+
 #articoli{
 	background-color: #D72323;
 	color:white;
 	padding: 1em;
 	border-radius: 5px;
 	text-decoration: none;
+}
+
+#articoli:hover {
+    background-color:red;
 }
