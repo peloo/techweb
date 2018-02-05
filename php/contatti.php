@@ -1,3 +1,6 @@
+<?php
+	require_once "check_sessione.php";
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 	<head>
@@ -15,7 +18,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Contattaci - Autosecurity</title>
+		<title>Contatti - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -61,24 +64,17 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Sicurezza</p>
+				<p id="location" class="w3-large">Ti trovi in: Contatti
 
-				<div id="form">
-					<form action="../php/accesso.php" method="post">
-						<div class="form3">
-							<p class="location1" class="w3-large">Accesso</p>
-						</div>
-					
-						<!-- <p id="info_form">E-mail:</p> -->
-						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
-						<!-- <p id="info_form">Password:</p> -->
-						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
-						<br/>
-						<p id="id_button_form">
-							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
-							<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href='../html/iscrizione.html'" />
-						</p>
-					</form>
+				<?php
+					require_once "check_benvenuto.php";
+				?>
+				</p>
+
+				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
+					<?php
+						require_once "check_accesso.php";
+					?>
 				</div>
 
 				<div id="form2">
