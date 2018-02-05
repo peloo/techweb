@@ -107,19 +107,32 @@
                     <h2> CONTATTACI </h2>
                     <p> Hai riscontrato problemi con il sito oppure vuoi metterti in contatto con uno dei responsabili? Inviaci un'email ed uno di loro ti risponderà il prima possibile</p>
 				
-                    <form id="invia_email" name="invia_email" action="" method="post" onsubmit="">
-					<br>
-                    <label for="email">Email:</label><br>
-                    <textarea rows="1" cols="50" name="email" placeholder="inserisci qui l'email"></textarea><br><br>
-                    
-                    <label for="oggetto">Oggetto:</label><br>
-                    <textarea rows="1" cols="50" name="oggetto" placeholder="inserisci qui l'oggetto"></textarea><br><br>
+                    <form id="invia_email" name="invia_email" action="../php/contattaci.php" method="post">
+						<br>
+	                    <label for="email">Email:</label><br>
+	                    <input type="text" name="email" id="email" placeholder="inserisci qui la mail"></textarea><br><br>
+	                    
+	                    <label for="oggetto">Oggetto:</label><br>
+	                    <textarea rows="1" cols="50" name="oggetto" placeholder="inserisci qui l'oggetto"></textarea><br><br>
 
-                    <label for="contenuto">Contenuto dell'email:</label><br>
-                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto dell'email"></textarea><br><br>
+	                    <label for="contenuto">Contenuto dell'email:</label><br>
+	                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto dell'email"></textarea><br><br>
 
-                    <input type="submit" name="invia_button" id="invia" value="Scrivi">
-            	</form><br><br>
+	                    <p>
+	                		<label>Data di oggi: </label><label id="data_corrente"></label>  
+	                	</p>
+	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
+						<script>
+							var d = new Date();
+						    var day = d.getDate();
+						  	var month = d.getMonth()+1;
+						  	var year = d.getFullYear();
+						    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
+						    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
+						</script>
+
+	                    <input type="submit" name="submit" id="invia" value="Contattaci">
+            		</form><br><br>
                     
                     <p>In alternativa, se preferisci scrivere ad un specifico responsabile puoi contattarlo ad una delle seguenti email: </p><br>
                 <ul>

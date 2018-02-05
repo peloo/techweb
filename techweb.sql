@@ -117,8 +117,10 @@ CREATE TABLE `articolo_tag` (
 
 CREATE TABLE `info` (
   `mail` varchar(255) NOT NULL,
+  `oggetto` varchar(255) NOT NULL,
+  `contenuto` varchar(255) NOT NULL,
   `data` date NOT NULL,
-  `contenuto` varchar(255) NOT NULL
+  PRIMARY KEY (`mail`,`oggetto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -270,11 +272,6 @@ ALTER TABLE `articolo_tag`
   ADD PRIMARY KEY (`mail`,`titolo`,`nome`),
   ADD KEY `nome` (`nome`);
 
---
--- Indici per le tabelle `info`
---
-ALTER TABLE `info`
-  ADD PRIMARY KEY (`mail`);
 
 --
 -- Indici per le tabelle `log`
@@ -352,12 +349,6 @@ ALTER TABLE `articolo_media`
 ALTER TABLE `articolo_tag`
   ADD CONSTRAINT `articolo_tag_ibfk_1` FOREIGN KEY (`mail`,`titolo`) REFERENCES `articolo` (`mail`, `titolo`) ON DELETE CASCADE,
   ADD CONSTRAINT `articolo_tag_ibfk_2` FOREIGN KEY (`nome`) REFERENCES `tag` (`nome`) ON DELETE CASCADE;
-
---
--- Limiti per la tabella `info`
---
-ALTER TABLE `info`
-  ADD CONSTRAINT `info_ibfk_1` FOREIGN KEY (`mail`) REFERENCES `user` (`mail`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `log`

@@ -121,5 +121,24 @@
 	        	return false;
 		}
 
+		public function checkInfo($mail, $oggetto){
+			$result = mysqli_query($this->connessione,"SELECT * FROM utente WHERE mail = '$mail' AND oggetto = '$oggetto'");
+			if(!$result)
+	        	return false;
+	        $row = mysqli_fetch_array($result);
+	        $num_rows = $result->num_rows;
+	        if($num_rows == 1)
+	        	return true;
+	        else
+	        	return false;
+		}
+
+		public function getInfo($mail, $oggetto, $contenuto, $data){
+			$result = mysqli_query($this->connessione,"INSERT INTO info(mail,oggetto,contenuto,data) VALUES ('$mail','$oggetto','$contenuto','$data')");
+	        if($result) 
+	        	return true;
+	        else
+	        	return false;
+		}
 	}
 ?>

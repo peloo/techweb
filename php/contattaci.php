@@ -13,32 +13,27 @@
                 $con = $dbaccess->getConnessione();
 // --------------------------------------------------------------------------------------------------------------------------------
 				$var_email = $_REQUEST['email'];
-				$var_passw = $_REQUEST['password'];
-				$var_nome = $_REQUEST['nome'];
-				$var_cognome = $_REQUEST['cognome'];
-				$var_nick = $_REQUEST['nickname'];
+				$var_ogg = $_REQUEST['oggetto'];
+				$var_contenuto = $_REQUEST['contenuto'];
+				$var_data = $_REQUEST['data'];
 // --------------------------------------------------------------------------------------------------------------------------------
-				$var_email = stripcslashes(strip_tags($var_email));			// toglie "\" e i tags
-				$var_passw = stripcslashes(strip_tags($var_passw));
-				$var_nome = stripcslashes(strip_tags($var_nome));
-		   		$var_cognome = stripcslashes(strip_tags($var_cognome));
-		    	$var_nick = stripcslashes(strip_tags($var_nick));
+				$var_email = stripcslashes(strip_tags($var_email));				// toglie "\" e i tags
+				$var_ogg = stripcslashes(strip_tags($var_ogg));
+				$var_contenuto = stripcslashes(strip_tags($var_contenuto));
+		   		$var_data = stripcslashes(strip_tags($var_data));
 // --------------------------------------------------------------------------------------------------------------------------------
 		    	$var_email = addslashes($var_email);
-		        $var_passw = addslashes($var_passw);
-				$var_nome = addslashes($var_nome);
-		        $var_cognome = addslashes($var_cognome);
-		        $var_nick = addslashes($var_nick);
+		        $var_ogg = addslashes($var_ogg);
+				$var_contenuto = addslashes($var_contenuto);
+		        $var_data = stripcslashes(strip_tags($var_data));
 // --------------------------------------------------------------------------------------------------------------------------------
-		        $chek = $dbaccess->isAlreadyRegistered($var_email);
-
-	            if($chek == true)
-	            { echo "Questa mail: ".$var_email." e' gia' registrata"; }
+		        $chek = $dbaccess->checkInfo($var_email,$var_ogg);
+	            if($chek === true)
+	            { echo "Questa info: ".$var_ogg." e' gia' registrata"; }
 	            else{
-	            	$var_passw = md5($var_passw);//cripta la password
-	            	$chek = $dbaccess->getRegistration($var_email,$var_passw,$var_nick,$var_nome,$var_cognome);
+	            	$chek = $dbaccess->getInfo($var_email,$var_ogg,$var_contenuto,$var_data);
 	                if($chek == true)
-	                	header("location: ../html/reg_ok.html");
+	                	echo "Contatto inviato! ;)";
 	            	else
 						die("Ops! Qualcosa non va: non sono riuscito a eseguire la QUERY :'(");
 	            }
@@ -46,6 +41,8 @@
 	            mysqli_close($con);
 	        }
 		}
+		else
+			echo "Ops! Qualcosa non va :(";
 	?>
 </body>
 </html>
