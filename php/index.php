@@ -87,15 +87,22 @@
 					</div>
 
 					<p>
-						<ul class="nav">
-						  <li><a href="#">Abarth</a></li>
-						  <li><a href="#">Acura</a></li>
-						  <li><a href="#">Alfa Romeo</a></li>
-						  <li><a href="#">Alpina</a></li>
-						  <li><a href="#">Aston</a></li>
-						  <li><a href="#">Martin</a></li>
-						  <li><a href="#">Audi</a></li>
-						</ul>			
+						<?php   
+		                    require_once 'dbconnection.php';
+					        $dbaccess = new dbconnection();
+					        $opendDBConnection = $dbaccess->opendDBConnection();
+
+					        $visualizza = $dbaccess->getTag();
+		                    if($visualizza != false){
+		                    	echo "<ul class='nav'>";
+		                    	while($row = mysqli_fetch_assoc($visualizza)){
+		                    		?>
+									<li><a href="#"><?php echo $row['nome'];?></a></li>
+									<?php
+		                    	}
+		                    	echo "</ul>";
+		                    }
+					    ?>
 					</p>
 				</div>
 			</div>
