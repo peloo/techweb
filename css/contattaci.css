@@ -1,3 +1,7 @@
+#contacts:hover, #contacts:focus, #contacts:active, #contacts a:hover, #contacts a:focus, #contacts a:active{
+    background-color: #303841;
+}
+
 h2 {font-family:Vollkorn;}
 
 #contattaci{
