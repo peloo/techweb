@@ -186,5 +186,15 @@
 	        	return false;
 	        }
 		}
+
+		public function isAdmin($mail){
+			$result = mysqli_query($this->connessione,"SELECT * FROM admin_redatore WHERE mail = '$mail'");        		
+	        $row = mysqli_fetch_array($result);
+	        $num_rows = $result->num_rows;
+	        if($num_rows == 1)
+	        	return true;
+	        else
+	        	return false;
+		}
 	}
 ?>

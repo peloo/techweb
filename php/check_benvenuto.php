@@ -1,6 +1,6 @@
 <?php
 	if($conLog == true){
-		echo "<br/>Benvenuto:";
+		echo "<br/>Benvenuto: ";
 		if($opendDBConnection == true){
 			$dati = $dbaccess->getDatiUser($_SESSION['email']);
 			if($dati != false){
