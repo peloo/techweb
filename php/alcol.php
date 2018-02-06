@@ -8,7 +8,7 @@
 	$table=strval($_REQUEST['t']);
 
 	if($table!=""){
-		$sql="SELECT A.".$peso." FROM ".$table." AS A WHERE A.bevanda='".$bevanda."'";
+		$sql="SELECT A.$peso FROM $table AS A WHERE A.bevanda='$bevanda'";
 		$result=$dbaccess->runQuery($sql);
 		$result=mysqli_fetch_array($result);
 		echo $result["$peso"];

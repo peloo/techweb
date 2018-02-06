@@ -1,0 +1,26 @@
+#articolo{
+	margin:2em;
+	text-align: center;
+}
+
+#articolo h2{
+	font-family: 'Vollkorn', serif;
+	color:#D72323;
+	text-transform: uppercase;
+}
+
+#articolo img{
+	float: left;
+}
+
+#data_autore{
+	margin-top:2em;
+}
+
+#data{
+	float: left;
+}
+
+#author{
+	float:right;
+}

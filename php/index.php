@@ -105,7 +105,7 @@
 					        $opendDBConnection = $dbaccess->opendDBConnection();
 		                    $i = 0;
 
-		                    $visualizza = $dbaccess->getArticoliRecenti();
+		                    $visualizza = $dbaccess->getArticoli(6);
 		                    if($visualizza != false){
 		                    	for(; $i<3; $i++){
 		                    		$row = mysqli_fetch_assoc($visualizza);

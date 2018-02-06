@@ -13,8 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
 		">
-		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
-		<link rel="stylesheet" type="text/css" href="../css/art.css" media="screen, handheld">
+		<link rel="stylesheet" type="text/css" href="../css/add_articolo.css" media="handheld, screen"/>
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -22,8 +21,9 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
+    	<script type="text/javascript" src="../JavaScript/checkPass.js"></script>
+		<title>Nuovo articolo - Autosecurity</title>
 
-		<title>Articoli - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -49,7 +49,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -69,7 +69,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Articoli
+				<p id="location" class="w3-large">Ti trovi in: Aggiungi articolo
 				<?php
 					require_once "check_benvenuto.php";
 				?>
@@ -92,36 +92,71 @@
 		                    require_once "tag_frequenti.php";
 					    ?>
 					</p>
-
 				</div>
 			</div>
 
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="articoli">
-					<?php   
-	                    require_once 'dbconnection.php';
+				<div id="form_add_articolo">
+					<?php
+						require_once 'dbconnection.php';
 				        $dbaccess = new dbconnection();
 				        $opendDBConnection = $dbaccess->opendDBConnection();
-	                    $i = 0;
+				        $titolo=$_GET['t'];
+				        $mail=$_GET['m'];
+					?>
+					<form name="add_articolo" action="add_articolo.php?t=<?php echo $titolo."&m=".$mail;?>" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
+						<br><br>
+	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
+	                    
+	                    <label for="titolo">Titolo del articolo:</label><br>
+	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
+	                    <label for="contenuto">Contenuto del articolo:</label><br>
+	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
-	                    $visualizza = $dbaccess->getArticoli(8);
-	                    if($visualizza != false){
-	                    	foreach ($visualizza as $row){
-	                    		$titolo=$row['titolo'];
-	                    		$nome=$row['mail'];
-                    			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">
-	                    			<div class="form_articolo">';
-	                    				$b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']);
-	                					echo '<img src='.$b64src.' alt="Profilo" />
-										<h4 class="titolo" >'.$titolo.'</h4>
-									</div>
-								</a>';
-	                    	}
-	                    }
-	                ?>
-				</div>
+	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
+	                	<p><input type="file" name="myimage"></p>
+
+	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
+						<script>
+							var d = new Date();
+						    var day = d.getDate();
+						  	var month = d.getMonth()+1;
+						  	var year = d.getFullYear();
+						    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
+						    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
+						</script>
+
+						<br>
+						<p><label for="titolo">Scegli i tag:</label></p>
+						<div id=form_tag>
+							<?php
+								require_once 'dbconnection.php';
+								$dbaccess = new dbconnection();
+								$opendDBConnection = $dbaccess->opendDBConnection();
+
+								$visualizza = $dbaccess->getTag(0);
+								if($visualizza != false){
+									while($row = mysqli_fetch_assoc($visualizza)){
+										?>
+											<input type="checkbox" name="tag_scelto[]" id="<?php echo $row['nome'];?>" value="<?php echo $row['nome'];?>">
+											<label for="<?php echo $row['nome'];?>"><?php echo $row['nome'];?></label>
+										<?php
+									}
+								} 
+							?>
+							<input type="checkbox" name="tag_scelto[]" style="display: none" value="NA" checked="checked">
+						</div>
+
+						<div id=form_bottoni>
+							<p id="scrivi_i_miei_articoli">
+			                    <input type="submit" name="submit" id="button_form_scrivi" value="Modifica" onclick="rimuovi_articolo(<?php echo $titolo.", ".$mail;?>)">
+			                    <input type="button" id="i_miei_articoli" value="I miei articoli" onclick="window.location.href='../php/miei_articoli.php'" />
+	                    	</p>
+						</div>
+	            	</form>
+            	</div>
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->

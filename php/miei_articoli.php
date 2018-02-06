@@ -48,7 +48,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -100,26 +100,39 @@
 			<div id="content">
 				<div id="articoli">
 					<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-		                    $i = 0;
+	                    require_once 'dbconnection.php';
+				        $dbaccess = new dbconnection();
+				        $opendDBConnection = $dbaccess->opendDBConnection();
+	                    $i = 0;
 
-		                    $visualizza = $dbaccess->getArticoliUtente($_SESSION['email']);
-		                    if($visualizza != false){
-		                    	foreach ($visualizza as $row){
-		                    		?>
-		                    			<a href="articolo.php">
-			                    			<div class="form_articolo">
-			                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
-			                					<img src= <?php echo $b64src;?> alt="Profilo" />
-												<h4 class="titolo" ><?php echo $row['titolo'];?></h4>
-											</div>
-										</a>
-		                    		<?php
-		                    	}
-		                    }
-		                ?>
+	                    $visualizza = $dbaccess->getArticoliUtente($_SESSION['email']);
+	                    if($visualizza != false){
+	                    	foreach ($visualizza as $row){
+	                    		$approvato=$row['approvato'];
+	                    		$titolo=$row['titolo'];
+	                    		$nome=$row['mail'];
+	                    		if($approvato==1)
+	                    			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">';
+		            ?>
+            			<div class="form_articolo">
+							<?php
+            					$b64src = "data:image/jpeg;base64," . base64_encode($row['foto']);
+            				?>
+        					<img src= <?php echo $b64src;?> alt="Profilo" />
+							<h4 class="titolo" ><?php echo $titolo?></h4>
+							<?php
+								if($approvato==0)
+									echo '<a class="modifica" href="modifica_articolo.php?t='.$titolo.'&m='.$nome.'">Modifica</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
+								else
+									echo "<img class='approved' src='../images/articolo_si.jpg'/>";
+							?>
+						</div>
+	                <?php
+	                		if($approvato==1)
+	                			echo "</a>";
+	                    	}
+	                    }
+	                ?>
 				</div>
 			</div>
 		</div>

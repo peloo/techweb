@@ -63,6 +63,13 @@
 	        	return false;
 		}
 
+		public function prelevaArticolo($mail, $titolo){
+			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.mail='$mail' AND A.titolo='$titolo'");
+			return $result;
+
+			
+		}
+
 		public function add_image($img){
 			$insert_image="INSERT INTO media(link,foto,foto_video) VALUES (NULL,'$img',0)";
 			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
@@ -106,8 +113,8 @@
 	        	return false;
 		}
 
-		public function getArticoliRecenti(){
-			$result = mysqli_query($this->connessione,"SELECT * FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) order by A.data DESC limit 6");
+		public function getArticoli($num){
+			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) order by A.data DESC limit $num");
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows >= 1)
@@ -117,7 +124,7 @@
 		}
 
 		public function getArticoliUtente($mail){
-			$result = mysqli_query($this->connessione,"SELECT * FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.mail = '$mail'  order by A.data DESC");
+			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, A.approvato,M.foto FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.mail = '$mail'  order by A.data DESC");
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows >= 1)

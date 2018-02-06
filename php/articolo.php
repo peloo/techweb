@@ -13,8 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
 		">
-		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
-		<link rel="stylesheet" type="text/css" href="../css/art.css" media="screen, handheld">
+		<link rel="stylesheet" type="text/css" href="../css/articolo.css" media="handheld, screen"/>
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -23,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Articoli - Autosecurity</title>
+		<title>Home - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -49,7 +48,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -69,7 +68,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Articoli
+				<p id="location" class="w3-large">Ti trovi in: Home
 				<?php
 					require_once "check_benvenuto.php";
 				?>
@@ -88,39 +87,43 @@
 					</div>
 
 					<p>
-						<?php   
-		                    require_once "tag_frequenti.php";
-					    ?>
+						<?php
+							require_once "tag_frequenti.php";
+						?>			
 					</p>
-
 				</div>
 			</div>
 
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="articoli">
-					<?php   
-	                    require_once 'dbconnection.php';
+				<div id="articolo">
+					<?php
+						require_once 'dbconnection.php';
 				        $dbaccess = new dbconnection();
 				        $opendDBConnection = $dbaccess->opendDBConnection();
-	                    $i = 0;
+				        $titolo=$_GET['t'];
+				        $mail=$_GET['m'];
 
-	                    $visualizza = $dbaccess->getArticoli(8);
-	                    if($visualizza != false){
-	                    	foreach ($visualizza as $row){
-	                    		$titolo=$row['titolo'];
-	                    		$nome=$row['mail'];
-                    			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">
-	                    			<div class="form_articolo">';
-	                    				$b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']);
-	                					echo '<img src='.$b64src.' alt="Profilo" />
-										<h4 class="titolo" >'.$titolo.'</h4>
-									</div>
-								</a>';
-	                    	}
-	                    }
-	                ?>
+				        $row=$dbaccess->prelevaArticolo($mail, $titolo);
+				        if(mysqli_num_rows($row)==1){
+					        $row=mysqli_fetch_assoc($row);
+					        $titolo=$row['titolo'];
+					        $mail=$row['mail'];
+					        $contenuto=$row['contenuto'];
+					        $data=$row['data'];
+					        $foto = "data:image/jpeg;base64," . base64_encode($row['foto']);
+					    }
+					?>
+					<h2><b><?php echo $titolo?></b></h2>
+					<div id="immagine_testo">
+						<img id="immagine" src="<?php echo $foto?>">
+						<p id="testo"><?php echo $contenuto?><span xml:lang="en">Barenaked Ladies</span>, gruppo musicale alternative rock canadese, hanno composto l'omonimo tema musicale d'apertura di <span xml:lang="en">The Big Bang Theory.</span> <br/><br> Nella clip finale sono presenti i cinque protagonisti intenti a mangiare intorno al tavolino del salotto di <span xml:lang="en">Leonard e Sheldon</span>, con i due padroni di casa sul divano e Penny in mezzo e <span alt="en">Raj e Howard</span> seduti a terra. Nella prima stagione c'è un'immagine che viene cambiata all'inizio della seconda, in cui è evidente anche il cambiamento di alcuni oggetti della stanza. Dalla quinta stagione è stata cambiata con una più recente in cui solo Penny mangia e gli altri quattro stanno giocando a uno dei vari giochi di carte a cui giocano solitamente. Dal primo episodio della sesta stagione sono di nuovo tutti intenti a mangiare, ma ai cinque protagonisti vediamo aggiungersi Amy e Bernadette.</p>
+					</div>
+					<div id="data_autore">
+						<p id="data"><?php echo $data?></p>
+						<p id="author"><?php echo $mail?></p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -133,7 +136,7 @@
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
 				<li id="chisiamo"><a href="weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a href="../php/contatti.php">Contatti</a></li>
+				<li id="contacts"><a href="../html/contattaci.html">Contatti</a></li>
 			</ul>
 		</div>
 	</body>

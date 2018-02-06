@@ -82,6 +82,12 @@
 		    	else
 		    		echo "Ops! Qualcosa non è andato: potresti aver scelto un immagine troppo grande";
 	        }
+	        if($_POST['submit']=="Modifica"){
+	        	$titolo=$_GET['t'];
+	        	$mail=$_GET['m'];
+	        	if(mysqli_query($con, "DELETE FROM articolo WHERE mail='$mail' AND titolo='$titolo'"))
+	        		echo "Eliminazione andata a buon fine";
+	        }
 	        mysqli_close($con);
 		}
 		else
