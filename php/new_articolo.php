@@ -21,13 +21,9 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
-<<<<<<< HEAD
     	<script type="text/javascript" src="../JavaScript/checkPass.js"></script>
 		<title>Nuovo articolo - Autosecurity</title>
-=======
-        <script type="text/javascript" src="../JavaScript/checkPass.js"></script>
-		<title>Home - Autosecurity</title>
->>>>>>> adb3e4ffa608f6ecea29308ed1f704e57ddaa76c
+
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -93,20 +89,7 @@
 
 					<p>
 						<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-
-					        $visualizza = $dbaccess->getTag();
-		                    if($visualizza != false){
-		                    	echo "<ul class='nav'>";
-		                    	while($row = mysqli_fetch_assoc($visualizza)){
-		                    		?>
-									<li><a href="#"><?php echo $row['nome'];?></a></li>
-									<?php
-		                    	}
-		                    	echo "</ul>";
-		                    }
+		                    require_once "tag_frequenti.php";
 					    ?>
 					</p>
 				</div>
@@ -122,10 +105,6 @@
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
 	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
-<<<<<<< HEAD
-
-=======
->>>>>>> adb3e4ffa608f6ecea29308ed1f704e57ddaa76c
 	                    <label for="contenuto">Contenuto del articolo:</label><br>
 	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 

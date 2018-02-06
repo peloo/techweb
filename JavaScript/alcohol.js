@@ -114,7 +114,9 @@ function aggiungi_bevanda(){
 	bevande_array.push(drink);
  
  	aggiungi_nodo(drink, beva.innerHTML);
-	tot=tot+grado(drink);
+	var aggiunta=grado(drink);
+	tot+=aggiunta;
+	tot=Number(tot.toFixed(2));
 	scrivi_ris(tot);
 
 	n_nodo=n_nodo+1;
@@ -151,7 +153,6 @@ function grado(drink){
     xmlhttp.send();
     aggiunta = xmlhttp.responseText;
     aggiunta=Number(aggiunta);
-
 	return aggiunta;
 }
 
@@ -189,7 +190,8 @@ function rimuovi_bevanda(elem){
 		  index=j; 
 
 	if(index>=0){ 
-		tot=tot-grado(bevande_array[index]); 
+		tot-=grado(bevande_array[index]);
+		tot=Number(tot.toFixed(2));
 		scrivi_ris(tot); 
 		if(bevande_array.length>0) 
 		  bevande_array.splice(index, 1); 

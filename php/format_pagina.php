@@ -86,15 +86,9 @@
 					</div>
 
 					<p>
-						<ul class="nav">
-						  <li><a href="#">Abarth</a></li>
-						  <li><a href="#">Acura</a></li>
-						  <li><a href="#">Alfa Romeo</a></li>
-						  <li><a href="#">Alpina</a></li>
-						  <li><a href="#">Aston</a></li>
-						  <li><a href="#">Martin</a></li>
-						  <li><a href="#">Audi</a></li>
-						</ul>			
+						<?php
+							require_once "tag_frequenti.php";
+						?>			
 					</p>
 				</div>
 			</div>

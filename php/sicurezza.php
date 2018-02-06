@@ -90,20 +90,7 @@
 
 					<p>
 						<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-
-					        $visualizza = $dbaccess->getTag();
-		                    if($visualizza != false){
-		                    	echo "<ul class='nav'>";
-		                    	while($row = mysqli_fetch_assoc($visualizza)){
-		                    		?>
-									<li><a href="#"><?php echo $row['nome'];?></a></li>
-									<?php
-		                    	}
-		                    	echo "</ul>";
-		                    }
+		                    require_once "tag_frequenti.php";
 					    ?>
 					</p>
 					
@@ -211,5 +198,15 @@
 				<li id="contacts"><a href="../php/contatti.php">Contatti</a></li>
 			</ul>
 		</div>
+
+		<script>
+		var input = document.getElementById("speed");
+		input.addEventListener("keyup", function(event) {
+		    event.preventDefault();
+		    if (event.keyCode === 13) {
+		        spazio_frenata();
+		    }
+		});
+		</script>
 	</body>
 </html>
