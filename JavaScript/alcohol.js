@@ -59,8 +59,8 @@ function scrivi_ris(tot){
 	var ris="Livello di alcolemia nel sangue: "+tot+" grammi/litro. ";
 	if(tot==0)
 		ris=ris+"Non si ha nessuna sensazione particolare e nessuna abilità compromessa.";
-	else if(tot>0 || tot<=0.2)
-		ris=ris+"Si percepisce un iniziale sensazione di ebbrezza e una riduzione delle inibizioni e del controllo. "+
+	else if(tot>0 && tot<=0.2)
+		ris=ris+"Si percepisce un'iniziale sensazione di ebbrezza e una riduzione delle inibizioni e del controllo. "+
 		"Si ha un affievolimento della vigilanza, attenzione e controllo. Una riduzione del coordinamento motorio e della visione laterale. Nausea.";
 	else if(tot>0.2 && tot<=0.4)
 		ris=ris+"Si ha una sensazione di ebbrezza, una riduzione delle inibizioni, del controllo e della percezione del rischio. "+
@@ -112,26 +112,46 @@ function aggiungi_bevanda(){
 	//codice
 	var drink={numero:n_nodo, sesso:gen, stomaco:stm, peso:weight, bevanda:beva.value};
 	bevande_array.push(drink);
-
-	/*var str=""; 
-	for(var k=0; k<bevande_array.length; k++){ 
-	var x=bevande_array[k]; 
-	str=str+x.numero+" "+x.sesso+" "+x.stomaco+" "+x.peso+" "+x.bevanda+"  "; 
-	} 
-	document.getElementById("demo").innerHTML=str;*/
  
  	aggiungi_nodo(drink, beva.innerHTML);
-	tot=tot+grado();
+	tot=tot+grado(drink);
 	scrivi_ris(tot);
 
 	n_nodo=n_nodo+1;
 }
 
-function grado(){
+function grado(drink){
 	var aggiunta=0;
-	var agg=getElementById("risultato_alcol");
-	if(agg==undefined)
-		aggiunta=agg.innerHTML;
+	var sesso=drink.sesso;
+	var stomaco=drink.stomaco;
+	var peso=drink.peso;
+	var bevanda=drink.bevanda;
+	var table="";
+	if(sesso=="uomo"){
+		if(stomaco=="pieno")
+			table="uomini_s_pieno";
+		else
+			table="uomini_s_vuoto";
+	}
+	else{
+		if(stomaco=="pieno")
+			table="donne_s_pieno";
+		else
+			table="donne_s_vuoto";
+	}
+
+	if (window.XMLHttpRequest)
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+	else
+		// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	//deprecato ma non mi interessa
+    xmlhttp.open("GET","../php/alcol.php?t="+table+"&p="+peso+"&b="+bevanda,false);
+    xmlhttp.send();
+    aggiunta = xmlhttp.responseText;
+    aggiunta=Number(aggiunta);
+
 	return aggiunta;
 }
 
@@ -173,14 +193,7 @@ function rimuovi_bevanda(elem){
 		scrivi_ris(tot); 
 		if(bevande_array.length>0) 
 		  bevande_array.splice(index, 1); 
-	} 
-
-	/*var str=""; 
-	for(var k=0; k<bevande_array.length; k++){ 
-	var x=bevande_array[k]; 
-	str=str+x.numero+" "+x.sesso+" "+x.stomaco+" "+x.peso+" "+x.bevanda; 
-	} 
-	document.getElementById("demo").innerHTML=str;*/ 
+	}
 
 	elem.parentNode.removeChild(elem); 
 }

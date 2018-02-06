@@ -164,7 +164,7 @@ a, a:hover, a:active, a:focus {}
     margin-right: 0.4em; 
 }
 #search_bar input[type="button"]:hover{
-    background-color:darkred;
+    background-color:#FF0000;
 }
 
 #acc{display: none;}

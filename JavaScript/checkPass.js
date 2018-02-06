@@ -29,6 +29,16 @@ function checkPass()
 }  
 
 
+function checkArticolo(){
+     var titolo = document.forms["add_articolo"]["titolo"].value;
+     var articolo = document.forms["add_articolo"]["contenuto"].value;
+      if((titolo == "") || (articolo == "")){
+        alert('Devi compilare tutti i campi!');
+        return false;
+    }
+    
+}
+
 
 
 function checkForm(){
@@ -50,21 +60,49 @@ function checkForm(){
     }   
     
 }
+    
 
 
-function ValidateEmail(inputText)
+
+function ControlloEmailNomeCognome(EmailF,NomeL,CognomeL)
     {
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if(inputText.value.match(mailformat))
-        {
-            document.form_iscrizione.email.focus();
-            return true;
-        }
-        else
+        var FormatoMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var SoloLettere =  /^[A-Za-z]+$/;
+        
+        if(!EmailF.value.match(FormatoMail))
         {
             alert("L'email inserita non è scritta nel formato corretto");
             document.form_iscrizione.email.focus();
             return false;
         }
+        
+        if(!NomeL.value.match(SoloLettere) || !CognomeL.value.match(SoloLettere))
+            {
+            alert("Nome e Cognome devono contere solo caratteri alfabetici");
+            document.form_iscrizione.email.focus();
+            return false;
+            }
+        
+        return true;
+        
     }
 
+
+
+function CheckContatti(){
+
+    var email = document.forms["invia_email"]["email"].value;
+    var oggetto = document.forms["invia_email"]["oggetto"].value;
+    var contenuto = document.forms["invia_email"]["contenuto"].value;
+    var FormatoMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if( (email == "") || (oggetto == "") || (contenuto == "")){
+        alert('Devi compilare tutti i campi!');
+        return false;
+    }
+    
+        if(!email.match(FormatoMail))
+        {
+            alert('Devi inserire un email in un formato corretto');
+            return false;
+        }   
+}

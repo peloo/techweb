@@ -21,8 +21,8 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
-
-		<title>Home - Autosecurity</title>
+    	<script type="text/javascript" src="../JavaScript/checkPass.js"></script>
+		<title>Nuovo articolo - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -111,20 +111,18 @@
 
 			<div id="content">
 				<div id="form_add_articolo">
-					<form action="add_articolo.php" method="post" enctype="multipart/form-data">
+					<form name="add_articolo" action="add_articolo.php" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
 						<br><br>
 	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
-	                    <textarea rows="1" cols="50" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
+	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
 
 	                    <label for="contenuto">Contenuto del articolo:</label><br>
-	                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
+	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
-	                	<p>
-	                		<label>Data corrente del articolo: </label><label id="data_corrente"></label>  
-	                		<input type="file" name="myimage">
-	                	</p>
+	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
+	                	<p><input type="file" name="myimage"></p>
 	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
 						<script>
 							var d = new Date();
@@ -134,7 +132,10 @@
 						    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
 						    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
 						</script>
-	                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
+						<p id="scrivi_i_miei_articoli">
+		                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
+		                    <input type="button" id="i_miei_articoli" value="I miei articoli" onclick="window.location.href='../php/miei_articoli.php'" />
+	                    </p>
 	            	</form>
             	</div>
 			</div>
