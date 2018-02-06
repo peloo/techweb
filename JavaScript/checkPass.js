@@ -29,6 +29,16 @@ function checkPass()
 }  
 
 
+function checkArticolo(){
+     var titolo = document.forms["add_articolo"]["titolo"].value;
+     var articolo = document.forms["add_articolo"]["contenuto"].value;
+      if((titolo == "") || (articolo == "")){
+        alert('Devi compilare tutti i campi!');
+        return false;
+    }
+    
+}
+
 
 
 function checkForm(){
@@ -50,6 +60,8 @@ function checkForm(){
     }   
     
 }
+    
+
 
 
 function ControlloEmailNomeCognome(EmailF,NomeL,CognomeL)
@@ -74,3 +86,23 @@ function ControlloEmailNomeCognome(EmailF,NomeL,CognomeL)
         return true;
         
     }
+
+
+
+function CheckContatti(){
+
+    var email = document.forms["invia_email"]["email"].value;
+    var oggetto = document.forms["invia_email"]["oggetto"].value;
+    var contenuto = document.forms["invia_email"]["contenuto"].value;
+    var FormatoMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if( (email == "") || (oggetto == "") || (contenuto == "")){
+        alert('Devi compilare tutti i campi!');
+        return false;
+    }
+    
+        if(!email.match(FormatoMail))
+        {
+            alert('Devi inserire un email in un formato corretto');
+            return false;
+        }   
+}
