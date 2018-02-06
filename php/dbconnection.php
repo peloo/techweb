@@ -34,8 +34,13 @@
 
 		public function getRegistration($mail, $pass, $user, $nome, $cognome){
 			$result = mysqli_query($this->connessione,"INSERT INTO utente(mail,password,username,nome,cognome) VALUES ('$mail','$pass', '$user', '$nome', '$cognome')");
-	        if($result) 
-	        	return true;
+	        if($result){
+	        	$result = mysqli_query($this->connessione,"INSERT INTO user(mail) VALUES ('$mail')");
+	        	if($result)
+	        		return true;
+	        	else
+	        		return false;
+	        }
 	        else
 	        	return false;
 		}
