@@ -21,8 +21,13 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
+<<<<<<< HEAD
     	<script type="text/javascript" src="../JavaScript/checkPass.js"></script>
 		<title>Nuovo articolo - Autosecurity</title>
+=======
+        <script type="text/javascript" src="../JavaScript/checkPass.js"></script>
+		<title>Home - Autosecurity</title>
+>>>>>>> adb3e4ffa608f6ecea29308ed1f704e57ddaa76c
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -117,7 +122,10 @@
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
 	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
+<<<<<<< HEAD
 
+=======
+>>>>>>> adb3e4ffa608f6ecea29308ed1f704e57ddaa76c
 	                    <label for="contenuto">Contenuto del articolo:</label><br>
 	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
