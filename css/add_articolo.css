@@ -1,3 +1,9 @@
+#form_add_articolo h2, h3{
+    font-family: 'Vollkorn', serif;
+    color:#D72323;
+    text-transform: uppercase;
+}
+
 #form_add_articolo {
 	margin-left: 20%;
     font-family: 'Vollkorn', serif;
@@ -42,4 +48,17 @@ textarea {
     margin-top:1%;
     border: 1px solid #bbbbbb;
     border-radius: 4px;
+}
+
+#form_tag {
+    width: 20em;
+    float: left;
+}
+
+#form_bottoni{
+    margin-top: 7em;
+}
+
+#button_scrivi_articolo{
+    display: none;
 }

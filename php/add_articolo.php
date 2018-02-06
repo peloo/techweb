@@ -30,6 +30,10 @@
 		        $var_data = addslashes($var_data);
 // --------------------------------------------------------------------------------------------------------------------------------
 
+		        $tag = $_REQUEST['tag_scelto'];
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
 		        //$check = getimagesize($_FILES["myimage"]["tmp_name"]);
 		        if(!getimagesize($_FILES["myimage"]["tmp_name"]) || $_FILES["myimage"]["size"] > 500000)
 		        	$uploadOk = 0;
@@ -58,6 +62,14 @@
 				        	$row = mysqli_fetch_assoc($idMedia);
 
 				        	$check = $dbaccess->setMediaToArticolo($row['id'],$var_email,$var_titolo);
+
+
+				        	foreach ($tag as $tag_scelto){
+				        		$check = $dbaccess->setTagToArticolo($var_email,$var_titolo,$tag_scelto);
+				        		if(!$check)
+				        			echo "Ops! Non ho collegato il tag al articolo :(";
+							}
+
 				        	if(!$check)
 				        		echo "Ops! Non ho collegato la foto al articolo :(";
 				        	else

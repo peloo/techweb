@@ -151,14 +151,35 @@
 	        	return false;
 		}
 
-		public function getTag(){
-			$result = mysqli_query($this->connessione,"SELECT nome FROM tag order by nome");
+		public function getTag($limite=10){
+			if($limite == 0)
+				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA'");
+			else
+				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' order by contatore DESC limit 10");
+
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows >= 1)
 	        	return $result;
 	        else
 	        	return false;
+		}
+
+		public function setTagToArticolo($mail,$titolo,$tag){
+			$result = mysqli_query($this->connessione,"INSERT INTO articolo_tag(mail,titolo,nome) VALUES ('$mail','$titolo','$tag')");
+	        if($result){
+	        	$result = mysqli_query($this->connessione,"UPDATE tag SET contatore = contatore + 1 WHERE nome = '$tag'");
+	        	if($result)
+	        		return true;
+	        	else{
+	        		echo("Error description: " . mysqli_error($this->connessione));
+	        		return false;
+	        	}
+	        }
+	        else{
+	        	echo("[no set tag to articolo] Error description: " . mysqli_error($this->connessione) . "</br>");
+	        	return false;
+	        }
 		}
 	}
 ?>

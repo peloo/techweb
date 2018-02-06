@@ -110,6 +110,7 @@
 
 	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
 	                	<p><input type="file" name="myimage"></p>
+
 	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
 						<script>
 							var d = new Date();
@@ -119,10 +120,34 @@
 						    document.getElementById("data_corrente").innerHTML = day + '-' + month + '-' + year;
 						    document.getElementById("data_corrente2").value = year + '-' +  month + '-' + day;
 						</script>
-						<p id="scrivi_i_miei_articoli">
-		                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
-		                    <input type="button" id="i_miei_articoli" value="I miei articoli" onclick="window.location.href='../php/miei_articoli.php'" />
-	                    </p>
+
+						<br>
+						<p><label for="titolo">Scegli i tag:</label></p>
+						<div id=form_tag>
+							<?php
+								require_once 'dbconnection.php';
+								$dbaccess = new dbconnection();
+								$opendDBConnection = $dbaccess->opendDBConnection();
+
+								$visualizza = $dbaccess->getTag(0);
+								if($visualizza != false){
+									while($row = mysqli_fetch_assoc($visualizza)){
+										?>
+											<input type="checkbox" name="tag_scelto[]" id="<?php echo $row['nome'];?>" value="<?php echo $row['nome'];?>">
+											<label for="<?php echo $row['nome'];?>"><?php echo $row['nome'];?></label>
+										<?php
+									}
+								} 
+							?>
+							<input type="checkbox" name="tag_scelto[]" style="display: none" value="NA" checked="checked">
+						</div>
+						<div id=form_bottoni>
+							<p id="scrivi_i_miei_articoli">
+			                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
+			                    <input type="button" id="i_miei_articoli" value="I miei articoli" onclick="window.location.href='../php/miei_articoli.php'" />
+	                    	</p>
+						</div>
+						
 	            	</form>
             	</div>
 			</div>
