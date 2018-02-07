@@ -11,6 +11,10 @@
 	padding: 0.2em;
 }
 
+#articoli{
+    min-height: 35em;
+}
+
 .form_articolo{
 	border:1px solid black;
 	margin-bottom: 1em;
@@ -47,21 +51,21 @@
 #pagine a{
 	font-family: Verdana,sans-serif;
 	padding:0 0.2em;
-.button_cancella{
+}
 
+.button_cancella{
 	font-family: "Allerta Stencil", Sans-serif;
     border-radius: 5px;
    	background-color: #D72323;
    	color: white;
     border: none;
-    padding: 0.5em 1.2em;
-    margin-top: 1em;
+    padding: 0.5em 1em;
+    margin-top: 0.7em;
     margin-right: 1em;
+    margin-bottom: 0.7em;
     cursor: pointer;
     max-height: 3em;
     text-decoration: none;
-
-	
 }
 
 .pagina{

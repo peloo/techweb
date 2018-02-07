@@ -147,7 +147,10 @@
 	                    	</p>
 	                    	<p id="form_da_aprovare">
 	                    		<?php
-	                    		echo "<a class='da_approvare' href='../php/articoli_da_approvare.php?p=0'>Articoli da approvare</a>";
+	                    		$dbaccess = new dbconnection();
+								$visualizza = $dbaccess->isAdmin($_SESSION['email']);
+								if($visualizza)
+	                    			echo "<a class='da_approvare' href='../php/articoli_da_approvare.php?p=0'>Articoli da approvare</a>";
 	                    		?>
 	                    	</p>
 						</div>

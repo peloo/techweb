@@ -6,14 +6,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
-
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/registrazione.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
-		">
-		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
+		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"> 
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -22,7 +19,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Articoli da approvare - Autosecurity</title>
+		<title>Conferma Registrazione - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -40,14 +37,15 @@
 	    	</header>
 
 	    	<div id="div_search">
-					<p id="search_bar">
+					<form id="search_bar" method="get" action="articoli.php?p=0">
 						<input id="text_search" type="text" name="search" placeholder="cerca"/>
-						<input type="button" id="button_search" value="Cerca"/>
-					</p>
+						<input type="submit" name="submit" id="button_search" value="Cerca"/>
+						<input type="hidden" name="p" value="0"/>
+					</form>
 			</div>
 
 			<ul class="nav" role="menubar">
-			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
+			  <li id="home" class="link" role="menuitem"><a class="main">Home</a></li>
 			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
@@ -68,16 +66,24 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<!-- menu laterale -->
-				<p id="location" class="w3-large">Ti trovi in: Articoli da approvare
+				<p id="location" class="w3-large">Ti trovi in: Home
 				<?php
 					require_once "check_benvenuto.php";
 				?>
 				</p>
 
 				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
-					<?php
-						require_once "check_accesso.php";
-					?>
+					<form action="accesso.php" method="post">
+						<div class="form3">
+							<p class="location1" class="w3-large">Accesso</p>
+						</div>
+						<input class="text_form" type="text" name="email" placeholder="inserisci mail"/>
+						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
+						<br/>
+						<p id="id_button_form">
+							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
+						</p>
+					</form>
 				</div>
 
 				<div id="form2">
@@ -91,54 +97,17 @@
 		                    require_once "tag_frequenti.php";
 					    ?>
 					</p>
-
 				</div>
 			</div>
 
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="articoli">
-						<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-		                    $i = 0;
-
-		                    $visualizza = $dbaccess->getArticoliDaApprovare();
-		                    if($visualizza != false){
-		                    	foreach ($visualizza as $row){
-		                    		$approvato=$row['approvato'];
-		                    		$titolo=$row['titolo'];
-		                    		$nome=$row['mail'];
-		                    		if($approvato==1)
-		                    			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">';
-			            ?>
-	            			<div class="form_articolo">
-								<?php
-									//echo "<form action='cancella_articolo.php?m=".$nome."&t=".$titolo." method='get'>";
-	            					$b64src = "data:image/jpeg;base64," . base64_encode($row['foto']);
-	            				?>
-	        					<img src= <?php echo $b64src;?> alt="Profilo" />
-	        					<input type="hidden" name="mail" value="<?php echo $_SESSION['email']; ?>"/>
-	        					<input type="hidden" name="titolo_d" value="<?php echo $titolo; ?>"/>
-								<h4 class="titolo"><?php echo $titolo; ?></h4>
-								<?php
-									if($approvato==0){
-										echo '<a class="button_cancella" href="cancella_articolo.php?m='.$nome.'&t='.$titolo.'">X</a>';
-									}
-									else
-										echo "<img class='approved' src='../images/articolo_si.jpg'/>";
-								?>
-							
-							</div>
-		                <?php
-		                		if($approvato==1)
-		                			echo "</a>";
-		                    	}
-		                    }
-		                ?>
-	            	
+				<div id="reg_ok_content">
+					<img src="../images/approved.png">
+					<h1>Registrazione avvenuta con successo!</h1>
+					<br/>
+					<p>Lo staff di Autosecurity ti augura una buona permanenza</p>
 				</div>
 			</div>
 		</div>
@@ -150,7 +119,7 @@
 				<!-- <li><a href="#">Home</a></li>
 				<li><a href="#">Articoli</a></li>
 				<li><a href="#">Sicurezza</a></li> -->
-				<li id="chisiamo"><a href="weare.php">Chi Siamo</a></li>
+				<li id="chisiamo"><a href="../php/weare.php">Chi Siamo</a></li>
 				<li id="contacts"><a href="../php/contatti.php">Contatti</a></li>
 			</ul>
 		</div>

@@ -32,7 +32,6 @@
 	        $row = mysqli_fetch_array($result);
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
-	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return true;
 	        else
@@ -105,7 +104,6 @@
 			$result = mysqli_query($this->connessione,"SELECT id FROM media order by id DESC limit 1");
 			mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
-	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return $result;
 	        else
@@ -128,7 +126,6 @@
 	        $row = mysqli_fetch_array($result);
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
-	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return true;
 	        else
@@ -257,7 +254,6 @@
 	        $row = mysqli_fetch_array($result);
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
-	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return true;
 	        else

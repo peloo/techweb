@@ -20,11 +20,15 @@
 	    	$var_email = addslashes($var_email);
 	        $var_titolo = addslashes($var_titolo);
 
+
+
 	        $check = $dbaccess->dropArticolo($var_email,$var_titolo);
+	        
 	        if($check == true)
-	        	header('Location: miei_articoli.php');
+	        	header('Location: articoli_da_approvare.php');
 	        else
 	        	echo "Non sono riuscito ad eliminare l'articolo :(";
+	        	
        		mysqli_close($con);
        	}
 		else
