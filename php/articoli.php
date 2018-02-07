@@ -14,7 +14,6 @@
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print
 		">
 		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
-		<link rel="stylesheet" type="text/css" href="../css/art.css" media="screen, handheld">
 		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 
@@ -41,22 +40,33 @@
 	    	</header>
 
 	    	<div id="div_search">
-					<p id="search_bar">
+					<form id="search_bar" method="get" action="articoli.php?p=0">
 						<input id="text_search" type="text" name="search" placeholder="cerca"/>
-						<input type="button" id="button_search" value="Cerca"/>
-					</p>
+						<input type="submit" name="submit" id="button_search" value="Cerca"/>
+						<input type="hidden" name="p" value="0"/>
+					</form>
 			</div>
 
+			<?php
+				$ricerca='';
+                if(isset($_GET['submit']))
+                	$ricerca=$_GET['search'];
+                else if(isset($_GET['r']) && $_GET['r']!='')
+                	$ricerca=$_GET['r'];
+
+                if($ricerca=='')
+                	echo '<style>#art:hover, #art:focus, #art:active, #art a:hover, #art a:focus, #art a:active{background-color: #303841;}</style>';
+			?>
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" <?php if($ricerca!='') echo 'href="articoli.php?p=0"';?> >Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li role="menuitem"><a href="#">Alfa</a></li>
-						<li role="menuitem"><a href="#">Audi</a></li>
-						<li role="menuitem"><a href="#">BMW</a></li>
-						<li role="menuitem"><a href="#">Fiat</a></li>
+						<li><a href="articoli.php?p=0&r=Alfa Romeo">Alfa</a></li>
+						<li><a href="articoli.php?p=0&r=Audi">Audi</a></li>
+						<li><a href="articoli.php?p=0&r=BMW">BMW</a></li>
+						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
@@ -107,18 +117,12 @@
 
 	                    $n_articoli_pagina=8;
 	                    $riga=$pagina*$n_articoli_pagina;
-	                    $n_articoli=$dbaccess->getNumArticoli();
+	                    $n_articoli=$dbaccess->getNumArticoli($ricerca);
 	                    $n_pagine=intval($n_articoli/$n_articoli_pagina);
 	                    if($n_articoli%$n_articoli_pagina!=0)
 	                    	$n_pagine++;
 
-	                    $ricerca='';
-	                    $tag='';
-	                    if(isset($_GET['submit']))
-	                    	$ricerca=$_GET['search'];
-	                    else if(isset($_GET['r']) && $_GET['r']!='')
-	                    	$tag=$_GET['r'];
-	                    $visualizza = $dbaccess->getArticoli($n_articoli_pagina, $riga, $ricerca, $tag);
+	                    $visualizza = $dbaccess->getArticoli($n_articoli_pagina, $riga, $ricerca);
 
 	                    if($visualizza != false){
 	                    	foreach ($visualizza as $row){
@@ -141,9 +145,9 @@
 	                    if($pagina==0){
 	                    	echo "<a>1</a>";
 	                    	if($n_pagine>1){
-	                    		echo "<a class='pagina' href='articoli.php?p=1'>2</a>";
+	                    		echo "<a class='pagina' href='articoli.php?p=1&r=".$ricerca."'>2</a>";
 	                    		if($n_pagine>2){
-	                    			echo "<a class='pagina' href='articoli.php?p=2'>3</a>";
+	                    			echo "<a class='pagina' href='articoli.php?p=2&r=".$ricerca."'>3</a>";
 	                    			if($n_pagine>3)
 	                    				echo "...";
 	                    		}
@@ -152,9 +156,9 @@
 	                    else{
 	                    	if($pagina>=2)
 	                    		echo "...";
-	                    	echo "<a class='pagina' href='articoli.php?p=".($pagina-1)."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
+	                    	echo "<a class='pagina' href='articoli.php?p=".($pagina-1)."&r=".$ricerca."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
 	                    	if($pagina+1<$n_pagine)
-	                    		echo "<a class='pagina' href='articoli.php?p=".($pagina+1)."'>".($pagina+2)."</a>";
+	                    		echo "<a class='pagina' href='articoli.php?p=".($pagina+1)."&r=".$ricerca."'>".($pagina+2)."</a>";
 	                    	if($pagina+2<$n_pagine)
 	                    		echo "...";
 	                    }
