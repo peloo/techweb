@@ -118,11 +118,27 @@
 					<h2><b><?php echo $titolo?></b></h2>
 					<div id="immagine_testo">
 						<img id="immagine" src="<?php echo $foto?>">
-						<p id="testo"><?php echo $contenuto?><span xml:lang="en">Barenaked Ladies</span>, gruppo musicale alternative rock canadese, hanno composto l'omonimo tema musicale d'apertura di <span xml:lang="en">The Big Bang Theory.</span> <br/><br> Nella clip finale sono presenti i cinque protagonisti intenti a mangiare intorno al tavolino del salotto di <span xml:lang="en">Leonard e Sheldon</span>, con i due padroni di casa sul divano e Penny in mezzo e <span alt="en">Raj e Howard</span> seduti a terra. Nella prima stagione c'è un'immagine che viene cambiata all'inizio della seconda, in cui è evidente anche il cambiamento di alcuni oggetti della stanza. Dalla quinta stagione è stata cambiata con una più recente in cui solo Penny mangia e gli altri quattro stanno giocando a uno dei vari giochi di carte a cui giocano solitamente. Dal primo episodio della sesta stagione sono di nuovo tutti intenti a mangiare, ma ai cinque protagonisti vediamo aggiungersi Amy e Bernadette.</p>
+						<p id="testo"><?php echo $contenuto?>
+							<br><br>
+							<span xml:lang="en">Barenaked Ladies</span>, gruppo musicale alternative rock canadese, hanno composto l'omonimo tema musicale d'apertura di <span xml:lang="en">The Big Bang Theory.</span> <br/><br> Nella clip finale sono presenti i cinque protagonisti intenti a mangiare intorno al tavolino del salotto di <span xml:lang="en">Leonard e Sheldon</span>, con i due padroni di casa sul divano e Penny in mezzo e <span alt="en">Raj e Howard</span> seduti a terra. Nella prima stagione c'è un'immagine che viene cambiata all'inizio della seconda, in cui è evidente anche il cambiamento di alcuni oggetti della stanza. Dalla quinta stagione è stata cambiata con una più recente in cui solo Penny mangia e gli altri quattro stanno giocando a uno dei vari giochi di carte a cui giocano solitamente. Dal primo episodio della sesta stagione sono di nuovo tutti intenti a mangiare, ma ai cinque protagonisti vediamo aggiungersi Amy e Bernadette.</p>
 					</div>
 					<div id="data_autore">
 						<p id="data"><?php echo $data?></p>
 						<p id="author"><?php echo $mail?></p>
+					</div>
+					<div id="lista_tag">
+						Tag: 
+						<?php
+							require_once 'dbconnection.php';
+					        $dbaccess = new dbconnection();
+					        $opendDBConnection = $dbaccess->opendDBConnection();
+					        $visualizza = $dbaccess->getTagArticolo($mail, $titolo);
+	                    	if($visualizza != false){
+		                    	foreach ($visualizza as $row){
+		                    		echo $row['nome'] . " - ";
+	                    		}
+	                    	}
+				        ?>
 					</div>
 				</div>
 			</div>

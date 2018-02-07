@@ -25,8 +25,10 @@
 		}
 
 		public function canLog($mail, $pass){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT * FROM utente WHERE mail = '$mail' AND password = '$pass'");
 	        $row = mysqli_fetch_array($result);
+	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows == 1)
 	        	return true;
@@ -57,8 +59,10 @@
 	        	return false;
 		}
 
-		public function getArticolo($mail, $titolo, $contenuto, $data){
-			$result = mysqli_query($this->connessione,"INSERT INTO articolo(mail,titolo,contenuto,data) VALUES ('$mail','$titolo','$contenuto','$data')");
+		public function getArticolo($mail, $titolo, $contenuto, $data,$isAd){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+			$result = mysqli_query($this->connessione,"INSERT INTO articolo(mail,titolo,contenuto,data,approvato) VALUES ('$mail','$titolo','$contenuto','$data','$isAd')");
+			mysqli_close($this->connessione);
 	        if($result) 
 	        	return true;
 	        else
@@ -87,7 +91,9 @@
 		}
 
 		public function getLasIdMedia(){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT id FROM media order by id DESC limit 1");
+			mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows == 1)
 	        	return $result;
@@ -96,6 +102,7 @@
 		}
 
 		public function setMediaToArticolo($id,$mail,$titolo){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"INSERT INTO articolo_media(mail,titolo,id) VALUES ('$mail','$titolo','$id')");
 	        if($result) 
 	        	return true;
@@ -106,8 +113,10 @@
 		}
 
 		public function isArticoloAlreadyRegistered($mail, $titolo){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT * FROM articolo WHERE mail = '$mail' AND titolo = '$titolo'");
 	        $row = mysqli_fetch_array($result);
+	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows == 1)
 	        	return true;
@@ -117,6 +126,16 @@
 
 		public function getArticoli($limit, $offset){
 			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto, A.approvato FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.approvato=1 order by A.data DESC limit $limit OFFSET $offset");
+	        mysqli_close($this->connessione);
+	        $num_rows = $result->num_rows;
+	        if($num_rows >= 1)
+	        	return $result;
+	        else
+	        	return false;
+		}
+
+		public function getArticoliDaApprovare(){
+			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto, A.approvato FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.approvato=0 order by A.data DESC");
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows >= 1)
@@ -146,7 +165,8 @@
 	        	return false;
 		}
 
-		public function getDatiUser($mail){	
+		public function getDatiUser($mail){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT * FROM utente WHERE mail = '$mail'");
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
@@ -177,6 +197,7 @@
 		}
 
 		public function getTag($limite=10){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			if($limite == 0)
 				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA'");
 			else
@@ -191,6 +212,7 @@
 		}
 
 		public function setTagToArticolo($mail,$titolo,$tag){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"INSERT INTO articolo_tag(mail,titolo,nome) VALUES ('$mail','$titolo','$tag')");
 	        if($result){
 	        	$result = mysqli_query($this->connessione,"UPDATE tag SET contatore = contatore + 1 WHERE nome = '$tag'");
@@ -208,11 +230,35 @@
 		}
 
 		public function isAdmin($mail){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT * FROM admin_redatore WHERE mail = '$mail'");        		
 	        $row = mysqli_fetch_array($result);
+	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows == 1)
 	        	return true;
+	        else
+	        	return false;
+			
+		}
+
+		public function dropArticolo($mail, $titolo){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+			$result = mysqli_query($this->connessione,"DELETE FROM articolo WHERE mail = '$mail' and titolo = '$titolo'");
+			mysqli_close($this->connessione);
+	        if($result) 
+	        	return true;
+	        else
+	        	return false;
+		}
+
+		public function getTagArticolo($mail,$titolo){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+			$result = mysqli_query($this->connessione,"SELECT * FROM articolo_tag WHERE mail = '$mail' AND titolo = '$titolo' AND nome != 'NA'");
+	        mysqli_close($this->connessione);
+	        $num_rows = $result->num_rows;
+	        if($num_rows >= 1)
+	        	return $result;
 	        else
 	        	return false;
 		}

@@ -22,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
 
-		<title>Miei articoli - Autosecurity</title>
+		<title>Articoli da approvare - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -105,7 +105,7 @@
 					        $opendDBConnection = $dbaccess->opendDBConnection();
 		                    $i = 0;
 
-		                    $visualizza = $dbaccess->getArticoliUtente($_SESSION['email']);
+		                    $visualizza = $dbaccess->getArticoliDaApprovare();
 		                    if($visualizza != false){
 		                    	foreach ($visualizza as $row){
 		                    		$approvato=$row['approvato'];

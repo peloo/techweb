@@ -23,11 +23,12 @@
 #i_miei_articoli{
     font-family: "Allerta Stencil", Sans-serif;
     border-radius: 5px;
-    background-color: #FFCE00;
+    background-color: #0275d8;;
     border: none;
     padding: 0.7em 1.2em;
     margin-top: 1em;
     cursor: pointer;
+    color: white;
 }
 
 #scrivi_i_miei_articoli{
@@ -40,7 +41,7 @@
 }
 
 #i_miei_articoli:hover{
-    background-color:#FFB400;
+    background-color:#01549b;
 }
 
 textarea {
@@ -61,4 +62,22 @@ textarea {
 
 #button_scrivi_articolo{
     display: none;
+}
+
+.da_approvare{
+    text-decoration: none;
+    font-family: "Allerta Stencil", Sans-serif;
+    border-radius: 5px;
+    background-color: #FFCE00;
+    border: none;
+    padding: 0.7em 1.2em;
+    margin-top: 0.5em;
+    cursor: pointer;
+}
+.da_approvare:hover{
+    background-color:#FFB400;
+}
+#form_da_aprovare{
+    margin-top: 1em;
+    margin-left: 6.3em;
 }

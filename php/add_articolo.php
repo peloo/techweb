@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Iscrizione - PHP</title>
+	<title>Inserisci Articolo - PHP</title>
 </head>
 <body>
 	<?php
@@ -19,7 +18,6 @@
 		        	if(mysqli_query($con, "DELETE FROM articolo WHERE mail='$mail' AND titolo='$titolo'"))
 		        		echo "Eliminazione andata a buon fine";
 	        	}
-
                 $uploadOk = 1;
 // --------------------------------------------------------------------------------------------------------------------------------
 				$var_email = $_REQUEST['email'];
@@ -39,6 +37,7 @@
 // --------------------------------------------------------------------------------------------------------------------------------
 
 		        $tag = $_REQUEST['tag_scelto'];
+		        $isAdmin = $dbaccess->isAdmin($var_email);
 
 //----------------------------------------------------------------------------------------------------------------------------------
 
@@ -63,7 +62,7 @@
 				        	echo "Ops! Ho provato a caricare l'immagine ma non ci sono riuscito :(";
 
 
-		            	$check = $dbaccess->getArticolo($var_email,$var_titolo,$var_contenuto,$var_data);
+		            	$check = $dbaccess->getArticolo($var_email,$var_titolo,$var_contenuto,$var_data,$isAdmin);
 		                if($check == true){
 
 		                	$idMedia = $dbaccess->getLasIdMedia();

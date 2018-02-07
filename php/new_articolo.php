@@ -146,6 +146,11 @@
 			                    <input type="submit" name="submit" id="button_form_scrivi" value="Scrivi">
 			                    <input type="button" id="i_miei_articoli" value="I miei articoli" onclick="window.location.href='../php/miei_articoli.php'" />
 	                    	</p>
+	                    	<p id="form_da_aprovare">
+	                    		<?php
+	                    		echo "<a class='da_approvare' href='../php/articoli_da_approvare.php?p=0'>Articoli da approvare</a>";
+	                    		?>
+	                    	</p>
 						</div>
 						
 	            	</form>

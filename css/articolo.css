@@ -1,9 +1,10 @@
 #articolo{
 	margin:2em;
-	text-align: center;
+	text-align: left;
 }
 
 #articolo h2{
+	text-align: center;
 	font-family: 'Vollkorn', serif;
 	color:#D72323;
 	text-transform: uppercase;
@@ -11,6 +12,9 @@
 
 #articolo img{
 	float: left;
+	padding-right: 1em;
+	max-width: 20em;
+	max-height: 20em;
 }
 
 #data_autore{
@@ -23,4 +27,8 @@
 
 #author{
 	float:right;
+}
+
+#lista_tag{
+	padding-top: 3em;
 }
