@@ -23,7 +23,7 @@
 }
 
 .modifica{
-    font-family: "Allerta Stencil", Sans-serif;
+    font-family: 'Vollkorn', serif;
     border-radius: 5px;
     background-color: #FFCE00;
     border: none;
@@ -41,8 +41,12 @@
 	text-align: center;
 	margin-top: 2em;
 	color:#D72323;
+	font-size: 150%;
 }
 
+#pagine a{
+	font-family: Verdana,sans-serif;
+	padding:0 0.2em;
 .button_cancella{
 
 	font-family: "Allerta Stencil", Sans-serif;

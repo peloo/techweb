@@ -127,7 +127,6 @@
 							<?php
 								require_once 'dbconnection.php';
 								$dbaccess = new dbconnection();
-								$opendDBConnection = $dbaccess->opendDBConnection();
 
 								$visualizza = $dbaccess->getTag(0);
 								if($visualizza != false){

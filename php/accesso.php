@@ -38,6 +38,7 @@
                     echo "Accesso non valido";
                 }
             }
+            $dbaccess->close();
 		}
 	?>
 

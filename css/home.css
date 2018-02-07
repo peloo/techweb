@@ -3,6 +3,10 @@
 	background-color: #303841;
 }
 
+#home .form_articolo_footer a:hover, #home .form_articolo_footer a:focus, #home .form_articolo_footer a:active{
+	background-color: unset;
+}
+
 #contenitore_l{
 	padding-top: 2em;
 	float: left;
@@ -33,6 +37,7 @@
 	margin-top: 1em;
 	border-radius: 6px;
 	margin-bottom: 1em;
+	border: 1px solid #30384126;
 }
 
 .form_articolo p{

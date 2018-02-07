@@ -102,7 +102,6 @@
 					<?php
 						require_once 'dbconnection.php';
 				        $dbaccess = new dbconnection();
-				        $opendDBConnection = $dbaccess->opendDBConnection();
 				        $titolo=$_GET['t'];
 				        $mail=$_GET['m'];
 				        $row=$dbaccess->prelevaArticolo($mail, $titolo);

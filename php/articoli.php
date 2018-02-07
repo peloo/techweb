@@ -103,11 +103,23 @@
 					<?php   
 	                    require_once 'dbconnection.php';
 				        $dbaccess = new dbconnection();
-				        $opendDBConnection = $dbaccess->opendDBConnection();
 	                    $pagina=$_GET['p'];
-	                    $riga=$pagina*8;
 
-	                    $visualizza = $dbaccess->getArticoli(8, $riga);
+	                    $n_articoli_pagina=8;
+	                    $riga=$pagina*$n_articoli_pagina;
+	                    $n_articoli=$dbaccess->getNumArticoli();
+	                    $n_pagine=intval($n_articoli/$n_articoli_pagina);
+	                    if($n_articoli%$n_articoli_pagina!=0)
+	                    	$n_pagine++;
+
+	                    $ricerca='';
+	                    $tag='';
+	                    if(isset($_GET['submit']))
+	                    	$ricerca=$_GET['search'];
+	                    else if(isset($_GET['r']) && $_GET['r']!='')
+	                    	$tag=$_GET['r'];
+	                    $visualizza = $dbaccess->getArticoli($n_articoli_pagina, $riga, $ricerca, $tag);
+
 	                    if($visualizza != false){
 	                    	foreach ($visualizza as $row){
 	                    		$titolo=$row['titolo'];
@@ -122,9 +134,10 @@
 	                    	}
 	                    }
 
+	                    if($n_articoli==0)
+	                    	echo "<h2 style='text-align:center;'>Mi dispiace, non sono ancora stati pubblicati articoli</h2>";
+	                    
 	                    echo "<div id='pagine'>Pagine:</br>";
-	                    $n_articoli=$dbaccess->getNumArticoli();
-	                    $n_pagine=intval($n_articoli/8)+1;
 	                    if($pagina==0){
 	                    	echo "<a>1</a>";
 	                    	if($n_pagine>1){
@@ -137,7 +150,7 @@
 	                    	}
 	                    }
 	                    else{
-	                    	if($pagina>=3)
+	                    	if($pagina>=2)
 	                    		echo "...";
 	                    	echo "<a class='pagina' href='articoli.php?p=".($pagina-1)."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
 	                    	if($pagina+1<$n_pagine)

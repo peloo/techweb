@@ -99,11 +99,10 @@
 
 			<div id="content">
 				<div id="articoli">
-						<?php   
-		                    require_once 'dbconnection.php';
-					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
-		                    $i = 0;
+					<?php   
+	                    require_once 'dbconnection.php';
+				        $dbaccess = new dbconnection();
+	                    $i = 0;
 
 		                    $visualizza = $dbaccess->getArticoliUtente($_SESSION['email']);
 		                    if($visualizza != false){

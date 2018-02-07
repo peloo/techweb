@@ -1,7 +1,6 @@
 <?php
 	require_once 'dbconnection.php';
 	$dbaccess = new dbconnection();
-    $opendDBConnection = $dbaccess->opendDBConnection();
 								
 	$peso=intval($_REQUEST['p']);;
 	$bevanda=strval($_REQUEST['b']);

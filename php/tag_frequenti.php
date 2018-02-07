@@ -1,7 +1,6 @@
 <?php   
     require_once 'dbconnection.php';
     $dbaccess = new dbconnection();
-    $opendDBConnection = $dbaccess->opendDBConnection();
 
     $visualizza = $dbaccess->getTag();
     if($visualizza != false){
