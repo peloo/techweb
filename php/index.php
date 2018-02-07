@@ -53,10 +53,10 @@
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li role="menuitem"><a href="#">Alfa</a></li>
-						<li role="menuitem"><a href="#">Audi</a></li>
-						<li role="menuitem"><a href="#">BMW</a></li>
-						<li role="menuitem"><a href="#">Fiat</a></li>
+						<li><a href="articoli.php?p=0&r=Alfa Romeo">Alfa</a></li>
+						<li><a href="articoli.php?p=0&r=Audi">Audi</a></li>
+						<li><a href="articoli.php?p=0&r=BMW">BMW</a></li>
+						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>

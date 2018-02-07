@@ -45,16 +45,24 @@
 					</p>
 			</div>
 
+			<div id="div_search">
+					<form id="search_bar" method="get" action="articoli.php?p=0">
+						<input id="text_search" type="text" name="search" placeholder="cerca"/>
+						<input type="submit" name="submit" id="button_search" value="Cerca"/>
+						<input type="hidden" name="p" value="0"/>
+					</form>
+			</div>
+
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
 			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li role="menuitem"><a href="#">Alfa</a></li>
-						<li role="menuitem"><a href="#">Audi</a></li>
-						<li role="menuitem"><a href="#">BMW</a></li>
-						<li role="menuitem"><a href="#">Fiat</a></li>
+						<li><a href="articoli.php?p=0&r=Alfa Romeo">Alfa</a></li>
+						<li><a href="articoli.php?p=0&r=Audi">Audi</a></li>
+						<li><a href="articoli.php?p=0&r=BMW">BMW</a></li>
+						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>

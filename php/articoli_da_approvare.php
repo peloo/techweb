@@ -40,10 +40,11 @@
 	    	</header>
 
 	    	<div id="div_search">
-					<p id="search_bar">
+					<form id="search_bar" method="get" action="articoli.php?p=0">
 						<input id="text_search" type="text" name="search" placeholder="cerca"/>
-						<input type="button" id="button_search" value="Cerca"/>
-					</p>
+						<input type="submit" name="submit" id="button_search" value="Cerca"/>
+						<input type="hidden" name="p" value="0"/>
+					</form>
 			</div>
 
 			<ul class="nav" role="menubar">
@@ -52,10 +53,10 @@
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li role="menuitem"><a href="#">Alfa</a></li>
-						<li role="menuitem"><a href="#">Audi</a></li>
-						<li role="menuitem"><a href="#">BMW</a></li>
-						<li role="menuitem"><a href="#">Fiat</a></li>
+						<li><a href="articoli.php?p=0&r=Alfa Romeo">Alfa</a></li>
+						<li><a href="articoli.php?p=0&r=Audi">Audi</a></li>
+						<li><a href="articoli.php?p=0&r=BMW">BMW</a></li>
+						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
@@ -102,10 +103,17 @@
 						<?php   
 		                    require_once 'dbconnection.php';
 					        $dbaccess = new dbconnection();
-					        $opendDBConnection = $dbaccess->opendDBConnection();
 		                    $i = 0;
 
-		                    $visualizza = $dbaccess->getArticoliDaApprovare();
+		                    $pagina=$_GET['p'];
+		                    $n_articoli_pagina=8;
+		                    $riga=$pagina*$n_articoli_pagina;
+		                    $n_articoli=$dbaccess->numArticoliDaApprovare();
+		                    $n_pagine=intval($n_articoli/$n_articoli_pagina);
+		                    if($n_articoli%$n_articoli_pagina!=0)
+	                    		$n_pagine++;
+
+	                    	$visualizza = $dbaccess->getArticoliDaApprovare($n_articoli_pagina, $riga);
 		                    if($visualizza != false){
 		                    	foreach ($visualizza as $row){
 		                    		$approvato=$row['approvato'];
@@ -125,6 +133,10 @@
 								<h4 class="titolo"><?php echo $titolo; ?></h4>
 								<?php
 									if($approvato==0){
+<<<<<<< HEAD
+=======
+										echo '<a class="button_approva" href="approva_articolo.php?t='.$titolo.'&m='.$nome.'">Approva</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
+>>>>>>> 6a0961e7718cca2f87261164f39075ec10ad5217
 										echo '<a class="button_cancella" href="cancella_articolo.php?m='.$nome.'&t='.$titolo.'">X</a>';
 									}
 									else
@@ -137,6 +149,32 @@
 		                			echo "</a>";
 		                    	}
 		                    }
+
+		                    if($n_articoli==0)
+	                    	echo "<h2 style='text-align:center;'>Mi dispiace, non sono ancora stati pubblicati articoli</h2>";
+	                    
+		                    echo "<div id='pagine'>Pagine:</br>";
+		                    if($pagina==0){
+		                    	echo "<a>1</a>";
+		                    	if($n_pagine>1){
+		                    		echo "<a class='pagina' href='articoli_da_approvare.php?p=1'>2</a>";
+		                    		if($n_pagine>2){
+		                    			echo "<a class='pagina' href='articoli_da_approvare.php?p=2'>3</a>";
+		                    			if($n_pagine>3)
+		                    				echo "...";
+		                    		}
+		                    	}
+		                    }
+		                    else{
+		                    	if($pagina>=2)
+		                    		echo "...";
+		                    	echo "<a class='pagina' href='articoli_da_approvare.php?p=".($pagina-1)."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
+		                    	if($pagina+1<$n_pagine)
+		                    		echo "<a class='pagina' href='articoli_da_approvare.php?p=".($pagina+1)."'>".($pagina+2)."</a>";
+		                    	if($pagina+2<$n_pagine)
+		                    		echo "...";
+		                    }
+		                    echo "</div>";
 		                ?>
 	            	
 				</div>
