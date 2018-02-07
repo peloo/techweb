@@ -49,7 +49,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -105,15 +105,18 @@
 				        $opendDBConnection = $dbaccess->opendDBConnection();
 				        $titolo=$_GET['t'];
 				        $mail=$_GET['m'];
+				        $row=$dbaccess->prelevaArticolo($mail, $titolo);
+				        $row=mysqli_fetch_assoc($row);
+				        $contenuto=$row['contenuto'];
 					?>
 					<form name="add_articolo" action="add_articolo.php?t=<?php echo $titolo."&m=".$mail;?>" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
 						<br><br>
 	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
-	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>
+	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"><?php echo $titolo?></textarea><br><br>
 	                    <label for="contenuto">Contenuto del articolo:</label><br>
-	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
+	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"><?php echo $contenuto?></textarea><br><br>
 
 	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
 	                	<p><input type="file" name="myimage"></p>

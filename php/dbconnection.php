@@ -17,6 +17,8 @@
 
 		public function getConnessione(){ return $this->connessione; }
 
+		public function close(){mysqli_close($this->connessione);}
+
 		public function runQuery($query){
 			$result = mysqli_query($this->connessione,$query);
 	        return $result;
@@ -113,12 +115,23 @@
 	        	return false;
 		}
 
-		public function getArticoli($num){
-			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) order by A.data DESC limit $num");
+		public function getArticoli($limit, $offset){
+			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto, A.approvato FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.approvato=1 order by A.data DESC limit $limit OFFSET $offset");
 	        mysqli_close($this->connessione);
 	        $num_rows = $result->num_rows;
 	        if($num_rows >= 1)
 	        	return $result;
+	        else
+	        	return false;
+		}
+
+		public function getNumArticoli(){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+			$result=mysqli_query($this->connessione, "SELECT * FROM articolo WHERE approvato=1");
+			mysqli_close($this->connessione);
+			$num_rows = $result->num_rows;
+	        if($num_rows >= 1)
+	        	return $num_rows;
 	        else
 	        	return false;
 		}

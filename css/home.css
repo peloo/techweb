@@ -47,3 +47,11 @@
 	text-align: left;
 	background-color: #EEEEEE;
 }
+
+.titolo{
+	margin: 0;
+	font-family: 'Vollkorn', serif;
+	color:#D72323;
+	text-transform: uppercase;
+	text-align: center;
+}

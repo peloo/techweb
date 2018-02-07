@@ -11,7 +11,15 @@
             $dbaccess = new dbconnection();
             $opendDBConnection = $dbaccess->opendDBConnection();
             if($opendDBConnection == true){
-                $con = $dbaccess->getConnessione();	
+                $con = $dbaccess->getConnessione();
+
+                if($_POST['submit']=="Modifica"){
+		        	$titolo=$_GET['t'];
+		        	$mail=$_GET['m'];
+		        	if(mysqli_query($con, "DELETE FROM articolo WHERE mail='$mail' AND titolo='$titolo'"))
+		        		echo "Eliminazione andata a buon fine";
+	        	}
+
                 $uploadOk = 1;
 // --------------------------------------------------------------------------------------------------------------------------------
 				$var_email = $_REQUEST['email'];
@@ -81,12 +89,6 @@
 		    	}
 		    	else
 		    		echo "Ops! Qualcosa non è andato: potresti aver scelto un immagine troppo grande";
-	        }
-	        if($_POST['submit']=="Modifica"){
-	        	$titolo=$_GET['t'];
-	        	$mail=$_GET['m'];
-	        	if(mysqli_query($con, "DELETE FROM articolo WHERE mail='$mail' AND titolo='$titolo'"))
-	        		echo "Eliminazione andata a buon fine";
 	        }
 	        mysqli_close($con);
 		}

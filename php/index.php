@@ -48,7 +48,7 @@
 
 			<ul class="nav" role="menubar">
 			  <li id="home" class="link" role="menuitem"><a class="main">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php">Articoli</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -105,15 +105,17 @@
 					        $opendDBConnection = $dbaccess->opendDBConnection();
 		                    $i = 0;
 
-		                    $visualizza = $dbaccess->getArticoli(6);
+		                    $visualizza = $dbaccess->getArticoli(6, 0);
+		                    $num_row=mysqli_num_rows($visualizza);
 		                    if($visualizza != false){
-		                    	for(; $i<3; $i++){
+		                    	for(; $num_row>0 && $i<3; $num_row--){
 		                    		$row = mysqli_fetch_assoc($visualizza);
+		                    		$i++;
 		                    		?>
 		                    			<div class="form_articolo">
 		                    				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
 		                					<img src= <?php echo $b64src;?> alt="Profilo" />
-											<p class="titolo" ><?php echo $row['titolo'];?></p>
+											<h3 class="titolo" ><?php echo $row['titolo'];?></h3>
 											<p class="contenuto_articolo" ><?php echo $row['contenuto'];?></p>
 											<div class="form_articolo_footer">
 												<a href="">Read more...</a>
@@ -126,14 +128,16 @@
 					</div>
 					<div id="contenitore_r">
 						<?php
+						$i=0;
 						if($visualizza != false){
-							for(; $i<6; $i++){
+							for(; $num_row>0 && $i<3; $num_row--){
 		                		$row = mysqli_fetch_assoc($visualizza);
+		                		$i++;
 								?>
 								<div class="form_articolo">
 		            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
 		        					<img src= <?php echo $b64src;?> alt="Profilo" />
-									<p class="titolo" ><?php echo $row['titolo'];?></p>
+									<h3 class="titolo" ><?php echo $row['titolo'];?></h3>
 									<p class="contenuto_articolo" ><?php echo $row['contenuto'];?></p>
 									<div class="form_articolo_footer">
 										<a href="">Read more...</a>

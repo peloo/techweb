@@ -9,5 +9,6 @@
             $con = $dbaccess->getConnessione();
          	$conLog = $dbaccess->canLog($_SESSION['email'],$_SESSION['password']);
         }
+        //la connessione non dev'essere chiusa
 	}
 ?>

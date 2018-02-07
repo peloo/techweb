@@ -104,22 +104,48 @@
 	                    require_once 'dbconnection.php';
 				        $dbaccess = new dbconnection();
 				        $opendDBConnection = $dbaccess->opendDBConnection();
-	                    $i = 0;
+	                    $pagina=$_GET['p'];
+	                    $riga=$pagina*8;
 
-	                    $visualizza = $dbaccess->getArticoli(8);
+	                    $visualizza = $dbaccess->getArticoli(8, $riga);
 	                    if($visualizza != false){
 	                    	foreach ($visualizza as $row){
 	                    		$titolo=$row['titolo'];
 	                    		$nome=$row['mail'];
                     			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">
 	                    			<div class="form_articolo">';
-	                    				$b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']);
+	                    				$b64src = "data:image/jpeg;base64," . base64_encode($row['foto']);
 	                					echo '<img src='.$b64src.' alt="Profilo" />
 										<h4 class="titolo" >'.$titolo.'</h4>
 									</div>
 								</a>';
 	                    	}
 	                    }
+
+	                    echo "<div id='pagine'>Pagine:</br>";
+	                    $n_articoli=$dbaccess->getNumArticoli();
+	                    $n_pagine=intval($n_articoli/8)+1;
+	                    if($pagina==0){
+	                    	echo "<a>1</a>";
+	                    	if($n_pagine>1){
+	                    		echo "<a class='pagina' href='articoli.php?p=1'>2</a>";
+	                    		if($n_pagine>2){
+	                    			echo "<a class='pagina' href='articoli.php?p=2'>3</a>";
+	                    			if($n_pagine>3)
+	                    				echo "...";
+	                    		}
+	                    	}
+	                    }
+	                    else{
+	                    	if($pagina>=3)
+	                    		echo "...";
+	                    	echo "<a class='pagina' href='articoli.php?p=".($pagina-1)."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
+	                    	if($pagina+1<$n_pagine)
+	                    		echo "<a class='pagina' href='articoli.php?p=".($pagina+1)."'>".($pagina+2)."</a>";
+	                    	if($pagina+2<$n_pagine)
+	                    		echo "...";
+	                    }
+	                    echo "</div>";
 	                ?>
 				</div>
 			</div>
