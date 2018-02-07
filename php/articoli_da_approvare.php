@@ -133,10 +133,8 @@
 								<h4 class="titolo"><?php echo $titolo; ?></h4>
 								<?php
 									if($approvato==0){
-<<<<<<< HEAD
-=======
 										echo '<a class="button_approva" href="approva_articolo.php?t='.$titolo.'&m='.$nome.'">Approva</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
->>>>>>> 6a0961e7718cca2f87261164f39075ec10ad5217
+
 										echo '<a class="button_cancella" href="cancella_articolo.php?m='.$nome.'&t='.$titolo.'">X</a>';
 									}
 									else

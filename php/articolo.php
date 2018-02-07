@@ -135,7 +135,8 @@
 					        $visualizza = $dbaccess->getTagArticolo($mail, $titolo);
 	                    	if($visualizza != false){
 		                    	foreach ($visualizza as $row){
-		                    		echo $row['nome'] . " - ";
+		                    		$nome=$row['nome'];
+									echo "<a href='articoli.php?p=0&r=".$nome."'>".$nome."</a> - ";
 	                    		}
 	                    	}
 				        ?>

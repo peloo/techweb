@@ -41,13 +41,6 @@
 	    		<button id="cross" onclick="dropup()">&#735;</button>
 	    	</header>
 
-	    	<div id="div_search">
-					<p id="search_bar">
-						<input id="text_search" type="text" name="search" placeholder="cerca"/>
-						<input type="button" id="button_search" value="Cerca"/>
-					</p>
-			</div>
-
 			<div id="div_search">
 					<form id="search_bar" method="get" action="articoli.php?p=0">
 						<input id="text_search" type="text" name="search" placeholder="cerca"/>
