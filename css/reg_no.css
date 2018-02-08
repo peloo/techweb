@@ -1,0 +1,31 @@
+#reg_no{
+	background-color: white;
+	min-height: 60em;
+}
+
+#reg_no p{
+	text-transform: uppercase;
+    font-family: 'Vollkorn', serif;
+	text-align:center;
+	font-size:1.20em;
+}
+
+#reg_no h2{
+	text-align:center;
+    text-transform: uppercase;
+}
+
+#reg_no img{
+	margin-top:  6%;
+	margin-left: 27%;
+	width: 45%
+}
+
+#reg_no h1{
+	padding-top:12%;
+	margin:0em;
+    font-family: 'Vollkorn', serif;
+	color:#D72323;
+	text-transform: uppercase;
+	text-align:center;
+}

@@ -1,0 +1,33 @@
+
+
+#qzq{
+	background-color: white;
+	min-height: 60em;
+}
+
+#qzq p{
+	font-family: 'Vollkorn', serif;
+	text-align:center;
+	font-size:1.20em;
+}
+
+#qzq h2{
+    font-family: 'Vollkorn', serif;
+	text-align:center;
+    text-transform: uppercase;
+}
+
+#qzq img{
+	margin-top: 12%;
+	margin-left:12%;
+	width: 75%
+}
+
+#qzq h1{
+	padding-top:3em;
+	margin:0em;
+	font-family: 'Vollkorn', serif;
+	color:#D72323;
+	text-transform: uppercase;
+	text-align:center;
+}
