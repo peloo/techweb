@@ -101,7 +101,7 @@
                     <h2> CONTATTACI </h2>
                     <p> Hai riscontrato problemi con il sito oppure vuoi metterti in contatto con uno dei responsabili? Inviaci un'email ed uno di loro ti risponderà il prima possibile</p>
 				
-                    <form id="invia_email" name="invia_email" action="../php/contattaci.php" method="post" onsubmit="return CheckContatti()">
+                    <form id="invia_email" name="invia_email" action=<?php echo $_SERVER['PHP_SELF']; ?> method="post" onsubmit="return CheckContatti()">
 						<br>
 	                    <label for="email">Email:</label><br>
 	                    <input type="text" name="email" id="email" placeholder="inserisci qui la mail"><br><br>
@@ -126,6 +126,9 @@
 						</script>
 
 	                    <input type="submit" name="submit" id="invia" value="Contattaci">
+
+	                    <?php require_once 'contattaci.php' ?>
+
             		</form><br><br>
                     
                     <p>In alternativa, se preferisci scrivere ad un specifico responsabile puoi contattarlo ad una delle seguenti email: </p><br>

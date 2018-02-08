@@ -33,16 +33,13 @@
 	            else{
 	            	$chek = $dbaccess->getInfo($var_email,$var_ogg,$var_contenuto,$var_data);
 	                if($chek == true)
-	                	echo "Contatto inviato! ;)";
+	                	echo "<br><br>Contatto inviato! ;)";
 	            	else
-						die("Ops! Qualcosa non va: non sono riuscito a eseguire la QUERY :'(");
+						echo "<br><br>Ops! Qualcosa non è andato: non sono riuscito a inviare il tuo messaggio :'(";
 	            }
-
 	            mysqli_close($con);
 	        }
 		}
-		else
-			echo "Ops! Qualcosa non va :(";
 	?>
 </body>
 </html>

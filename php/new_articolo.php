@@ -40,13 +40,6 @@
 	    		<button id="cross" onclick="dropup()">&#735;</button>
 	    	</header>
 
-	    	<div id="div_search">
-					<p id="search_bar">
-						<input id="text_search" type="text" name="search" placeholder="cerca"/>
-						<input type="button" id="button_search" value="Cerca"/>
-					</p>
-			</div>
-
 			<div id="div_search">
 					<form id="search_bar" method="get" action="articoli.php?p=0">
 						<input id="text_search" type="text" name="search" placeholder="cerca"/>
@@ -108,7 +101,6 @@
 			<div id="content">
 				<div id="form_add_articolo">
 					<form name="add_articolo" action="add_articolo.php" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
-						<br><br>
 	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
@@ -117,7 +109,7 @@
 	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"></textarea><br><br>
 
 	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
-	                	<p><input type="file" name="myimage"></p>
+	                	<p><input type="file" name="myimage" accept="image/x-png,image/gif,image/jpeg"></p>
 
 	                	<input type="hidden" name="data" id="data_corrente2" value=""/>
 						<script>
