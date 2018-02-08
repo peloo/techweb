@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 --
 
 INSERT INTO `tag` (`nome`, `descrizione`, `contatore`) VALUES
-('Alfa Romeo', 'n/a descrizione', 10),
+('AlfaRomeo', 'n/a descrizione', 10),
 ('Aston Martin', 'n/a descrizione', 10),
 ('Audi', 'n/a descrizione', 8),
 ('BMW', 'n/a descrizione', 4),
@@ -328,6 +328,7 @@ INSERT INTO `tag` (`nome`, `descrizione`, `contatore`) VALUES
 ('Mercedes', 'n/a descrizione', 0),
 ('NA', 'n/a descrizione', 12),
 ('Peugeot', 'n/a descrizione', 1),
+('Sicurezza', 'n/a descrizione', 0),
 ('Renault', 'n/a descrizione', 1);
 
 -- --------------------------------------------------------
