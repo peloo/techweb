@@ -63,7 +63,15 @@
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
-			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
+			  <?php
+					if($conLog==true){
+						if($opendDBConnection == true)
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+									'<li id="esci" class="link" role="menuitem"><a class="main" href="uscita.php">Esci</a></li>';
+					}
+					else
+						echo '<li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>';
+				?>
 			</ul>
 			
 		</div>
@@ -101,6 +109,16 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
+				<div id="mobile">
+					<?php
+						if($conLog == true && $opendDBConnection == true){
+							if(!$isAdmin)
+								echo "<b>Benvenuto: " .$username."</b>";
+							else
+								echo "<b>Benvenuto admin: ".$username."</b>";
+						}
+					?>
+				</div>
 				<div id="security">
 					<h2><b>Perchè dovremmo fare sempre due calcoli prima di vover salire in auto?</b></h2>
 					<p>"Non ti preoccupare, qui gli autovelox non ci sono o non funzionano", "Questa sera non bevo, se trovo i carabinieri mentre torno a casa sono fregato". Spesso sono questi i pensieri che nascono quando vogliamo metterci alla guida sperando durante il viaggio di non incappare in alcuna complicazione. L'obiettivo di questa pagina non è tanto quella di convincervi a guidare sotto i limiti o che guidare da ubriachi nuoce a te e a che sta con te in auto, ma solo quella di rendervi un po' consapevoli di cosa comporta premere l'acceleratore in certe situazioni. Uno degli scopi di questo sito, Autosecurity, è appunto quello di rendere l'autista una persona, appunto, più Autonoma e consapevole in campo di sicurezza autostradale. Se siete interessati buon viaggio!</p><br/>

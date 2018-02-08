@@ -105,10 +105,12 @@
                      <br>
 				           <input type="password" name="nickname" id="text_form" placeholder="Nickname">
                      <br>
-                	<input type="submit" name="submit" id="button_form_accedi" value="Iscriviti" onclick="return ControlloEmailNomeCognome(document.form_iscrizione.email, document.form_iscrizione.nome, document.form_iscrizione.cognome)">
+                	<input type="submit" name="submit" class="button_form_accedi" value="Iscriviti" onclick="return ControlloEmailNomeCognome(document.form_iscrizione.email, document.form_iscrizione.nome, document.form_iscrizione.cognome)">
 				</fieldset>
+			</form>
 
-				<fieldset id="field_accesso">
+			<fieldset id="field_accesso">
+				<form action="../php/accesso.php" method="post">
 					<div class="form_iscr_div">
                         <leggend class="legenda"> Dati login: </leggend>
                     </div>
@@ -121,10 +123,9 @@
                      <br>
                             <input type="password" name="a_password" id="a_psw" placeholder="Password">
                      <br>
-                	<input type="submit" name="submit" id="button_form_accedi" value="Accedi">
-				</fieldset>
-			</form>
-		</div>
+                	<input type="submit" name="submit" class="button_form_accedi" value="Accedi">
+                </form>
+			</fieldset>
 
 		<!-- -------------------------------------------------------------------------- -->
 

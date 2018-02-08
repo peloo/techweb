@@ -17,9 +17,7 @@ body{
 
 /*solo per la versione mobile*/
 @media only screen and (max-device-width: 480px){
-	html, body{
-	font-size: 1.4em;
-	}
+	html, body{font-size: 1.4em;}
 }
 
 /*per le varie larghezze dello schermo*/
@@ -167,13 +165,15 @@ a, a:hover, a:active, a:focus {}
     background-color:#FF0000;
 }
 
-#acc{display: none;}
+#acc, #scrivi, #esci{display: none;}
 /* -------------------------------------------- -------------------------------------------- -------------------------------------------- */
 
 #content_menu{
 	background-color: white;
 	width: 100%;
 }
+
+#mobile{display: none;}
 
 /* MENU */
 #menu{
@@ -259,7 +259,7 @@ a, a:hover, a:active, a:focus {}
     background-color:#008000;
 }
 
-#button_form_accedi {
+.button_form_accedi {
 	border-radius: 5px;
     background-color: #D72323;
     border: none;

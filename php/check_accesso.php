@@ -4,7 +4,7 @@
 				echo '<form action="uscita.php" method="post">
 					<p id="id_button_scrivi_esci">
 						<input type="button" id="button_scrivi_articolo" value="Scrivi articolo" onclick="window.location.href=' ."'" ."new_articolo.php" ."'" .'"' .' method="post"/>
-						<input type="submit" id="button_form_accedi" name="submit" value="Esci"/>
+						<input type="submit" class="button_form_accedi" name="submit" value="Esci"/>
 					</p>		
 				</form>';
 			}
@@ -23,7 +23,7 @@
 			<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
 			<br/>
 			<p id="id_button_form">
-				<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
+				<input type="submit" class="button_form_accedi" name="submit" value="Accedi"/>
 				<input type="button" id="button_form_registrati" value="Registrati" onclick="window.location.href=' ."'" ."../html/iscrizione.html" ."'" .'"' .'/>
 			</p>
 		</form>';

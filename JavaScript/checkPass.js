@@ -71,28 +71,26 @@ function checkForm(){
 
 
 
-function ControlloEmailNomeCognome(EmailF,NomeL,CognomeL)
+function ControlloEmailNomeCognome(EmailF,NomeL,CognomeL){
+    var FormatoMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var SoloLettere =  /^[A-Za-z]+$/;
+    
+    if(!EmailF.value.match(FormatoMail))
     {
-        var FormatoMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var SoloLettere =  /^[A-Za-z]+$/;
-        
-        if(!EmailF.value.match(FormatoMail))
-        {
-            alert("L'email inserita non è scritta nel formato corretto");
-            document.form_iscrizione.email.focus();
-            return false;
-        }
-        
-        if(!NomeL.value.match(SoloLettere) || !CognomeL.value.match(SoloLettere))
-            {
-            alert("Nome e Cognome devono contere solo caratteri alfabetici");
-            document.form_iscrizione.email.focus();
-            return false;
-            }
-        
-        return true;
-        
+        alert("L'email inserita non è scritta nel formato corretto");
+        document.form_iscrizione.email.focus();
+        return false;
     }
+    
+    if(!NomeL.value.match(SoloLettere) || !CognomeL.value.match(SoloLettere))
+        {
+        alert("Nome e Cognome devono contere solo caratteri alfabetici");
+        document.form_iscrizione.email.focus();
+        return false;
+        }
+    
+    return true;        
+}
 
 
 

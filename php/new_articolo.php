@@ -62,7 +62,15 @@
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
-			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
+			  <?php
+					if($conLog==true){
+						if($opendDBConnection == true)
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+									'<li id="esci" class="link" role="menuitem"><a class="main" href="uscita.php">Esci</a></li>';
+					}
+					else
+						echo '<li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>';
+				?>
 			</ul>
 			
 		</div>
@@ -99,6 +107,16 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
+				<div id="mobile">
+					<?php
+						if($conLog == true && $opendDBConnection == true){
+							if(!$isAdmin)
+								echo "<b>Benvenuto: " .$username."</b>";
+							else
+								echo "<b>Benvenuto admin: ".$username."</b>";
+						}
+					?>
+				</div>
 				<div id="form_add_articolo">
 					<form name="add_articolo" action="add_articolo.php" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
 	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
@@ -132,8 +150,9 @@
 								if($visualizza != false){
 									while($row = mysqli_fetch_assoc($visualizza)){
 										?>
+										<label for="<?php echo $row['nome'];?>">
 											<input type="checkbox" name="tag_scelto[]" id="<?php echo $row['nome'];?>" value="<?php echo $row['nome'];?>">
-											<label for="<?php echo $row['nome'];?>"><?php echo $row['nome'];?></label>
+											<?php echo $row['nome'];?></label>
 										<?php
 									}
 								} 

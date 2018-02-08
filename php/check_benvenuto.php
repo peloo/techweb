@@ -5,10 +5,11 @@
 			if($dati != false){
 				$isAdmin = $dbaccess->isAdmin($_SESSION['email']);
 				$row = mysqli_fetch_array($dati);
+				$username=$row['username'];
 				if(!$isAdmin)
-					echo "</br>Benvenuto: " . $row['username'];
+					echo "</br>Benvenuto: " .$username;
 				else
-					echo "</br>Benvenuto admin: " . $row['username'];
+					echo "</br>Benvenuto admin: ".$username;
 			}
 		}
 	}

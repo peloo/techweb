@@ -58,7 +58,15 @@
 			  </li>
 			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
-			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
+			  <?php
+					if($conLog==true){
+						if($opendDBConnection == true)
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+									'<li id="esci" class="link" role="menuitem"><a class="main" href="uscita.php">Esci</a></li>';
+					}
+					else
+						echo '<li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>';
+				?>
 			</ul>
 			
 		</div>
@@ -97,6 +105,16 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
+				<div id="mobile">
+					<?php
+						if($conLog == true && $opendDBConnection == true){
+							if(!$isAdmin)
+								echo "<b>Benvenuto: " .$username."</b>";
+							else
+								echo "<b>Benvenuto admin: ".$username."</b>";
+						}
+					?>
+				</div>
 				<div id="contattaci">
                     <h2> CONTATTACI </h2>
                     <p> Hai riscontrato problemi con il sito oppure vuoi metterti in contatto con uno dei responsabili? Inviaci un'email ed uno di loro ti risponderà il prima possibile</p>

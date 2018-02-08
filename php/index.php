@@ -48,9 +48,9 @@
 			</div>
 
 			<ul class="nav" role="menubar">
-			  <li id="home" class="link" role="menuitem"><a class="main">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
-			  <li id="args" class="link" role="menuitem">
+				<li id="home" class="link" role="menuitem"><a class="main">Home</a></li>
+				<li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
+				<li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
 						<li><a href="articoli.php?p=0&r=Alfa Romeo">Alfa</a></li>
@@ -58,10 +58,18 @@
 						<li><a href="articoli.php?p=0&r=BMW">BMW</a></li>
 						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
-			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
-			  <!-- solo per la versione mobile -->
-			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
+				</li>
+				<li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
+				<!-- solo per la versione mobile -->
+				<?php
+					if($conLog==true){
+						if($opendDBConnection == true)
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+									'<li id="esci" class="link" role="menuitem"><a class="main" href="uscita.php">Esci</a></li>';
+					}
+					else
+						echo '<li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>';
+				?>
 			</ul>
 			
 		</div>
@@ -98,6 +106,17 @@
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
+				<div id="mobile">
+					<?php
+						if($conLog == true && $opendDBConnection == true){
+							if(!$isAdmin)
+								echo "<b>Benvenuto: " .$username."</b>";
+							else
+								echo "<b>Benvenuto admin: ".$username."</b>";
+						}
+					?>
+				</div>
+
 				<div id="home">
 					<div id="contenitore_l">
 						<?php   

@@ -46,7 +46,7 @@ function spazio_frenata(){
 	tot=c*speed/3.6+((speed/3.6)*(speed/3.6))/(2*9.81*s);
 	tot=tot.toFixed(2);
 	document.getElementById("risultato_1").innerHTML=
-	"Una macchina che corre ai "+speed+" Km/h percorrerà "+tot+" m circa prima di fermarsi. "+ 
+	"Una macchina che corre ai <strong>"+speed+" Km/h</strong> percorrerà <strong>"+tot+" m</strong> circa prima di fermarsi. "+ 
     " Questo se il manto stradale é "+street+" lo stato dell'autista è: "+cond+".";
 }
 
@@ -56,7 +56,7 @@ var n_nodo=0;
 var bevande_array=[];
 
 function scrivi_ris(tot){
-	var ris="Livello di alcolemia nel sangue: "+tot+" grammi/litro. ";
+	var ris="Livello di alcolemia nel sangue: <strong>"+tot+" grammi/litro.</strong></br>";
 	if(tot==0)
 		ris=ris+"Non si ha nessuna sensazione particolare e nessuna abilità compromessa.";
 	else if(tot>0 && tot<=0.2)
