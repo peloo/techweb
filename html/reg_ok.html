@@ -42,8 +42,8 @@
 			</div>
 
 			<ul class="nav" role="menubar">
-			  <li id="home" class="link" role="menuitem"><a class="main" href="index.php">Home</a></li>
-			  <li id="art" class="link" role="menuitem"><a class="main" href="articoli.php?p=0">Articoli</a></li>
+			  <li id="home" class="link" role="menuitem"><a class="main" href="../php/index.php">Home</a></li>
+			  <li id="art" class="link" role="menuitem"><a class="main" href="../php/articoli.php?p=0">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
 					<a class="main" href="#">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
@@ -53,7 +53,7 @@
 						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main" href="../php/sicurezza.php">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <li id="acc" class="link" role="menuitem"><a class="main" href="../html/iscrizione.html">Accedi o Registrati</a></li>
 			</ul>
@@ -66,7 +66,7 @@
 				<p id="location" class="w3-large">Ti trovi in: Conferma Registrazione</p>
 
 				<div id="form">
-					<form action="accesso.php" method="post">
+					<form action="php-funzioni/accesso.php" method="post">
 						<div class="form3">
 							<p class="location1" class="w3-large">Accesso</p>
 						</div>
@@ -117,13 +117,9 @@
 		<!-- -------------------------------------------------------------------------- -->
 
 		<div id="footer">
-			<!-- fine pagina -->
 			<ul class="nav">
-				<!-- <li><a href="#">Home</a></li>
-				<li><a href="#">Articoli</a></li>
-				<li><a href="sicurezza.html">Sicurezza</a></li> -->
-				<li id="chisiamo"><a href="logout_weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a href="#">Contatti</a></li>
+				<li id="chisiamo"><a href="../php/weare.php">Chi Siamo</a></li>
+				<li id="contacts"><a href="../php/contatti.php">Contatti</a></li>
 			</ul>
 		</div>
 	</body>

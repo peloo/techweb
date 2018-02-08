@@ -20,8 +20,6 @@
 	    	$var_email = addslashes($var_email);
 	        $var_titolo = addslashes($var_titolo);
 
-
-
 	        $check = $dbaccess->dropArticolo($var_email,$var_titolo);
 	        
 	        if($check == true)

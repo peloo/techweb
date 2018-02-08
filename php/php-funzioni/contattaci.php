@@ -5,8 +5,8 @@
 </head>
 <body>
 	<?php
-		if(isset($_POST['submit'])){//se il bottone di submit è stato clikkato
-			require_once 'dbconnection.php';//includi una volta sola, se non ci riesce mostra un errore
+		if(isset($_POST['submit'])){					
+			require_once 'dbconnection.php';
             $dbaccess = new dbconnection();
             $opendDBConnection = $dbaccess->opendDBConnection();
             if($opendDBConnection === true){
@@ -17,7 +17,7 @@
 				$var_contenuto = $_REQUEST['contenuto'];
 				$var_data = $_REQUEST['data'];
 // --------------------------------------------------------------------------------------------------------------------------------
-				$var_email = stripcslashes(strip_tags($var_email));				// toglie "\" e i tags
+				$var_email = stripcslashes(strip_tags($var_email));				
 				$var_ogg = stripcslashes(strip_tags($var_ogg));
 				$var_contenuto = stripcslashes(strip_tags($var_contenuto));
 		   		$var_data = stripcslashes(strip_tags($var_data));

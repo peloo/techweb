@@ -5,8 +5,8 @@
 </head>
 <body>
 	<?php
-		if(isset($_POST['submit'])){//se il bottone di submit è stato clikkato
-			require_once 'dbconnection.php';//includi una volta sola, se non ci riesce mostra un errore
+		if(isset($_POST['submit'])){ 
+			require_once 'dbconnection.php';
             $dbaccess = new dbconnection();
             $opendDBConnection = $dbaccess->opendDBConnection();
             if($opendDBConnection === true){
@@ -35,7 +35,7 @@
 	            if($chek == true)
 	            { echo "Questa mail: ".$var_email." e' gia' registrata"; }
 	            else{
-	            	$var_passw = md5($var_passw);//cripta la password
+	            	$var_passw = md5($var_passw);
 	            	$chek = $dbaccess->getRegistration($var_email,$var_passw,$var_nick,$var_nome,$var_cognome);
 	                if($chek == true)
 	                	header("location: ../php/reg_ok.php");
