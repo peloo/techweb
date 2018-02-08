@@ -31,6 +31,7 @@
 			$result = mysqli_query($this->connessione,"SELECT * FROM utente WHERE mail = '$mail' AND password = '$pass'");
 	        $row = mysqli_fetch_array($result);
 	        $num_rows = $result->num_rows;
+	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return true;
 	        else
@@ -102,6 +103,7 @@
 			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT id FROM media order by id DESC limit 1");
 	        $num_rows = $result->num_rows;
+	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return $result;
 	        else
@@ -125,6 +127,7 @@
 			$result = mysqli_query($this->connessione,"SELECT * FROM articolo WHERE mail = '$mail' AND titolo = '$titolo'");
 	        $row = mysqli_fetch_array($result);
 	        $num_rows = $result->num_rows;
+	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return true;
 	        else
@@ -154,10 +157,7 @@
 
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
-	        if($num_rows >= 1)
-	        	return $result;
-	        else
-	        	return false;
+	        return $result;
 		}
 
 		public function getArticoliDaApprovare($limit, $offset){
@@ -165,10 +165,7 @@
 			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, M.foto, A.approvato FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.approvato=0 order by A.data DESC LIMIT ".$offset.",".$limit);
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
-	        if($num_rows >= 1)
-	        	return $result;
-	        else
-	        	return false;
+	        return $result;
 		}
 
 		public function numArticoliDaApprovare(){
@@ -176,19 +173,13 @@
 			$result = mysqli_query($this->connessione,"SELECT A.mail FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.approvato=0 order by A.data DESC");
 			$num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
-	        if($num_rows >= 1)
-	        	return $num_rows;
-	        else
-	        	return false;
+	        return $num_rows;
 		}
 
 		public function getNumArticoli($ricerca){
 			$result=$this->getArticoli(500, 0, $ricerca);
 			$num_rows = $result->num_rows;
-	        if($num_rows >= 1)
-	        	return $num_rows;
-	        else
-	        	return false;
+	        return $num_rows;
 		}
 
 		public function getArticoliUtente($mail){
@@ -196,10 +187,7 @@
 			$result = mysqli_query($this->connessione,"SELECT A.mail, A.titolo, A.contenuto, A.data, A.approvato,M.foto FROM articolo A JOIN articolo_media AM ON (A.mail = AM.mail AND A.titolo = AM.titolo) JOIN media M ON (AM.id = M.id) WHERE A.mail = '$mail'  order by A.data DESC");
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
-	        if($num_rows >= 1)
-	        	return $result;
-	        else
-	        	return false;
+	        return $result;
 		}
 
 		public function getDatiUser($mail){
@@ -240,15 +228,12 @@
 		public function getTag($limite=10){
 			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			if($limite == 0)
-				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA'");
+				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' order by contatore DESC");
 			else
-				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' order by contatore DESC limit 10");
+				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' AND nome != 'ALTRO' order by contatore DESC limit 10");
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
-	        if($num_rows >= 1)
-	        	return $result;
-	        else
-	        	return false;
+	        return $result;
 		}
 
 		public function setTagToArticolo($mail,$titolo,$tag){
@@ -276,6 +261,7 @@
 			$result = mysqli_query($this->connessione,"SELECT * FROM admin_redatore WHERE mail = '$mail'");        		
 	        $row = mysqli_fetch_array($result);
 	        $num_rows = $result->num_rows;
+	        mysqli_close($this->connessione);
 	        if($num_rows == 1)
 	        	return true;
 	        else
@@ -298,10 +284,7 @@
 			$result = mysqli_query($this->connessione,"SELECT * FROM articolo_tag WHERE mail = '$mail' AND titolo = '$titolo' AND nome != 'NA'");
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
-	        if($num_rows >= 1)
-	        	return $result;
-	        else
-	        	return false;
+	        return $result;
 		}
 	}
 ?>

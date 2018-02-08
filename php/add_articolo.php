@@ -79,8 +79,11 @@
 
 				        	if(!$check)
 				        		echo "Ops! Non ho collegato la foto al articolo :(";
-				        	else
+				        	else{
 		                		echo "YEE! Ho caricato il tuo articolo e anche l'immagine a esso associato ;)";
+		                		header('Location: articolo.php?t='.$var_titolo.'&m='.$var_email);
+
+				        	}
 		                }
 		            	else
 							die("Ops! Qualcosa non va: non sono riuscito a eseguire la QUERY :'(");

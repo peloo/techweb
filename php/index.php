@@ -111,7 +111,7 @@
 		                    	for(; $num_row>0 && $i<3; $num_row--){
 		                    		$row = mysqli_fetch_assoc($visualizza);
 		                    		$titolo=$row['titolo'];
-		                    		$contenuto=$row['contenuto'];
+		                    		$contenuto=substr($row['contenuto'], 0, 300) . "...";
 		                    		$mail=$row['mail'];
 		                    		$i++;
 		                    		?>
@@ -136,7 +136,7 @@
 							for(; $num_row>0 && $i<3; $num_row--){
 		                		$row = mysqli_fetch_assoc($visualizza);
 		                		$titolo=$row['titolo'];
-	                    		$contenuto=$row['contenuto'];
+	                    		$contenuto=substr($row['contenuto'], 0, 300) . "...";
 	                    		$mail=$row['mail'];
 		                		$i++;
 								?>

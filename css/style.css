@@ -297,7 +297,7 @@ a, a:hover, a:active, a:focus {}
 	border-left: 1px solid #000000;
 	background-color: white;
 	width: 71.5%;
-	min-height: -webkit-fill-available;
+	min-height: 42em;
 	margin-left: 28.5%;
 	overflow: hidden;
 	padding: 2em;

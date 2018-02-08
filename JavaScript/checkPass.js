@@ -30,11 +30,18 @@ function checkPass()
 
 
 function checkArticolo(){
-     var titolo = document.forms["add_articolo"]["titolo"].value;
-     var articolo = document.forms["add_articolo"]["contenuto"].value;
-      if((titolo == "") || (articolo == "")){
+    var titolo = document.forms["add_articolo"]["titolo"].value;
+    var articolo = document.forms["add_articolo"]["contenuto"].value;
+    var foto = document.forms["add_articolo"]["myimage"].value;
+    if((titolo == "") || (articolo == "")){
         alert('Devi compilare tutti i campi!');
         return false;
+    }
+    else{
+        if(foto == ""){
+            alert('Devi inserire una foto per l\'articolo!');
+            return false;
+        }
     }
     
 }
