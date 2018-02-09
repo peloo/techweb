@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
@@ -106,20 +106,20 @@
 						<h2><b>RESPONSABILI</b></h2>
 						<div id="mat">
 							<h3>Matteo Pellanda </h3>
-							<img id="pelo" src="../images/pelo.jpg">
+							<img id="pelo" src="../images/pelo.jpg" alt="Matteo">
 							<p> Matteo Pellanda &egrave; il responsabile della parte PHP, Database e della homepage<br/>
 		                    </p>
 						</div>
 						
 		                <div id="doge">
                             <h3>Enrico Trinco</h3>
-							<img id="dog" src="../images/doge.jpg">
+							<img id="dog" src="../images/doge.jpg" alt="Enrico">
 							<p> Enrico Trinco, l'elemento del gruppo che mostra curiosit&agrave; ma non si applica. Responsabile delle pagine "Chi Siamo", "Contattaci", "Log-in" del Javascript </p>
 						</div>
 		                
 						<div id="nico">
 							<h3>Nicola Carlesso </h3>
-							<img id="nic" src="../images/nico.jpg">
+							<img id="nic" src="../images/nico.jpg" alt="Nicola">
                             <p> Nicola Carlesso. Responsabile del CSS desktop, mobile, stampa e della parte di sicurezza e relativo Javascrip.</p>	
                         </div>
 						
