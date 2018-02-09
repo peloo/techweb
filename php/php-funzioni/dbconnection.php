@@ -276,6 +276,10 @@
 
 		public function dropArticolo($mail, $titolo){
 			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+
+			$result = mysqli_query($this->connessione,"UPDATE tag SET contatore = contatore - 1 WHERE nome IN 
+														(SELECT nome FROM articolo_tag  WHERE mail = '$mail' AND titolo = '$titolo')");
+
 			$result = mysqli_query($this->connessione,"DELETE FROM articolo WHERE mail = '$mail' and titolo = '$titolo'");
 			mysqli_close($this->connessione);
 	        if($result) 

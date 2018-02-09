@@ -23,7 +23,7 @@
 	        $check = $dbaccess->dropArticolo($var_email,$var_titolo);
 	        
 	        if($check == true)
-	        	header('Location: ../articoli_da_approvare.php?p=0');
+	        	header('Location: ../miei_articoli.php?p=0');
 	        else
 	        	echo "Non sono riuscito ad eliminare l'articolo :(";
 	        	
