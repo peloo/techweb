@@ -120,15 +120,17 @@
 		                    		$mail=$row['mail'];
 		                    		$i++;
 		                    		?>
-		                    			<div class="form_articolo">
-		                    				<?php $b64src = "data:image/jpeg;base64," . base64_encode($row['foto']); ?>
-		                					<img src= <?php echo $b64src;?> alt="Profilo" />
-											<h3 class="titolo" ><?php echo $titolo?></h3>
-											<p class="contenuto_articolo" ><?php echo $contenuto;?></p>
-											<div class="form_articolo_footer">
-												<a href="<?php echo 'articolo.php?t='.$titolo.'&m='.$mail;?>">Read more...</a>
+		                    			<a href="<?php echo 'articolo.php?t='.$titolo.'&m='.$mail;?>">
+		                    				<div class="form_articolo">
+			                    				<?php $b64src = "data:image/jpeg;base64," . base64_encode($row['foto']); ?>
+			                					<img src= <?php echo $b64src;?> alt="Profilo" />
+												<h3 class="titolo" ><?php echo $titolo?></h3>
+												<p class="contenuto_articolo" ><?php echo $contenuto;?></p>
+												<div class="form_articolo_footer">
+													Read more...
+												</div>
 											</div>
-										</div>
+										</a>
 		                    		<?php
 		                    	}
 		                    }
@@ -145,15 +147,18 @@
 	                    		$mail=$row['mail'];
 		                		$i++;
 								?>
-								<div class="form_articolo">
-		            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
-		        					<img src= <?php echo $b64src;?> alt="Profilo" />
-									<h3 class="titolo" ><?php echo $titolo;?></h3>
-									<p class="contenuto_articolo" ><?php echo $contenuto;?></p>
-									<div class="form_articolo_footer">
-										<a href="<?php echo 'articolo.php?t='.$titolo.'&m='.$mail;?>">Read more...</a>
+								<a href="<?php echo 'articolo.php?t='.$titolo.'&m='.$mail;?>">
+									<div class="form_articolo">
+			            				<?php $b64src = "data:"."image/jpeg".";base64," . base64_encode($row['foto']); ?>
+			        					<img src= <?php echo $b64src;?> alt="Profilo" />
+										<h3 class="titolo" ><?php echo $titolo;?></h3>
+										<p class="contenuto_articolo" ><?php echo $contenuto;?></p>
+										<div class="form_articolo_footer">
+											Read more...
+										</div>
 									</div>
-								</div>
+								</a>
+								
 								<?php
 							}
 						}
