@@ -218,11 +218,16 @@
 		public function getInfo($mail, $oggetto, $contenuto, $data){
 			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"INSERT INTO info(mail,oggetto,contenuto,data) VALUES ('$mail','$oggetto','$contenuto','$data')");
-			mysqli_close($this->connessione);
-	        if($result) 
+			
+	        if($result){
+	        	mysqli_close($this->connessione);
 	        	return true;
-	        else
+	        }
+	        else{
+	        	echo("Error description: " . mysqli_error($this->connessione));
+	        	mysqli_close($this->connessione);
 	        	return false;
+	        }
 		}
 
 		public function getTag($limite=10){
@@ -282,6 +287,14 @@
 		public function getTagArticolo($mail,$titolo){
 			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
 			$result = mysqli_query($this->connessione,"SELECT * FROM articolo_tag WHERE mail = '$mail' AND titolo = '$titolo' AND nome != 'NA'");
+	        $num_rows = $result->num_rows;
+	        mysqli_close($this->connessione);
+	        return $result;
+		}
+
+		public function getUsername($mail){
+			$this->connessione = mysqli_connect(static::var_server, static::var_username, static::var_password, static::var_dbname);
+			$result = mysqli_query($this->connessione,"SELECT * FROM utente WHERE mail = '$mail' ");
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
 	        return $result;

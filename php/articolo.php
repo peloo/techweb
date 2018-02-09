@@ -108,6 +108,10 @@
 				        $titolo=$_GET['t'];
 				        $mail=$_GET['m'];
 
+				        $username = $dbaccess->getUsername($mail);
+				        $username = mysqli_fetch_assoc($username);
+				        $username = $username['username'];
+				        
 				        $row=$dbaccess->prelevaArticolo($mail, $titolo);
 				        if(mysqli_num_rows($row)==1){
 					        $row=mysqli_fetch_assoc($row);
