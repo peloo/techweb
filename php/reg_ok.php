@@ -43,7 +43,7 @@
 			  <li id="home" class="link" role="menuitem"><a class="main" href="../php/index.php">Home</a></li>
 			  <li id="art" class="link" role="menuitem"><a class="main" href="../php/articoli.php?p=0">Articoli</a></li>
 			  <li id="args" class="link" role="menuitem">
-					<a class="main" href="#">Argomenti</a>
+					<a class="main">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
 						<li role="menuitem"><a href="#">Alfa</a></li>
 						<li role="menuitem"><a href="#">Audi</a></li>

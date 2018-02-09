@@ -52,10 +52,12 @@ html, body{
 .form_articolo{
 	margin-bottom: 2em;
 	overflow: auto;
+	border: 1px solid #000;
 }
 
 .form_articolo img{
 	float: left;
+	width: 20%;
 }
 
 .titolo{
@@ -64,6 +66,9 @@ html, body{
 }
 .form_articolo_footer{
 	display: none;
+}
+#content a{
+	text-decoration: none;
 }
 
 /*pagina weare*/
@@ -86,7 +91,7 @@ html, body{
 }
 
 /*pagina sicurezza*/
-#articoli, #street, #condition, #speed, #calculate, #velocita p, #alcol p, #risultato_2 button, #bevanda, #add, #genere, #stomaco, #peso{
+#articoli_sicurezza, #street, #condition, #speed, #calculate, #velocita p, #alcol p, #risultato_2 button, #bevanda, #add, #genere, #stomaco, #peso{
 	display: none;
 }
 
@@ -111,3 +116,45 @@ html, body{
 	display: block;
 	text-transform: lowercase;
 }
+
+/*pagina articoli*/
+#articoli h4{
+	font-weight: bold;
+	text-align: center;
+	margin:auto;
+}
+
+#articoli img{
+	width: 20%;
+	height: 20%;
+	padding: 0.2em;
+}
+
+/*articolo*/
+#articolo #immagine_testo{
+	margin-top: 1em;
+}
+
+#articolo h2{
+	text-align: center;
+	font-family: 'Vollkorn', serif;
+	text-transform: uppercase;
+}
+
+#articolo img{
+	display: none;
+}
+
+#articolo #data_autore{
+	margin-top:2em;
+}
+
+#articolo #data{
+	float: left;
+}
+
+#articolo #author{
+	float:right;
+}
+
+#articolo #lista_tag{display: none;}
