@@ -80,8 +80,9 @@
 				        	if(!$check)
 				        		echo "Ops! Non ho collegato la foto al articolo :(";
 				        	else{
+				        		$link_titolo=str_replace(" ", "_", $var_titolo);
 		                		echo "YEE! Ho caricato il tuo articolo e anche l'immagine a esso associato ;)";
-		                		header('Location: ../articolo.php?t='.$var_titolo.'&m='.$var_email);
+		                		header('Location: ../articolo.php?t='.$link_titolo.'&m='.$var_email);
 
 				        	}
 		                }

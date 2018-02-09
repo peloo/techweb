@@ -14,7 +14,7 @@
 	else{
 		echo '<form action="php-funzioni/accesso.php" method="post">
 			<div class="form3">
-				<p class="location1" class="w3-large">Accesso</p>
+				<p class="location1">Accesso</p>
 			</div>
 		
 			<!-- <p id="info_form">E-mail:</p> -->

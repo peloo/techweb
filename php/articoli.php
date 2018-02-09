@@ -1,20 +1,20 @@
 <?php require_once "php-funzioni/check_sessione.php"; ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print">
-		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld">
+		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
+		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen, handheld"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
-		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
+		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico'/>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
+    	<script src="../JavaScript/hamburgermenu.js"></script>
 
 		<title>Articoli - Autosecurity</title>
 	</head> 
@@ -24,25 +24,29 @@
 		</div>
 
 		<div id="breadcrumb">
-			<header>
+			<div id="hamburger_menu">
 				<button id="hamburger" onclick="dropdown()">&#9776;</button>
 	    		<button id="cross" onclick="dropup()">&#735;</button>
-	    	</header>
+	    	</div>
 
-	    	<div id="div_search">
-				<form id="search_bar" method="get" action="articoli.php?p=0">
-					<input id="text_search" type="text" name="search" placeholder="cerca"/>
-					<input type="submit" name="submit" id="button_search" value="Cerca"/>
-					<input type="hidden" name="p" value="0"/>
-				</form>
-			</div>
+	    	
+			<form id="search_bar" method="get" action="articoli.php?p=0">
+				<input id="text_search" type="text" name="search" placeholder="cerca"/>
+				<input type="submit" name="submit" id="button_search" value="Cerca"/>
+				<input type="hidden" name="p" value="0"/>
+			</form>
+			
 
 			<?php
 				$ricerca='';
-                if(isset($_GET['submit']))
+                if(isset($_GET['submit'])){
                 	$ricerca=$_GET['search'];
-                else if(isset($_GET['r']) && $_GET['r']!='')
+                	$ricerca=str_replace("_", " ", $ricerca);
+                }
+                else if(isset($_GET['r']) && $_GET['r']!=''){
                 	$ricerca=$_GET['r'];
+                	$ricerca=str_replace("_", " ", $ricerca);
+                }
 
                 if($ricerca=='')
                 	echo '<style>#art:hover, #art:focus, #art:active, #art a:hover, #art a:focus, #art a:active{background-color: #303841;}</style>';
@@ -53,7 +57,7 @@
 			  <li id="args" class="link" role="menuitem">
 					<a class="main">Argomenti</a>
 					<ul id="dropdown-content" role="menu">
-						<li><a href="articoli.php?p=0&r=Alfa Romeo">Alfa</a></li>
+						<li><a href="articoli.php?p=0&r=Alfa_Romeo">Alfa</a></li>
 						<li><a href="articoli.php?p=0&r=Audi">Audi</a></li>
 						<li><a href="articoli.php?p=0&r=BMW">BMW</a></li>
 						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
@@ -76,26 +80,24 @@
 
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
-				<p id="location" class="w3-large">Ti trovi in: Articoli
+				<p id="location">Ti trovi in: Articoli
 					<?php require_once "php-funzioni/check_benvenuto.php"; ?>
 				</p>
 
-				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
+				<div id="form" <?php if($conLog==true) echo "style='border:0;'"?>>
 					<?php require_once "php-funzioni/check_accesso.php"; ?>
 				</div>
 
 				<div id="form2">
 
 					<div class="form3">
-						<p class="location1" class="w3-large">Tag Frequenti</p>
+						<p class="location1">Tag Frequenti</p>
 					</div>
 
-					<p><?php require_once "php-funzioni/tag_frequenti.php"; ?></p>
+					<?php require_once "php-funzioni/tag_frequenti.php"; ?>
 
 				</div>
 			</div>
-
-			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
 				<div id="mobile">
@@ -126,11 +128,12 @@
 	                    if($visualizza != false){
 	                    	foreach ($visualizza as $row){
 	                    		$titolo=$row['titolo'];
+	                    		$link_titolo=str_replace(" ", "_", $titolo);
 	                    		$nome=$row['mail'];
-                    			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">
+                    			echo '<a href="articolo.php?t='.$link_titolo.'&m='.$nome.'">
 	                    			<div class="form_articolo">';
 	                    				$b64src = "data:image/jpeg;base64," . base64_encode($row['foto']);
-	                					echo '<img src='.$b64src.' alt="Profilo" />
+	                					echo '<img src="'.$b64src.'" alt="Profilo" />
 										<h4 class="titolo" >'.$titolo.'</h4>
 									</div>
 								</a>';
@@ -139,14 +142,16 @@
 
 	                    if($n_articoli==0)
 	                    	echo "<h2 style='text-align:center;'>Mi dispiace, non sono ancora stati pubblicati articoli</h2>";
+
+	                    $link_ricerca=str_replace(" ", "&#160;", $ricerca);
 	                    
-	                    echo "<div id='pagine'>Pagine:</br>";
+	                    echo "<div id='pagine'>Pagine:<br>";
 	                    if($pagina==0){
 	                    	echo "<a>1</a>";
 	                    	if($n_pagine>1){
-	                    		echo "<a class='pagina' href='articoli.php?p=1&r=".$ricerca."'>2</a>";
+	                    		echo "<a class='pagina' href='articoli.php?p=1&r=".$link_ricerca."'>2</a>";
 	                    		if($n_pagine>2){
-	                    			echo "<a class='pagina' href='articoli.php?p=2&r=".$ricerca."'>3</a>";
+	                    			echo "<a class='pagina' href='articoli.php?p=2&r=".$link_ricerca."'>3</a>";
 	                    			if($n_pagine>3)
 	                    				echo "...";
 	                    		}
@@ -155,9 +160,9 @@
 	                    else{
 	                    	if($pagina>=2)
 	                    		echo "...";
-	                    	echo "<a class='pagina' href='articoli.php?p=".($pagina-1)."&r=".$ricerca."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
+	                    	echo "<a class='pagina' href='articoli.php?p=".($pagina-1)."&r=".$link_ricerca."'>".$pagina."</a>"."<a>".($pagina+1)."</a>";
 	                    	if($pagina+1<$n_pagine)
-	                    		echo "<a class='pagina' href='articoli.php?p=".($pagina+1)."&r=".$ricerca."'>".($pagina+2)."</a>";
+	                    		echo "<a class='pagina' href='articoli.php?p=".($pagina+1)."&r=".$link_ricerca."'>".($pagina+2)."</a>";
 	                    	if($pagina+2<$n_pagine)
 	                    		echo "...";
 	                    }
@@ -166,7 +171,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- -------------------------------------------------------------------------- -->
 
 		<div id="footer">
 			<ul class="nav">

@@ -7,7 +7,8 @@
     	echo "<ul class='nav'>";
     	while($row = mysqli_fetch_assoc($visualizza)){
             $nome=$row['nome'];
-			echo "<li><a href='articoli.php?p=0&r=".$nome."'>".$nome."</a></li>";
+            $link_nome=str_replace("_", "", $nome);
+			echo "<li><a href='articoli.php?p=0&amp;r=".$link_nome."'>".$nome."</a></li>";
     	}
     	echo "</ul>";
     }

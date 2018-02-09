@@ -139,7 +139,7 @@ a, a:hover, a:active, a:focus {}
     clear:both;
 }
 
-#div_search{
+#search_bar{
 	float: right;
 	margin-left: auto;
 }
