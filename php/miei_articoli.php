@@ -70,7 +70,7 @@
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
 				<p id="location" class="w3-large">Ti trovi in: I miei articoli
-					<?php require_once "check_benvenuto.php"; ?>
+					<?php require_once "php-funzioni/check_benvenuto.php"; ?>
 				</p>
 
 				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>

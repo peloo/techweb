@@ -149,7 +149,7 @@ function grado(drink){
 		// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	//deprecato ma non mi interessa
-    xmlhttp.open("GET","../php/php-funzioni/alcol.php?t="+table+"&p="+peso+"&b="+bevanda,false);
+    xmlhttp.open("GET","../php/alcol.php?t="+table+"&p="+peso+"&b="+bevanda,false);
     xmlhttp.send();
     aggiunta = xmlhttp.responseText;
     aggiunta=Number(aggiunta);

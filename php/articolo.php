@@ -121,7 +121,12 @@
 					<h2><b><?php echo $titolo?></b></h2>
 					<div id="immagine_testo">
 						<img id="immagine" src="<?php echo $foto?>">
-						<p id="testo"><?php echo $contenuto?>
+						<p id="testo">
+							<?php
+								$eols = array("\n","\r\n");
+								$text = str_replace($eols,'<br />',$contenuto);
+								echo $text; 
+							?>
 					</div>
 					<div id="data_autore">
 						<p id="data"><?php echo $data?></p>

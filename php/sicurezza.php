@@ -198,7 +198,6 @@
 			</ul>
 		</div>
 
-		<!-- questa parte, se tegliata e cpiata nel file JavaScript non funziona, per questo si trova qui -->
 		<script>
 		var input = document.getElementById("speed");
 		input.addEventListener("keyup", function(event) {
