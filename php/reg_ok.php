@@ -73,7 +73,7 @@
 						<input class="text_form" type="password" name="password" placeholder="inserisci password"/>
 						<br/>
 						<p id="id_button_form">
-							<input type="submit" id="button_form_accedi" name="submit" value="Accedi"/>
+							<input type="submit" class="button_form_accedi" name="submit" value="Accedi"/>
 						</p>
 					</form>
 				</div>

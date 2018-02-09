@@ -117,14 +117,11 @@
 		                    			echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">';
 			            ?>
 	            			<div class="form_articolo">
-								<?php
-									//echo "<form action='cancella_articolo.php?m=".$nome."&t=".$titolo." method='get'>";
-	            					$b64src = "data:image/jpeg;base64," . base64_encode($row['foto']);
-	            				?>
+								<?php $b64src = "data:image/jpeg;base64," . base64_encode($row['foto']); ?>
 	        					<img src= <?php echo $b64src;?> alt="Profilo" />
 	        					<input type="hidden" name="mail" value="<?php echo $_SESSION['email']; ?>"/>
 	        					<input type="hidden" name="titolo_d" value="<?php echo $titolo; ?>"/>
-								<h4 class="titolo"><?php echo $titolo; ?></h4>
+								<?php echo '<a href="articolo.php?t='.$titolo.'&m='.$nome.'">'; ?><h4 class="titolo"><?php echo $titolo; ?></h4></a>
 								<?php
 									if($approvato==0){
 										echo '<a class="modifica" href="modifica_articolo.php?t='.$titolo.'&m='.$nome.'">Modifica</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
