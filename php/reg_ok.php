@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/reg_ok.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/registrazione.css" media="handheld, screen"/>
@@ -79,7 +79,7 @@
 
 			<div id="content">
 				<div id="reg_ok_content">
-					<img src="../images/approved.png">
+					<img src="../images/approved.png" alt="Immagine di approvazione">
 					<h1>Registrazione avvenuta con successo!</h1>
 					<br/>
 					<p>Lo staff di Autosecurity ti augura una buona permanenza</p>
