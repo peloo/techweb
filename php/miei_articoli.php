@@ -109,30 +109,24 @@
 		                    		$titolo=$row['titolo'];
 		                    		$link_titolo=str_replace(" ", "_", $titolo);
 		                    		$nome=$row['mail'];
-		                    		if($approvato==1)
-		                    			echo '<a href="articolo.php?t='.$link_titolo.'&m='.$nome.'">';
 			            ?>
-	            			<div class="form_articolo">
+            			<div class="form_articolo">
+
 								<?php $b64src = "data:image/jpeg;base64," . base64_encode($row['foto']); ?>
 	        					<img src= <?php echo $b64src;?> alt="Profilo" />
 	        					<input type="hidden" name="mail" value="<?php echo $_SESSION['email']; ?>"/>
 	        					<input type="hidden" name="titolo_d" value="<?php echo $titolo; ?>"/>
 								<?php echo '<a href="articolo.php?t='.$link_titolo.'&m='.$nome.'">'; ?><h4 class="titolo"><?php echo $titolo; ?></h4></a>
-								<?php
-									if($approvato==0){
-										echo '<a class="modifica" href="modifica_articolo.php?t='.$link_titolo.'&m='.$nome.'">Modifica</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
-										echo '<a class="button_cancella" href="php-funzioni/cancella_articolo.php?m='.$nome.'&t='.$link_titolo.'">X</a>';
-									}
-									else
-										echo "<img class='approved' src='../images/articolo_si.jpg'/>";
-
-									
-								?>
-							
-							</div>
+							<?php
+								if($approvato==0){
+									echo '<a class="modifica" href="modifica_articolo.php?t='.$link_titolo.'&m='.$nome.'">Modifica</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
+									echo '<a class="button_cancella" href="php-funzioni/cancella_articolo.php?m='.$nome.'&t='.$link_titolo.'">X</a>';
+								}
+								else
+									echo "<img class='approved' src='../images/articolo_si.jpg'/>";
+							?>
+						</div>
 		                <?php
-		                		if($approvato==1)
-		                			echo "</a>";
 		                    	}
 		                    }
 		                ?>

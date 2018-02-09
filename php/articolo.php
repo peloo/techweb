@@ -130,7 +130,7 @@
 					</div>
 					<div id="data_autore">
 						<p id="data"><?php echo $data?></p>
-						<p id="author"><?php echo $mail?></p>
+						<p id="author"><?php echo $username?></p>
 					</div>
 					<div id="lista_tag">
 						Tag: 

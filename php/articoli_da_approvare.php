@@ -1,4 +1,4 @@
-_<?php require_once "php-funzioni/check_sessione.php"; ?>
+<?php require_once "php-funzioni/check_sessione.php"; ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
 	<head>
@@ -131,7 +131,6 @@ _<?php require_once "php-funzioni/check_sessione.php"; ?>
 							<?php
 								if($approvato==0){
 									echo '<a class="button_approva" href="php-funzioni/approva_articolo.php?t='.$link_titolo.'&m='.$nome.'">Approva</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
-
 									echo '<a class="button_cancella" href="php-funzioni/cancella_articolo.php?m='.$link_nome.'&t='.$titolo.'">X</a>';
 								}
 								else

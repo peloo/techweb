@@ -34,11 +34,13 @@
                     mysqli_close($con);
                 }
                 else{
-                    echo $var_email ."<br>". $var_passw . "<br>";
+                    ob_start();
                     echo "Accesso non valido";
+                    header('refresh:2;url=../index.php');
+                    ob_end_flush();
                 }
             }
-            $dbaccess->close();
+                //$dbaccess->close(); 
 		}
 	?>
 

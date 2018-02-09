@@ -33,7 +33,7 @@
 		        $chek = $dbaccess->isAlreadyRegistered($var_email);
 
 	            if($chek == true)
-	            { echo "Questa mail: ".$var_email." e' gia' registrata"; }
+	            { header("location: ../../html/reg_no.html"); }
 	            else{
 	            	$var_passw = md5($var_passw);
 	            	$chek = $dbaccess->getRegistration($var_email,$var_passw,$var_nick,$var_nome,$var_cognome);

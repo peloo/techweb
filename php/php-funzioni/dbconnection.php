@@ -1,9 +1,9 @@
 <?php
 	class dbconnection{
 		const var_server = "localhost";
-		const var_username = "root";
-		const var_password = "";
-		const var_dbname = "techweb";
+		const var_username = "ncarless";
+		const var_password = "iixe1OhM9ahmiige";
+		const var_dbname = "ncarless";
 		public $connessione;
 
 		public function opendDBConnection(){
@@ -235,7 +235,7 @@
 			if($limite == 0)
 				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' order by contatore DESC");
 			else
-				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' AND nome != 'ALTRO' order by contatore DESC limit 10");
+				$result = mysqli_query($this->connessione,"SELECT nome FROM tag WHERE nome != 'NA' AND nome != 'ALTRO' AND contatore > 0 order by contatore DESC limit 10");
 	        $num_rows = $result->num_rows;
 	        mysqli_close($this->connessione);
 	        return $result;

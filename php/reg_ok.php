@@ -6,6 +6,7 @@
 
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/reg_ok.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/registrazione.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/> 
@@ -57,7 +58,7 @@
 
 		<div id="content_menu"> 
 			<div id="menu" class="w3-allerta">
-				<p id="location">Ti trovi in: Articoli
+				<p id="location">Ti trovi in: Iscrizione confermata
 					<?php require_once "php-funzioni/check_benvenuto.php"; ?>
 				</p>
 
