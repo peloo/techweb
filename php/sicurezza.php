@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
@@ -184,7 +184,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- -------------------------------------------------------------------------- -->
 
 		<div id="footer">
 			<ul class="nav">

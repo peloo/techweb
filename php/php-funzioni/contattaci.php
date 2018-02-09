@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Iscrizione - PHP</title>
-</head>
-<body>
+
 	<?php
 		if(isset($_POST['submit'])){					
 			require_once 'dbconnection.php';
@@ -41,5 +36,3 @@
 	        }
 		}
 	?>
-</body>
-</html>

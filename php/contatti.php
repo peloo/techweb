@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/contattaci.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
@@ -99,16 +99,16 @@
                     <h2> CONTATTACI </h2>
                     <p> Hai riscontrato problemi con il sito oppure vuoi metterti in contatto con uno dei responsabili? Inviaci un'email ed uno di loro ti risponderà il prima possibile</p>
 				
-                    <form id="invia_email" name="invia_email" action=<?php echo $_SERVER['PHP_SELF']; ?> method="post" onsubmit="return CheckContatti()">
+                    <form id="invia_email" name="invia_email" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return CheckContatti()">
 						<br>
 	                    <label for="email">Email:</label><br>
 	                    <input type="text" name="email" id="email" placeholder="inserisci qui la mail"><br><br>
 	                    
 	                    <label for="oggetto">Oggetto:</label><br>
-	                    <textarea rows="1" cols="50" name="oggetto" placeholder="inserisci qui l'oggetto"></textarea><br><br>
+	                    <textarea rows="1" cols="50" id="oggetto" name="oggetto" placeholder="inserisci qui l'oggetto"></textarea><br><br>
 
 	                    <label for="contenuto">Contenuto dell'email:</label><br>
-	                    <textarea rows="4" cols="50" name="contenuto" placeholder="inserisci qui il contenuto dell'email"></textarea><br><br>
+	                    <textarea rows="4" cols="50" id="contenuto" name="contenuto" placeholder="inserisci qui il contenuto dell'email"></textarea><br><br>
 
 	                    <p>
 	                		<label>Data di oggi: </label><label id="data_corrente"></label>  

@@ -7,9 +7,9 @@
 				$row = mysqli_fetch_array($dati);
 				$username=$row['username'];
 				if(!$isAdmin)
-					echo "</br>Benvenuto: " .$username;
+					echo "<br>Benvenuto: " .$username;
 				else
-					echo "</br>Benvenuto admin: ".$username;
+					echo "<br>Benvenuto admin: ".$username;
 			}
 		}
 	}
