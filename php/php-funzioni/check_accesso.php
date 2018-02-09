@@ -1,7 +1,7 @@
 <?php
 	if($conLog==true){
 		if($opendDBConnection == true){
-				echo '<form action="uscita.php" method="post">
+				echo '<form action="php-funzioni/uscita.php" method="post">
 					<p id="id_button_scrivi_esci">
 						<input type="button" id="button_scrivi_articolo" value="Scrivi articolo" onclick="window.location.href=' ."'" ."new_articolo.php" ."'" .'"' .' method="post"/>
 						<input type="submit" class="button_form_accedi" name="submit" value="Esci"/>
@@ -12,7 +12,7 @@
 			echo "Ops! Qualcosa e' andato storto";
 	}
 	else{
-		echo '<form action="accesso.php" method="post">
+		echo '<form action="php-funzioni/accesso.php" method="post">
 			<div class="form3">
 				<p class="location1" class="w3-large">Accesso</p>
 			</div>

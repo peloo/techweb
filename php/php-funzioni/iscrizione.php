@@ -38,7 +38,7 @@
 	            	$var_passw = md5($var_passw);
 	            	$chek = $dbaccess->getRegistration($var_email,$var_passw,$var_nick,$var_nome,$var_cognome);
 	                if($chek == true)
-	                	header("location: ../php/reg_ok.php");
+	                	header("location: ../reg_ok.php");
 	            	else
 						die("Ops! Qualcosa non va: non sono riuscito a eseguire la QUERY :'(");
 	            }

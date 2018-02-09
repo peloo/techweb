@@ -81,7 +81,7 @@
 				        		echo "Ops! Non ho collegato la foto al articolo :(";
 				        	else{
 		                		echo "YEE! Ho caricato il tuo articolo e anche l'immagine a esso associato ;)";
-		                		header('Location: articolo.php?t='.$var_titolo.'&m='.$var_email);
+		                		header('Location: ../articolo.php?t='.$var_titolo.'&m='.$var_email);
 
 				        	}
 		                }

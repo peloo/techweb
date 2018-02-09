@@ -5,5 +5,5 @@
 	require_once 'dbconnection.php';
 	$dbaccess = new dbconnection();
 	$dbaccess->runQuery($query);
-	header('Location: articoli_da_approvare.php?p=0');
+	header('Location: ../articoli_da_approvare.php?p=0');
 ?>

@@ -130,7 +130,7 @@
 					<div id="lista_tag">
 						Tag: 
 						<?php
-							require_once 'dbconnection.php';
+							require_once 'php-funzioni/dbconnection.php';
 					        $dbaccess = new dbconnection();
 					        $opendDBConnection = $dbaccess->opendDBConnection();
 					        $visualizza = $dbaccess->getTagArticolo($mail, $titolo);
