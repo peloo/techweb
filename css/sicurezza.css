@@ -48,13 +48,8 @@
 
 #risultato_alcol{display:none;}
 
-#articoli a:hover {
-    color:blue;
-    background-color:aqua;
-}
 
-
-#articoli{
+#articoli_sicurezza{
 	background-color: #D72323;
 	color:white;
 	padding: 1em;
@@ -62,6 +57,6 @@
 	text-decoration: none;
 }
 
-#articoli:hover {
+#articoli_sicurezza:hover {
     background-color:red;
 }

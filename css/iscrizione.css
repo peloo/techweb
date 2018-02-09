@@ -78,3 +78,7 @@
         display: inline;
     }
 }
+
+#campo_obbligatorio{
+    margin-bottom: 1em;
+}

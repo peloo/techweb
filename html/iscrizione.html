@@ -71,15 +71,15 @@
                         <leggend class="legenda"> Dati per quando effetuarai il login: </leggend>
                     </div>
                     <br>
-                    <label for="email"> Email </label>
+                    <label for="email"> Email* </label>
                     <br>
                     <input type="text" name="email" id="email" placeholder="Email">
                     <br>
-                    <label for="psw">Password</label>
+                    <label for="psw">Password*</label>
                     <br>
                     <input type="password" name="password" id="psw" placeholder="Password">
                     <br>
-                    <label for="cpsw">Conferma password</label>
+                    <label for="cpsw">Conferma*</label>
                     <br>
                     <input type="password" name="conf_password" id="cpsw" placeholder="Conferma password" onkeyup="checkPass();">
                 	<br>
@@ -93,15 +93,15 @@
                         <leggend class="legenda"> Dati personali: </leggend>
                     </div>
                      <br>
-                            <label for="fname">Nome</label>
+                            <label for="fname">Nome*</label>
                      <br>
                             <input type="text" name="nome" id="fname" placeholder="Nome">
                      <br>
-                            <label for="lname">Cognome</label>
+                            <label for="lname">Cognome*</label>
                      <br>
                             <input type="text" name="cognome" id="lname" placeholder="Cognome">
                      <br>
-                            <label for="nname">Nickname</label>
+                            <label for="nname">Nickname*</label>
                      <br>
 				           <input type="password" name="nickname" id="text_form" placeholder="Nickname">
                      <br>
@@ -115,18 +115,19 @@
                         <leggend class="legenda"> Dati login: </leggend>
                     </div>
                      <br>
-                            <label for="a_email">Email</label>
+                            <label for="a_email">Email*</label>
                      <br>
                             <input type="text" name="a_email" id="a_email" placeholder="Email">
                      <br>
-                            <label for="a_psw">Password</label>
+                            <label for="a_psw">Password*</label>
                      <br>
                             <input type="password" name="a_password" id="a_psw" placeholder="Password">
                      <br>
                 	<input type="submit" name="submit" class="button_form_accedi" value="Accedi">
                 </form>
 			</fieldset>
-
+			<p id="campo_obbligatorio">*Campo obbligatorio</p>
+		</div>
 		<!-- -------------------------------------------------------------------------- -->
 
 		<div id="footer">
