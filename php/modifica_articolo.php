@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
@@ -17,7 +17,7 @@
     	<script src="../JavaScript/hamburgermenu.js"></script>
     	<script src="../JavaScript/checkPass.js"></script>
 
-		<title>Nuovo articolo - Autosecurity</title>
+		<title>Modifica articolo - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
 		<div id="header">
@@ -54,7 +54,7 @@
 			  <?php
 					if($conLog==true){
 						if($opendDBConnection == true)
-								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php">Scrivi articolo</a></li>'.
 									'<li id="esci" class="link" role="menuitem"><a class="main" href="php-funzioni/uscita.php">Esci</a></li>';
 					}
 					else
@@ -108,12 +108,12 @@
 					?>
 					<form name="add_articolo" action="php-funzioni/add_articolo.php?t=<?php echo $titolo."&m=".$mail;?>" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
 						<br><br>
-	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
+	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"><br><br>
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
-	                    <textarea rows="1" cols="40" name="titolo" placeholder="inserisci qui un titolo"><?php echo $titolo?></textarea><br><br>
+	                    <textarea rows="1" cols="40" id="titolo" name="titolo" placeholder="inserisci qui un titolo"><?php echo $titolo?></textarea><br><br>
 	                    <label for="contenuto">Contenuto del articolo:</label><br>
-	                    <textarea rows="4" cols="40" name="contenuto" placeholder="inserisci qui il contenuto del articolo"><?php echo $contenuto?></textarea><br><br>
+	                    <textarea rows="4" cols="40" id="contenuto" name="contenuto" placeholder="inserisci qui il contenuto del articolo"><?php echo $contenuto?></textarea><br><br>
 
 	                	<p><label>Data corrente del articolo: </label><label id="data_corrente"></label></p> 
 	                	<p><input type="file" name="myimage"></p>
@@ -139,9 +139,11 @@
 								$visualizza = $dbaccess->getTag(0);
 								if($visualizza != false){
 									while($row = mysqli_fetch_assoc($visualizza)){
+										$nome=$row['nome'];
+										$link_nome=str_replace(" ", "_", $nome);
 										?>
-											<input type="checkbox" name="tag_scelto[]" id="<?php echo $row['nome'];?>" value="<?php echo $row['nome'];?>">
-											<label for="<?php echo $row['nome'];?>"><?php echo $row['nome'];?></label>
+											<input type="checkbox" name="tag_scelto[]" id="<?php echo $link_nome;?>" value="<?php echo $nome;?>">
+											<label for="<?php echo $link_nome;?>"><?php echo $nome;?></label>
 										<?php
 									}
 								} 
@@ -151,7 +153,7 @@
 
 						<div id=form_bottoni>
 							<p id="scrivi_i_miei_articoli">
-			                    <input type="submit" name="submit" id="button_form_scrivi" value="Modifica" onclick="rimuovi_articolo(<?php echo $titolo.", ".$mail;?>)">
+			                    <input type="submit" name="submit" id="button_form_scrivi" value="Modifica">
 			                    <input type="button" id="i_miei_articoli" value="I miei articoli" onclick="window.location.href='../php/miei_articoli.php'" />
 	                    	</p>
 						</div>

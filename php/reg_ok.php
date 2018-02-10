@@ -79,7 +79,7 @@
 
 			<div id="content">
 				<div id="reg_ok_content">
-					<img src="../images/approved.png" alt="Registrazione ok">
+					<img src="../images/approved.png" alt="Immagine di approvazione">
 					<h1>Registrazione avvenuta con successo!</h1>
 					<br/>
 					<p>Lo staff di Autosecurity ti augura una buona permanenza</p>

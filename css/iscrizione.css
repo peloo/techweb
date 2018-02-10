@@ -39,6 +39,11 @@
 	padding: 1.5% 0;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    display: -webkit-box;
+}
+
+.form_iscr_div p{
+    margin: auto;
 }
 
 #label{
@@ -54,16 +59,6 @@
     border: 1px solid #bbbbbb;
     border-radius: 4px;
 }
-
-/*
-#iscrizione input[type="submit"]{
-    border-radius: 5px;
-    color:white;
-    background-color:red;
-    border: none;
-	padding: 0.7em 1.2em;
-	cursor: pointer;
-}*/
 
 #iscrizione input[type="submit"]:hover{
     background-color:#FF0000;

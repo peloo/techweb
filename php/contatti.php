@@ -12,8 +12,8 @@
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
-        <script type="text/javascript" src="../JavaScript/checkPass.js"></script>
+    	<script src="../JavaScript/hamburgermenu.js"></script>
+        <script src="../JavaScript/checkPass.js"></script>
 
 		<title>Contatti - Autosecurity</title>
 	</head> 
@@ -53,7 +53,7 @@
 			  <?php
 					if($conLog==true){
 						if($opendDBConnection == true)
-								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" >Scrivi articolo</a></li>'.
 									'<li id="esci" class="link" role="menuitem"><a class="main" href="php-funzioni/uscita.php">Esci</a></li>';
 					}
 					else

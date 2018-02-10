@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
@@ -55,7 +55,7 @@
 			  <?php
 					if($conLog==true){
 						if($opendDBConnection == true)
-								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php">Scrivi articolo</a></li>'.
 									'<li id="esci" class="link" role="menuitem"><a class="main" href="php-funzioni/uscita.php">Esci</a></li>';
 					}
 					else
@@ -120,7 +120,7 @@
 					?>
 					<h2><b><?php echo $titolo?></b></h2>
 					<div id="immagine_testo">
-						<img id="immagine" src="<?php echo $foto?>">
+						<img id="immagine" src="<?php echo $foto?>" alt="foto profilo articolo">
 						<p id="testo">
 							<?php
 								$eols = array("\n","\r\n");
@@ -155,7 +155,7 @@
 		<div id="footer">
 			<ul class="nav">
 				<li id="chisiamo"><a href="weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a href="../html/contattaci.html">Contatti</a></li>
+				<li id="contacts"><a href="contatti.php">Contatti</a></li>
 			</ul>
 		</div>
 	</body>

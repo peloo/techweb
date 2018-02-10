@@ -276,8 +276,7 @@ CREATE TABLE IF NOT EXISTS `info` (
   `oggetto` varchar(255) NOT NULL,
   `contenuto` varchar(255) NOT NULL,
   `data` date NOT NULL,
-  PRIMARY KEY (`mail`),
-  CONSTRAINT FOREIGN KEY (`mail`) references user(`mail`) ON DELETE CASCADE
+  PRIMARY KEY (`mail`, `oggetto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Dump dei dati per la tabella `info`

@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
@@ -54,7 +54,7 @@
 			  <?php
 					if($conLog==true){
 						if($opendDBConnection == true)
-								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php">Scrivi articolo</a></li>'.
 									'<li id="esci" class="link" role="menuitem"><a class="main" href="php-funzioni/uscita.php">Esci</a></li>';
 					}
 					else
@@ -123,18 +123,18 @@
 			            <div class="form_articolo">
 			            	
 								<?php $b64src = "data:image/jpeg;base64," . base64_encode($row['foto']); ?>
-	        					<img src= <?php echo $b64src;?> alt="Profilo" />
+	        					<img src="<?php echo $b64src;?>" alt="Profilo" />
 	        					<input type="hidden" name="mail" value="<?php echo $_SESSION['email']; ?>"/>
 	        					<input type="hidden" name="titolo_d" value="<?php echo $titolo; ?>"/>
 								<?php echo '<a href="articolo.php?t='.$link_titolo.'&m='.$nome.'">'; ?><h4 class="titolo"><?php echo $titolo; ?></h4></a>
 							
 							<?php
 								if($approvato==0){
-									echo '<a class="button_approva" href="php-funzioni/approva_articolo.php?t='.$link_titolo.'&m='.$nome.'">Approva</a>'.'<img class="approved" src="../images/articolo_no.jpg"/>';
-									echo '<a class="button_cancella" href="php-funzioni/cancella_articolo.php?m='.$link_nome.'&t='.$titolo.'">X</a>';
+									echo '<a class="button_approva" href="php-funzioni/approva_articolo.php?t='.$link_titolo.'&m='.$nome.'">Approva</a>'.'<img class="approved" src="../images/articolo_no.jpg" alt="articolo non approvato"/>';
+									echo '<a class="button_cancella" href="php-funzioni/cancella_articolo.php?m='.$nome.'&t='.$link_titolo.'">X</a>';
 								}
 								else
-									echo "<img class='approved' src='../images/articolo_si.jpg'/>";
+									echo '<img class="approved" src="../images/articolo_si.jpg" alt="articolo approvato"/>';
 							?>
 						</div>
 		                <?php
@@ -146,7 +146,7 @@
 		                    if($n_articoli==0)
 	                    	echo "<h2 style='text-align:center;'>Mi dispiace, non sono ancora stati pubblicati articoli</h2>";
 	                    
-		                    echo "<div id='pagine'>Pagine:</br>";
+		                    echo "<div id='pagine'>Pagine:<br>";
 		                    if($pagina==0){
 		                    	echo "<a>1</a>";
 		                    	if($n_pagine>1){

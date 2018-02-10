@@ -54,7 +54,7 @@
 			  <?php
 					if($conLog==true){
 						if($opendDBConnection == true)
-								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php"/>Scrivi articolo</a></li>'.
+								echo '<li id="scrivi" class="link" role="menuitem"><a class="main" href="new_articolo.php">Scrivi articolo</a></li>'.
 									'<li id="esci" class="link" role="menuitem"><a class="main" href="php-funzioni/uscita.php">Esci</a></li>';
 					}
 					else
@@ -106,20 +106,20 @@
 						<h2><b>RESPONSABILI</b></h2>
 						<div id="mat">
 							<h3>Matteo Pellanda </h3>
-							<img id="pelo" src="../images/pelo.jpg" alt="Matteo">
+							<img id="pelo" src="../images/pelo.jpg" alt="immagine profilo Matteo">
 							<p> Matteo Pellanda &egrave; il responsabile della parte PHP, Database e della homepage<br/>
 		                    </p>
 						</div>
 						
 		                <div id="doge">
                             <h3>Enrico Trinco</h3>
-							<img id="dog" src="../images/doge.jpg" alt="Enrico">
+							<img id="dog" src="../images/doge.jpg" alt="immagine profilo Enrico">
 							<p> Enrico Trinco, l'elemento del gruppo che mostra curiosit&agrave; ma non si applica. Responsabile delle pagine "Chi Siamo", "Contattaci", "Log-in" del Javascript </p>
 						</div>
 		                
 						<div id="nico">
 							<h3>Nicola Carlesso </h3>
-							<img id="nic" src="../images/nico.jpg" alt="Nicola">
+							<img id="nic" src="../images/nico.jpg" alt="immagine profilo Nicola">
                             <p> Nicola Carlesso. Responsabile del CSS desktop, mobile, stampa e della parte di sicurezza e relativo Javascrip.</p>	
                         </div>
 						
