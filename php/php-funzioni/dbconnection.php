@@ -1,9 +1,9 @@
 <?php
 	class dbconnection{
 		const var_server = "localhost";
-		const var_username = "root";
-		const var_password = "";
-		const var_dbname = "techweb";
+		const var_username = "ncarless";
+		const var_password = "iixe1OhM9ahmiige";
+		const var_dbname = "ncarless";
 		public $connessione;
 
 		public function opendDBConnection(){
