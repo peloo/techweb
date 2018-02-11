@@ -6,7 +6,7 @@
 	background-color:white;
 }
 
-#iscrizione label, leggend {
+#iscrizione label, .form_iscr_div{
     font-family: "Allerta Stencil", Sans-serif;
 }
 

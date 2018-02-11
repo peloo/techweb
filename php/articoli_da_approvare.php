@@ -144,7 +144,7 @@
 		                    }
 
 		                    if($n_articoli==0)
-	                    	echo "<h2 style='text-align:center;'>Mi dispiace, non sono ancora stati pubblicati articoli</h2>";
+	                    	echo "<h2 style='text-align:center;'>Non sono più presenti articoli da approvare</h2>";
 	                    
 		                    echo "<div id='pagine'>Pagine:<br>";
 		                    if($pagina==0){

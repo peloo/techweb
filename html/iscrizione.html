@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/iscrizione.css" media="handheld, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
@@ -13,9 +13,9 @@
 
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
-     	<script type="text/javascript" src="../JavaScript/checkPass.js"></script>
+     	<script src="../JavaScript/checkPass.js"></script>
      	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="../JavaScript/hamburgermenu.js"></script>
+    	<script src="../JavaScript/hamburgermenu.js"></script>
 
 		<title>Accesso ed Iscrizione - Autosecurity</title>
 	</head>
@@ -24,9 +24,6 @@
 			<!-- testa (logo) -->
 			<a href="../php/index.php"><img id="logo" src="../images/logo.png" alt="logo auto security"></a>
 		</div>
-
-		<!-- -------------------------------------------------------------------------- -->
-
 
 		<div id="breadcrumb">
 			<div id="hamburger_menu">
@@ -66,7 +63,7 @@
             <form name="form_iscrizione" action="../php/php-funzioni/iscrizione.php" method="post" onsubmit="return checkForm()">
 				<fieldset id="field_iscr_l">
                     
-                    <leggend class="form_iscr_div"><p>Dati per quando effetuarai il login:</p></leggend>
+                    <div class="form_iscr_div"><p>Dati per quando effetuarai il login:</p></div>
                     
                     <br>
                     <label for="email"> Email* </label>
@@ -88,7 +85,7 @@
                 
                 <fieldset id="field_iscr_p">
 					
-                    <leggend class="form_iscr_div"><p>Dati personali:</p></leggend>
+                    <div class="form_iscr_div"><p>Dati personali:</p></div>
                     
                      <br>
                             <label for="fname">Nome*</label>
@@ -99,7 +96,7 @@
                      <br>
                             <input type="text" name="cognome" id="lname" placeholder="Cognome">
                      <br>
-                            <label for="nname">Nickname*</label>
+                            <label for="text_form">Nickname*</label>
                      <br>
 				           <input type="text" name="nickname" id="text_form" placeholder="Nickname">
                      <br>
@@ -110,7 +107,7 @@
 			<fieldset id="field_accesso">
 				<form action="../php/accesso.php" method="post">
 					
-                    <leggend class="form_iscr_div"><p>Dati login:</p></leggend>
+                    <div class="form_iscr_div"><p>Dati login:</p></div>
                     
                      <br>
                             <label for="a_email">Email*</label>
@@ -126,7 +123,6 @@
 			</fieldset>
 			<p id="campo_obbligatorio">*Campo obbligatorio</p>
 		</div>
-		<!-- -------------------------------------------------------------------------- -->
 
 		<div id="footer">
 			<ul class="nav">

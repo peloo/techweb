@@ -99,7 +99,7 @@
 				</div>
 				<div id="form_add_articolo">
 					<form name="add_articolo" action="php-funzioni/add_articolo.php" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
-	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"> <?php echo $_SESSION['email']; ?></input><br><br>
+	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"><br><br>
 	                    
 	                    <label for="titolo">Titolo del articolo:</label><br>
 	                    <textarea rows="1" cols="40" id="titolo" name="titolo" placeholder="inserisci qui un titolo"></textarea><br><br>

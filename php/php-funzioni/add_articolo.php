@@ -14,6 +14,7 @@
 
                 if($_POST['submit']=="Modifica"){
 		        	$titolo=$_GET['t'];
+		        	$titolo=str_replace("_", " ", $titolo);
 		        	$mail=$_GET['m'];
 		        	if(mysqli_query($con, "DELETE FROM articolo WHERE mail='$mail' AND titolo='$titolo'"))
 		        		echo "Eliminazione andata a buon fine";
@@ -22,6 +23,7 @@
 // --------------------------------------------------------------------------------------------------------------------------------
 				$var_email = $_REQUEST['email'];
 				$var_titolo = $_REQUEST['titolo'];
+				$var_titolo=str_replace("_", " ", $var_titolo);
 				$var_contenuto = $_REQUEST['contenuto'];
 				$var_data = $_REQUEST['data'];
 // --------------------------------------------------------------------------------------------------------------------------------

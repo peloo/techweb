@@ -101,12 +101,13 @@
 						require_once 'php-funzioni/dbconnection.php';
 				        $dbaccess = new dbconnection();
 				        $titolo=$_GET['t'];
+				        $link_titolo=str_replace(" ", "_", $titolo);
 				        $mail=$_GET['m'];
 				        $row=$dbaccess->prelevaArticolo($mail, $titolo);
 				        $row=mysqli_fetch_assoc($row);
 				        $contenuto=$row['contenuto'];
 					?>
-					<form name="add_articolo" action="php-funzioni/add_articolo.php?t=<?php echo $titolo."&m=".$mail;?>" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
+					<form name="add_articolo" action="php-funzioni/add_articolo.php?t=<?php echo $link_titolo."&m=".$mail;?>" method="post" enctype="multipart/form-data" onsubmit="return checkArticolo()">
 						<br><br>
 	                    Email:<input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>"><br><br>
 	                    

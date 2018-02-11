@@ -89,6 +89,7 @@
     #articoli h4{font-size: 0.9em;}
     #articoli img{display: none;}
     .button_approva{margin-right: 0.2em;}
+    #articoli .approved{display: inline;}
 }
 
 .form_articolo a{
