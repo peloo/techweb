@@ -100,8 +100,8 @@
 					<?php
 						require_once 'php-funzioni/dbconnection.php';
 				        $dbaccess = new dbconnection();
-				        $titolo=$_GET['t'];
-				        $link_titolo=str_replace(" ", "_", $titolo);
+				        $link_titolo=$_GET['t'];
+				        $titolo=str_replace("_", " ", $link_titolo);
 				        $mail=$_GET['m'];
 				        $row=$dbaccess->prelevaArticolo($mail, $titolo);
 				        $row=mysqli_fetch_assoc($row);
