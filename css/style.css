@@ -15,22 +15,13 @@ body{
 	border: 1px solid #000000;	/*bordo*/
 }
 
+a:visited{
+	color:#cc00cc;
+}
+
 /*solo per la versione mobile*/
 @media only screen and (max-device-width: 480px){
 	html, body{font-size: 1.4em;}
-}
-
-/*per le varie larghezze dello schermo*/
-@media screen and (max-width: 640px){
-	#art{display: none;}
-}
-
-@media screen and (max-width: 790px){
-	#sec{display:none;}
-}
-
-@media screen and (max-width: 945px){
-	#args{display: none;}
 }
 
 /* ------------- w3school css style ------------- */
@@ -54,7 +45,7 @@ body{
 /*margin - border - padding - contenuto*/
 /* general */
 .nav {
-	color: white;
+	color: black;
     list-style-type: none;
     overflow: hidden;
 }
@@ -63,12 +54,10 @@ body{
     display: block;
     text-align: center;
     padding: 0.9em 1em;
-    text-decoration: none;
     float: left;
 }
-.nav a:hover, .nav a:focus, .nav a:active, .link:hover, .link:focus, .link:active{
-    background-color: #D72323;
-    color: white;
+.nav a:hover, .nav a:focus, .nav a:active, .link:hover, .link:focus, .link:active, #dropdown-content a:hover, #dropdown-content a:focus, #dropdown-content a:active{
+    background-color: #ffcccc;
 }
 
 /*breadcrumb*/
@@ -80,10 +69,11 @@ body{
 	position: sticky;
 	top: 0;
     font-family: "Allerta Stencil", Sans-serif;
-	background-color: #303841;
+	background-color: #EEEEEE;
 	border-bottom: 1px solid #000000;	
 	border-top: 1px solid #000000;		
 	padding-top: 0.4em;
+	padding-bottom: 0.4em;
 	padding-right: 0.4em;
 	height: 3.75em;
 }
@@ -99,6 +89,7 @@ body{
     box-shadow: 0em 0.5em 1em 0em rgba(0,0,0,0.2);
     z-index: 1;
 	float:left;
+	list-style-type: none;
 }
 
 #breadcrumb #dropdown-content li{
@@ -119,6 +110,7 @@ body{
 #breadcrumb .nav a.main{
 	margin-top: 100em;/*fondamentale*/
 	margin-right: -8.9em;
+	margin-bottom: -1px;
 	width: 9em;
 }
 
@@ -130,6 +122,9 @@ body{
 	margin:0;
 	background-color: #DCDCDC;
 	color: black;
+}
+#breadcrumb #dropdown-content a:visited{
+	color: #cc00cc;
 }
 
 /*empty rule to fix occassional IE6 tabbing bug, one of the weirdest bug's i have seen.*/
@@ -308,7 +303,7 @@ a, a:hover, a:active, a:focus {}
 /* FOOTER */
 #footer{
 	font-family: "Allerta Stencil", Sans-serif;
-	background-color: #303841;
+	background-color: #EEEEEE;
 	border-top: 1px solid #000000;	/*bordo*/
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;

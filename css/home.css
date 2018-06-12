@@ -1,6 +1,6 @@
 /*solo per la pagina home*/
 #home:hover, #home:focus, #home:active, #home a:hover, #home a:focus, #home a:active{
-	background-color: #303841;
+	background-color: #EEEEEE;
 }
 
 #home .form_articolo_footer a:hover, #home .form_articolo_footer a:focus, #home .form_articolo_footer a:active{

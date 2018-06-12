@@ -4,11 +4,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/contattaci.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/contattaci.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 945px), only screen and (max-width: 945px)"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="screen"/>
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,22 +18,10 @@
 		<title>Contatti - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
-		<div id="header">
-			<a href="../php/index.php"><img id="logo" src="../images/logo.png" alt="logo auto security"/></a>
-		</div>
+		<?php require_once "header.php"; ?>
 
 		<div id="breadcrumb">
-			<div id="hamburger_menu">
-				<button id="hamburger" onclick="dropdown()">&#9776;</button>
-	    		<button id="cross" onclick="dropup()">&#735;</button>
-	    	</div>
-
-	    	
-			<form id="search_bar" method="get" action="articoli.php?p=0">
-				<input id="text_search" type="text" name="search" placeholder="cerca"/>
-				<input type="submit" name="submit" id="button_search" value="Cerca"/>
-				<input type="hidden" name="p" value="0"/>
-			</form>
+			<?php require_once "hamburger_search.php"; ?>
 			
 
 			<ul class="nav" role="menubar">
@@ -69,32 +57,11 @@
 					<?php require_once "php-funzioni/check_benvenuto.php"; ?>
 				</p>
 
-				<div id="form" <?php if($conLog==true) echo "style='border:0;'"?>>
-					<?php require_once "php-funzioni/check_accesso.php"; ?>
-				</div>
-
-				<div id="form2">
-
-					<div class="form3">
-						<p class="location1">Tag Frequenti</p>
-					</div>
-
-					<?php require_once "php-funzioni/tag_frequenti.php"; ?>	
-					
-				</div>
+				<?php require_once "accesso_tag.php"; ?>
 			</div>
 
 			<div id="content">
-				<div id="mobile">
-					<?php
-						if($conLog == true && $opendDBConnection == true){
-							if(!$isAdmin)
-								echo "<b>Benvenuto: " .$username."</b>";
-							else
-								echo "<b>Benvenuto admin: ".$username."</b>";
-						}
-					?>
-				</div>
+				<?php require_once "mobile.php"; ?>
 				<div id="contattaci">
                     <h2> CONTATTACI </h2>
                     <p> Hai riscontrato problemi con il sito oppure vuoi metterti in contatto con uno dei responsabili? Inviaci un'email ed uno di loro ti risponderà il prima possibile</p>
@@ -140,11 +107,6 @@
 			</div>
 		</div>
 
-		<div id="footer">
-			<ul class="nav">
-				<li id="chisiamo"><a href="../php/weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a>Contatti</a></li>
-			</ul>
-		</div>
+		<?php require_once "footer.php"; ?>
 	</body>
 </html>

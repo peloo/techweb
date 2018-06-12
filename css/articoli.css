@@ -1,3 +1,5 @@
+#art:hover, #art:focus, #art:active, #art a:hover, #art a:focus, #art a:active{background-color: #EEEEEE;}
+
 #articoli h4{
 	float: right;
 	font-weight: bold;

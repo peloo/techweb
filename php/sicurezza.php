@@ -5,13 +5,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 945px), only screen and (max-width: 945px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
-		<link rel="stylesheet" type="text/css" href="../css/sicurezza.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/sicurezza_mobile.css" media="only screen and (max-device-width: 480px)"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/sicurezza.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/sicurezza_mobile.css" media="only screen and (max-width: 480px)"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="screen"/>
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
 
 		<script src="../JavaScript/alcohol.js"></script>
@@ -21,22 +21,10 @@
 		<title>Sicurezza - Autosecurity</title>
 	</head> 
 	<body onresize="reset()">
-		<div id="header">
-			<a href="index.php"><img id="logo" src="../images/logo.png" alt="logo auto security"/></a>
-		</div>
+		<?php require_once "header.php"; ?>
 
 		<div id="breadcrumb">
-			<div id="hamburger_menu">
-				<button id="hamburger" onclick="dropdown()">&#9776;</button>
-	    		<button id="cross" onclick="dropup()">&#735;</button>
-	    	</div>
-
-			
-			<form id="search_bar" method="get" action="articoli.php?p=0">
-				<input id="text_search" type="text" name="search" placeholder="cerca"/>
-				<input type="submit" name="submit" id="button_search" value="Cerca"/>
-				<input type="hidden" name="p" value="0"/>
-			</form>
+			<?php require_once "hamburger_search.php"; ?>
 			
 
 			<ul class="nav" role="menubar">
@@ -51,7 +39,7 @@
 						<li><a href="articoli.php?p=0&r=Fiat">Fiat</a></li>
 					</ul>
 			  </li>
-			  <li id="sec" class="link" role="menuitem"><a class="main" href="sicurezza.php">Sicurezza</a></li>
+			  <li id="sec" class="link" role="menuitem"><a class="main">Sicurezza</a></li>
 			  <!-- solo per la versione mobile -->
 			  <?php
 					if($conLog==true){
@@ -72,32 +60,11 @@
 					<?php require_once "php-funzioni/check_benvenuto.php"; ?>
 				</p>
 
-				<div id="form" <?php if($conLog==true) echo "style='border:0;'"?>>
-					<?php require_once "php-funzioni/check_accesso.php"; ?>
-				</div>
-
-				<div id="form2">
-
-					<div class="form3">
-						<p class="location1">Tag Frequenti</p>
-					</div>
-
-					<?php require_once "php-funzioni/tag_frequenti.php"; ?>
-					
-				</div>
+				<?php require_once "accesso_tag.php"; ?>
 			</div>
 
 			<div id="content">
-				<div id="mobile">
-					<?php
-						if($conLog == true && $opendDBConnection == true){
-							if(!$isAdmin)
-								echo "<b>Benvenuto: " .$username."</b>";
-							else
-								echo "<b>Benvenuto admin: ".$username."</b>";
-						}
-					?>
-				</div>
+				<?php require_once "mobile.php"; ?>
 				<div id="security">
 					<h2><b>Perchè dovremmo fare sempre due calcoli prima di vover salire in auto?</b></h2>
 					<p>"Non ti preoccupare, qui gli autovelox non ci sono o non funzionano", "Questa sera non bevo, se trovo i carabinieri mentre torno a casa sono fregato". Spesso sono questi i pensieri che nascono quando vogliamo metterci alla guida sperando durante il viaggio di non incappare in alcuna complicazione. L'obiettivo di questa pagina non è tanto quella di convincervi a guidare sotto i limiti o che guidare da ubriachi nuoce a te e a che sta con te in auto, ma solo quella di rendervi un po' consapevoli di cosa comporta premere l'acceleratore in certe situazioni. Uno degli scopi di questo sito, Autosecurity, è appunto quello di rendere l'autista una persona, appunto, più Autonoma e consapevole in campo di sicurezza autostradale. Se siete interessati buon viaggio!</p><br/>
@@ -185,12 +152,7 @@
 			</div>
 		</div>
 
-		<div id="footer">
-			<ul class="nav">
-				<li id="chisiamo"><a href="weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a href="../php/contatti.php">Contatti</a></li>
-			</ul>
-		</div>
+		<?php require_once "footer.php"; ?>
 
 		<script>
 		var input = document.getElementById("speed");

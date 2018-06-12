@@ -7,7 +7,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/ media="handhel, screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css" media="handheld, screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 480px), only screen and (max-device-width: 480px)"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 945px), only screen and (max-device-width: 945px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil" media="handheld, screen"/>
 		<link rel='shortcut icon' type='image/x-icon' href='../images/logo.ico' />
@@ -26,10 +26,7 @@
 
 
 		<div id="breadcrumb">
-			<header>
-				<button id="hamburger" onclick="dropdown()">&#9776;</button>
-	    		<button id="cross" onclick="dropup()">&#735;</button>
-	    	</header>
+			<?php require_once "header.php"; ?>
 
 	    	<div id="div_search">
 				<p id="search_bar">
@@ -79,44 +76,17 @@
 					<?php require_once "php-funzioni/check_benvenuto.php"; ?>
 				</p>
 
-				<div id="form" style='<?php if($conLog==true) echo "border:0;"?>'>
-					<?php require_once "php-funzioni/check_accesso.php"; ?>
-				</div>
-
-				<div id="form2">
-
-					<div class="form3">
-						<p class="location1" class="w3-large">Tag Frequenti</p>
-					</div>
-
-					<p>
-						<?php require_once "php-funzioni/tag_frequenti.php"; ?>			
-					</p>
-				</div>
+				<?php require_once "accesso_tag.php"; ?>
 			</div>
 
 			<!-- -------------------------------------------------------------------------- -->
 
 			<div id="content">
-				<div id="mobile">
-					<?php
-						if($conLog == true && $opendDBConnection == true){
-							if(!$isAdmin)
-								echo "<b>Benvenuto: " .$username."</b>";
-							else
-								echo "<b>Benvenuto admin: ".$username."</b>";
-						}
-					?>
-				</div>
+				<?php require_once "mobile.php"; ?>
 			</div>
 		</div>
 		<!-- -------------------------------------------------------------------------- -->
 
-		<div id="footer">
-			<ul class="nav">
-				<li id="chisiamo"><a href="weare.php">Chi Siamo</a></li>
-				<li id="contacts"><a href="../html/contattaci.html">Contatti</a></li>
-			</ul>
-		</div>
+		<?php require_once "footer.php"; ?>
 	</body>
 </html>
