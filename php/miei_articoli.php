@@ -6,7 +6,7 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="screen"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css" media="hscreen"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_mobile.css" media=" screen and (max-width: 945px), only screen and (max-width: 945px)"/>
 		<link rel="stylesheet" type="text/css" href="../css/style_print.css" media="print"/>
 		<link rel="stylesheet" type="text/css" href="../css/articoli.css" media="screen"/>
